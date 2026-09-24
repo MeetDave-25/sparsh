@@ -1,0 +1,87 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Product {
+  id           String   @id @default(uuid())
+  slug         String   @unique // using the original id as slug
+  name         String
+  category     String
+  price        Float
+  priceRange   String
+  description  String
+  shortDesc    String
+  images       String[]
+  tags         String[]
+  customizable Boolean  @default(false)
+  variants     Json?    // storing variants options like size, color, etc.
+  featured     Boolean  @default(false)
+  isNew        Boolean  @default(false)
+  stock        String   @default("available")
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+}
+
+model BlogPost {
+  id        String   @id @default(uuid())
+  slug      String   @unique
+  title     String
+  excerpt   String
+  content   String   @db.Text
+  date      String
+  readTime  String
+  author    String
+  category  String
+  image     String
+  featured  Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Theme {
+  id        String   @id @default(uuid())
+  slug      String   @unique
+  name      String
+  emoji     String
+  colors    Json     // storing primary, primary-light, primary-dark, accent, accent-light, bg, bg-alt
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+// Admin-editable page content, one JSON document per page (e.g. key = "home")
+model SiteContent {
+  key       String   @id
+  data      Json
+  updatedAt DateTime @updatedAt
+}
+
+// Images uploaded from the admin panel, stored in Postgres so they work on any host
+model MediaAsset {
+  id        String   @id @default(uuid())
+  filename  String
+  mimeType  String
+  width     Int
+  height    Int
+  size      Int
+  data      Bytes
+  createdAt DateTime @default(now())
+}
+
+model OrderRequest {
+  id              String   @id @default(uuid())
+  customerName    String
+  phone           String
+  email           String
+  productCategory String
+  productName     String?
+  customizations  String   @db.Text
+  deliveryDate    String?
+  specialNotes    String?  @db.Text
+  status          String   @default("pending") // pending, quoted, paid, crafting, shipped, completed, cancelled
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+}

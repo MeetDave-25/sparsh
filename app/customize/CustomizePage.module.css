@@ -1,0 +1,310 @@
+.page { min-height: 100vh; }
+
+/* Step Indicator: circles sit on a track that fills as you progress */
+.stepIndicator {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  max-width: 520px;
+  margin: var(--space-2xl) auto;
+}
+
+.progressTrack {
+  position: absolute;
+  top: 21px;
+  left: 22px;
+  right: 22px;
+  height: 2px;
+  background: var(--color-border);
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-accent));
+  transform-origin: left center;
+  box-shadow: 0 0 12px rgba(212, 175, 122, 0.6);
+}
+
+.stepItem {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.stepCircle {
+  width: 44px; height: 44px;
+  border-radius: 50%;
+  border: 2px solid var(--color-border);
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.9375rem;
+  transition: background var(--transition-normal), border-color var(--transition-normal), color var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+.stepCircle.stepActive {
+  border-color: var(--color-primary);
+  background: var(--color-primary);
+  color: white;
+  box-shadow: 0 0 0 6px rgba(232, 160, 180, 0.15), 0 4px 16px rgba(232, 160, 180, 0.4);
+}
+
+.stepCircle.stepDone {
+  border-color: var(--color-accent);
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-accent));
+  color: white;
+}
+
+.stepLabel {
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--color-text-muted);
+  white-space: nowrap;
+}
+
+.stepLabel.stepLabelActive {
+  color: var(--color-text);
+  font-weight: 600;
+}
+
+/* Form */
+.form {
+  max-width: 800px;
+  margin: 0 auto var(--space-3xl);
+}
+
+.form {
+  perspective: 1600px;
+}
+
+.stepContent {
+  background: linear-gradient(165deg, var(--color-surface), var(--color-bg-alt));
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.4);
+}
+
+.stepTitle {
+  font-family: var(--font-heading);
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: var(--space-xl);
+  color: var(--color-text);
+}
+
+.formSection {
+  margin-bottom: var(--space-xl);
+}
+
+/* Category Cards */
+.categoryCards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.catTilt {
+  border-radius: var(--radius-lg);
+}
+
+.catCard {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  padding: var(--space-md);
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  text-align: center;
+}
+
+.catCard:hover {
+  border-color: var(--color-primary-light);
+  background: var(--color-bg-alt);
+}
+
+.catCard.catCardActive {
+  border-color: var(--color-primary);
+  background: var(--color-bg-alt);
+  box-shadow: 0 4px 16px rgba(232, 160, 180, 0.25);
+}
+
+.catEmoji { font-size: 2rem; }
+.catName { font-size: 0.8rem; font-weight: 600; color: var(--color-text); }
+.catDesc { font-size: 0.7rem; color: var(--color-text-muted); }
+
+.optionsGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0 var(--space-lg);
+}
+
+.fieldHint {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+  margin-top: var(--space-sm);
+}
+
+.paymentNote {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.paymentNote p { font-size: 0.9rem; color: var(--color-text-muted); margin-bottom: 6px; }
+.paymentNote p:last-child { margin-bottom: 0; }
+
+.submitNote {
+  background: linear-gradient(135deg, var(--color-bg-alt), var(--color-surface));
+  border: 1px solid var(--color-primary-light);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+}
+
+.submitNote p {
+  font-weight: 600;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+  font-size: 0.9rem;
+}
+
+.submitNote ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.submitNote ul li {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+.stepActions {
+  display: flex;
+  gap: var(--space-md);
+  justify-content: flex-end;
+  margin-top: var(--space-xl);
+}
+
+.spinner {
+  animation: rotate 1s linear infinite;
+}
+
+/* Success */
+.successPage {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+    radial-gradient(ellipse 60% 60% at 50% 20%, #7A2540 0%, transparent 60%),
+    linear-gradient(180deg, #2E0B18 0%, var(--color-bg) 100%);
+  padding: var(--space-xl);
+}
+
+.burst {
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  pointer-events: none;
+}
+
+.burst span {
+  position: absolute;
+  font-size: 1.2rem;
+  color: var(--color-accent);
+}
+
+.successCard {
+  position: relative;
+  background: var(--color-surface);
+  border-radius: var(--radius-xl);
+  padding: var(--space-3xl);
+  text-align: center;
+  max-width: 540px;
+  box-shadow: var(--shadow-xl);
+  border: 1px solid var(--color-border);
+}
+
+.successIcon {
+  width: 80px; height: 80px;
+  background: linear-gradient(135deg, var(--color-primary-dark), var(--color-accent));
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin: 0 auto var(--space-lg);
+}
+
+.successCard h1 {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  margin-bottom: var(--space-md);
+  color: var(--color-text);
+}
+
+.successCard p {
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-xl);
+}
+
+.successSteps {
+  background: var(--color-bg-alt);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.successSteps p {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+  margin: 0;
+}
+
+.successCard .btn {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--space-sm);
+  width: 100%;
+}
+
+.successWaBtn {
+  background: #25D366 !important;
+  box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35) !important;
+}
+
+@media (max-width: 768px) {
+  .categoryCards { grid-template-columns: repeat(3, 1fr); }
+  .stepContent { padding: var(--space-lg); }
+  .optionsGrid { grid-template-columns: 1fr; }
+  .stepIndicator { max-width: 320px; margin: var(--space-xl) auto; }
+}
+
+@media (max-width: 480px) {
+  .categoryCards { grid-template-columns: repeat(2, 1fr); }
+  .stepContent { padding: var(--space-md); border-radius: var(--radius-lg); }
+  .successCard { padding: var(--space-xl) var(--space-lg); }
+}

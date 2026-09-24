@@ -1,0 +1,20 @@
+// Images shipped in /public, offered in the admin picker next to uploaded ones.
+export const BUILTIN_IMAGES: { url: string; label: string }[] = [
+  { url: '/products/blossom-1.jpg', label: 'Blossom' },
+  { url: '/products/blossom-3.jpg', label: 'Blossom in wreath' },
+  { url: '/products/mocha-coffee-latte-1.jpg', label: 'Mocha Coffee Latte' },
+  { url: '/products/mocha-coffee-latte-2.jpg', label: 'Mocha Coffee Latte (lit)' },
+  { url: '/products/wave-sea-breeze.jpg', label: 'Wave Sea Breeze' },
+  { url: '/products/white-musk-pure.jpg', label: 'White Musk Pure' },
+  { url: '/products/mogra-bloom.jpg', label: 'Mogra Bloom' },
+  { url: '/products/lemon-fresh.jpg', label: 'Lemon Fresh' },
+  { url: '/products/lavender-calm.jpg', label: 'Lavender Calm' },
+  { url: '/products/glow-summer-breeze.jpg', label: 'Glow Summer Breeze' },
+  { url: '/story/wave-wreath-fantasy.jpg', label: 'Wave poster' },
+  { url: '/story/wave-wreath.jpg', label: 'Wave poster 2' },
+  { url: '/story/mocha-wreath-fantasy.jpg', label: 'Mocha poster' },
+  { url: '/story/mocha-splash.jpg', label: 'Mocha splash' },
+  { url: '/story/scents-that-stay-1.jpg', label: 'Scents That Stay' },
+  { url: '/story/scents-that-stay-2.jpg', label: 'Scents That Stay 2' },
+  { url: '/story/blossom-ad-card.jpg', label: 'Blossom poster' },
+];

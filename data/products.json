@@ -1,0 +1,269 @@
+[
+  {
+    "id": "soy-candle-rose",
+    "name": "Rose Petal Soy Candle",
+    "category": "candles",
+    "price": 499,
+    "priceRange": "₹499 – ₹899",
+    "description": "Hand-poured 100% natural soy wax candle infused with real rose petals and rose essential oil. Burns clean for 40+ hours. Perfect for gifting or self-care rituals.",
+    "shortDesc": "100% soy wax, rose petals, 40hr burn",
+    "images": [
+      "https://images.unsplash.com/photo-1602028915047-37269d1a73f7?w=800&q=80",
+      "https://images.unsplash.com/photo-1576426863848-c21f53c60b19?w=800&q=80"
+    ],
+    "tags": ["candle", "soy", "rose", "gifting", "bestseller"],
+    "customizable": true,
+    "variants": {
+      "scent": ["Rose", "Lavender", "Vanilla", "Jasmine", "Sandalwood"],
+      "size": ["Small (100g)", "Medium (200g)", "Large (400g)"],
+      "color": ["Blush Pink", "Ivory White", "Sage Green", "Lilac"]
+    },
+    "featured": true,
+    "isNew": false,
+    "stock": "available"
+  },
+  {
+    "id": "soy-candle-lavender",
+    "name": "Lavender Dreams Soy Candle",
+    "category": "candles",
+    "price": 549,
+    "priceRange": "₹549 – ₹949",
+    "description": "Calming lavender soy candle with dried lavender buds on top. Perfect for meditation, relaxation, and bedtime routines. Made with love, hand-poured in small batches.",
+    "shortDesc": "Calming lavender, dried buds, 45hr burn",
+    "images": [
+      "https://images.unsplash.com/photo-1603006905003-be475563bc59?w=800&q=80",
+      "https://images.unsplash.com/photo-1601924994987-69e26d50dc26?w=800&q=80"
+    ],
+    "tags": ["candle", "lavender", "calm", "meditation"],
+    "customizable": true,
+    "variants": {
+      "scent": ["Lavender", "Chamomile", "Eucalyptus", "Mint"],
+      "size": ["Small (100g)", "Medium (200g)", "Large (400g)"],
+      "color": ["Lilac", "Ivory", "Sage"]
+    },
+    "featured": true,
+    "isNew": false,
+    "stock": "available"
+  },
+  {
+    "id": "pillar-candle-gold",
+    "name": "Golden Glow Pillar Candle",
+    "category": "candles",
+    "price": 699,
+    "priceRange": "₹699 – ₹1299",
+    "description": "Elegant pillar candle with a luxurious gold shimmer finish. Hand-crafted with beeswax and coconut oil blend. A stunning centrepiece for any space or event.",
+    "shortDesc": "Gold shimmer, beeswax blend, statement piece",
+    "images": [
+      "https://images.unsplash.com/photo-1612019995637-c20a7e790e21?w=800&q=80",
+      "https://images.unsplash.com/photo-1598638697827-2b74bdc2f5c2?w=800&q=80"
+    ],
+    "tags": ["candle", "pillar", "gold", "luxury", "event"],
+    "customizable": true,
+    "variants": {
+      "scent": ["Unscented", "Rose", "Oud", "Vanilla"],
+      "size": ["3 inch", "5 inch", "8 inch"],
+      "color": ["Gold", "Rose Gold", "Silver", "Ivory"]
+    },
+    "featured": false,
+    "isNew": true,
+    "stock": "available"
+  },
+  {
+    "id": "resin-tray-floral",
+    "name": "Floral Resin Serving Tray",
+    "category": "resin",
+    "price": 899,
+    "priceRange": "₹899 – ₹1799",
+    "description": "One-of-a-kind handmade resin tray with real dried flowers preserved inside. No two pieces are alike. Perfect for jewellery, trinkets, or a decorative keepsake.",
+    "shortDesc": "Real dried flowers, unique piece, resin art",
+    "images": [
+      "https://images.unsplash.com/photo-1615529579399-1e63fd3a9580?w=800&q=80",
+      "https://images.unsplash.com/photo-1617806503990-b49c0df2b5ca?w=800&q=80"
+    ],
+    "tags": ["resin", "tray", "floral", "decor", "handmade"],
+    "customizable": true,
+    "variants": {
+      "color": ["Pink & Gold", "Blue & Silver", "Earth Tones", "Pastel Rainbow"],
+      "size": ["Small (15cm)", "Medium (25cm)", "Large (35cm)"],
+      "inclusions": ["Dried Roses", "Lavender", "Mixed Wildflowers", "Baby's Breath"]
+    },
+    "featured": true,
+    "isNew": false,
+    "stock": "available"
+  },
+  {
+    "id": "resin-bookmark",
+    "name": "Enchanted Resin Bookmarks",
+    "category": "resin",
+    "price": 249,
+    "priceRange": "₹249 – ₹449",
+    "description": "Delicate resin bookmarks with preserved flowers and gold foil accents. A thoughtful gift for book lovers. Each piece handcrafted with care.",
+    "shortDesc": "Preserved flowers, gold foil, set of 2",
+    "images": [
+      "https://images.unsplash.com/photo-1589756542-f3b13ea13f9e?w=800&q=80",
+      "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=800&q=80"
+    ],
+    "tags": ["resin", "bookmark", "gifting", "floral"],
+    "customizable": true,
+    "variants": {
+      "color": ["Pink Blush", "Ocean Blue", "Forest Green", "Sunset Orange"],
+      "inclusions": ["Dried Roses", "Forget-Me-Nots", "Lavender", "Custom"]
+    },
+    "featured": false,
+    "isNew": true,
+    "stock": "available"
+  },
+  {
+    "id": "resin-keychain",
+    "name": "Floral Resin Keychain",
+    "category": "resin",
+    "price": 199,
+    "priceRange": "₹199 – ₹349",
+    "description": "Adorable miniature resin keychains with tiny dried flowers preserved inside. Perfect as a personal accessory or a sweet gift.",
+    "shortDesc": "Mini flowers, durable resin, gift-ready",
+    "images": [
+      "https://images.unsplash.com/photo-1591143310419-e823de0f8a23?w=800&q=80"
+    ],
+    "tags": ["resin", "keychain", "gifting", "flowers", "accessory"],
+    "customizable": true,
+    "variants": {
+      "shape": ["Round", "Heart", "Star", "Rectangle"],
+      "color": ["Pink", "Purple", "Blue", "Green"]
+    },
+    "featured": false,
+    "isNew": false,
+    "stock": "available"
+  },
+  {
+    "id": "jewelry-pearl-necklace",
+    "name": "Freshwater Pearl Necklace",
+    "category": "jewelry",
+    "price": 1299,
+    "priceRange": "₹1299 – ₹2499",
+    "description": "Handcrafted freshwater pearl necklace on 18K gold-plated brass chain. Each pearl is individually hand-knotted for a timeless, elegant look. Tarnish-resistant.",
+    "shortDesc": "Freshwater pearls, gold-plated, handknotted",
+    "images": [
+      "https://images.unsplash.com/photo-1599643477877-530eb83abc8e?w=800&q=80",
+      "https://images.unsplash.com/photo-1617038260897-41a1f14a8ca0?w=800&q=80"
+    ],
+    "tags": ["jewelry", "necklace", "pearl", "gold", "elegant", "bestseller"],
+    "customizable": true,
+    "variants": {
+      "metal": ["Gold Plated", "Silver Plated", "Rose Gold Plated"],
+      "length": ["16 inch", "18 inch", "20 inch"],
+      "engraving": ["None", "Custom Initial", "Custom Word (up to 6 chars)"]
+    },
+    "featured": true,
+    "isNew": false,
+    "stock": "available"
+  },
+  {
+    "id": "jewelry-crystal-ring",
+    "name": "Rose Quartz Crystal Ring",
+    "category": "jewelry",
+    "price": 799,
+    "priceRange": "₹799 – ₹1499",
+    "description": "Handmade adjustable ring featuring a genuine rose quartz crystal set in twisted gold-plated wire. Rose quartz is known as the stone of love and compassion.",
+    "shortDesc": "Genuine rose quartz, adjustable, gold wire",
+    "images": [
+      "https://images.unsplash.com/photo-1605100804763-247f67b3557e?w=800&q=80",
+      "https://images.unsplash.com/photo-1602173574767-37ac01994b2a?w=800&q=80"
+    ],
+    "tags": ["jewelry", "ring", "crystal", "rose quartz", "adjustable"],
+    "customizable": true,
+    "variants": {
+      "stone": ["Rose Quartz", "Amethyst", "Clear Quartz", "Green Aventurine", "Labradorite"],
+      "metal": ["Gold Plated", "Silver Plated"],
+      "size": ["Adjustable (fits all)", "Fixed Size 5", "Fixed Size 6", "Fixed Size 7"]
+    },
+    "featured": true,
+    "isNew": false,
+    "stock": "available"
+  },
+  {
+    "id": "jewelry-charm-bracelet",
+    "name": "Handmade Charm Bracelet",
+    "category": "jewelry",
+    "price": 649,
+    "priceRange": "₹649 – ₹1199",
+    "description": "Delicate handcrafted bracelet with mix of gold-plated charms — flowers, stars, moons, and custom initial charms. Adjustable lobster clasp.",
+    "shortDesc": "Gold charms, adjustable, personalisable",
+    "images": [
+      "https://images.unsplash.com/photo-1573408301185-9519f94cbf13?w=800&q=80"
+    ],
+    "tags": ["jewelry", "bracelet", "charm", "gold", "custom"],
+    "customizable": true,
+    "variants": {
+      "metal": ["Gold Plated", "Silver Plated", "Rose Gold"],
+      "charms": ["Floral Mix", "Star & Moon", "Hearts", "Custom Mix"]
+    },
+    "featured": false,
+    "isNew": true,
+    "stock": "available"
+  },
+  {
+    "id": "stationery-greeting-cards",
+    "name": "Handmade Greeting Card Set",
+    "category": "crafts",
+    "price": 349,
+    "priceRange": "₹349 – ₹699",
+    "description": "Set of 6 beautifully handcrafted greeting cards with floral embossing, watercolour accents, and pressed flower details. Each card tells a story.",
+    "shortDesc": "Set of 6, pressed flowers, handcrafted",
+    "images": [
+      "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=800&q=80",
+      "https://images.unsplash.com/photo-1544716278-e513176f20b5?w=800&q=80"
+    ],
+    "tags": ["stationery", "cards", "gifting", "handmade", "floral"],
+    "customizable": true,
+    "variants": {
+      "occasion": ["Birthday", "Anniversary", "Thank You", "Festive", "Just Because", "Custom Message"],
+      "quantity": ["Set of 3", "Set of 6", "Set of 12"]
+    },
+    "featured": false,
+    "isNew": false,
+    "stock": "available"
+  },
+  {
+    "id": "hamper-love-gifting",
+    "name": "Dil Se Gift Hamper",
+    "category": "hampers",
+    "price": 1499,
+    "priceRange": "₹1499 – ₹3499",
+    "description": "A curated gift hamper made with love — includes a soy candle, resin tray, crystal bracelet, greeting card, and premium box packaging with satin ribbon. The perfect gift for someone special.",
+    "shortDesc": "Candle + Resin + Jewelry + Card, premium box",
+    "images": [
+      "https://images.unsplash.com/photo-1513519245088-0e12902e35a6?w=800&q=80",
+      "https://images.unsplash.com/photo-1607344645866-009c320b63e0?w=800&q=80"
+    ],
+    "tags": ["hamper", "gifting", "set", "luxury", "bestseller"],
+    "customizable": true,
+    "variants": {
+      "size": ["Mini Hamper (3 items)", "Standard Hamper (5 items)", "Premium Hamper (7 items)"],
+      "occasion": ["Birthday", "Anniversary", "Diwali", "Wedding", "Just Because"]
+    },
+    "featured": true,
+    "isNew": false,
+    "stock": "available"
+  },
+  {
+    "id": "hamper-festive-diwali",
+    "name": "Diwali Celebration Hamper",
+    "category": "hampers",
+    "price": 1899,
+    "priceRange": "₹1899 – ₹3999",
+    "description": "A festive Diwali hamper filled with diyas, scented candles, resin décor, and handmade sweets packaging. Spread light and love this Diwali.",
+    "shortDesc": "Diyas, candles, resin decor, festive box",
+    "images": [
+      "https://images.unsplash.com/photo-1604666049688-1eb0c6b1bd7c?w=800&q=80"
+    ],
+    "tags": ["hamper", "diwali", "festive", "gifting", "seasonal"],
+    "customizable": true,
+    "variants": {
+      "size": ["Small (4 items)", "Medium (6 items)", "Large (8 items)"],
+      "packaging": ["Standard Box", "Premium Wooden Box", "Luxury Velvet Box"]
+    },
+    "featured": false,
+    "isNew": false,
+    "stock": "available"
+  }
+]

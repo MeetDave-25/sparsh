@@ -1,0 +1,191 @@
+.section {
+  background: var(--color-bg);
+  padding: var(--space-3xl) 0;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto var(--space-3xl);
+  padding: 0 var(--space-lg);
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-md);
+}
+
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.chapter {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--space-2xl) var(--space-xl);
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: var(--space-3xl);
+  align-items: center;
+}
+
+.chapter.reverse {
+  grid-template-columns: 1.2fr 0.8fr;
+}
+
+.chapter.reverse .imageCol {
+  order: 2;
+}
+
+.chapter.reverse .textCol {
+  order: 1;
+}
+
+.imageCol {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  perspective: 1400px;
+}
+
+.frame3d {
+  position: relative;
+  width: 100%;
+  max-width: 320px;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: 0 30px 70px rgba(0,0,0,0.5), 0 0 0 1px rgba(245,232,236,0.06);
+}
+
+.frameInner {
+  position: absolute;
+  inset: 0;
+}
+
+/* Thin gold edge floating slightly in front of the card for depth */
+.frameEdge {
+  position: absolute;
+  inset: -10px;
+  border: 1px solid rgba(212, 175, 122, 0.35);
+  border-radius: calc(var(--radius-xl) + 8px);
+  transform: translateZ(40px);
+  pointer-events: none;
+}
+
+.wordMask {
+  display: inline-block;
+  overflow: hidden;
+  padding-bottom: 0.12em;
+  margin-bottom: -0.12em;
+  margin-right: 0.25em;
+  perspective: 600px;
+  vertical-align: top;
+}
+
+.word {
+  display: inline-block;
+  transform-origin: 50% 100%;
+}
+
+.frameGlow {
+  position: absolute;
+  inset: 10%;
+  z-index: -1;
+  background: radial-gradient(circle, rgba(184,75,99,0.35) 0%, transparent 70%);
+  filter: blur(50px);
+}
+
+.textCol {
+  max-width: 440px;
+}
+
+.chapter.reverse .textCol {
+  margin-left: auto;
+}
+
+.chapterEyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+.chapterTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.8rem, 3vw, 2.4rem);
+  font-weight: 500;
+  color: var(--color-text);
+  margin-bottom: var(--space-md);
+  line-height: 1.2;
+}
+
+.chapterBody {
+  font-size: 1.02rem;
+  line-height: 1.75;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-lg);
+}
+
+.chapterLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: var(--color-accent-light);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--color-accent);
+  padding-bottom: 2px;
+  transition: gap var(--transition-fast);
+}
+
+.chapterLink:hover {
+  gap: 12px;
+}
+
+@media (max-width: 900px) {
+  .chapter,
+  .chapter.reverse {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+    text-align: center;
+    padding: var(--space-xl) var(--space-lg);
+  }
+  .chapter.reverse .imageCol,
+  .chapter.reverse .textCol,
+  .imageCol,
+  .textCol {
+    order: initial;
+  }
+  .textCol,
+  .chapter.reverse .textCol {
+    max-width: 480px;
+    margin: 0 auto;
+  }
+  .chapterLink {
+    margin: 0 auto;
+  }
+  .frame3d {
+    max-width: 260px;
+  }
+}

@@ -1,0 +1,422 @@
+.page {
+  position: relative;
+  min-height: 100vh;
+  padding: var(--space-2xl) 0 var(--space-3xl);
+  overflow-x: hidden;
+}
+
+/* Soft wine glow behind the product, matching the page heroes */
+.page::before {
+  content: '';
+  position: absolute;
+  inset: 0 0 auto;
+  height: 720px;
+  background:
+    radial-gradient(ellipse 50% 60% at 25% 20%, rgba(122, 37, 64, 0.55), transparent 70%),
+    radial-gradient(ellipse 40% 50% at 85% 10%, rgba(74, 20, 36, 0.6), transparent 70%);
+  pointer-events: none;
+}
+
+.page > * {
+  position: relative;
+}
+
+.backBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  margin-bottom: var(--space-xl);
+  transition: color var(--transition-fast);
+}
+
+.backBtn:hover {
+  color: var(--color-primary-dark);
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3xl);
+  margin-bottom: var(--space-3xl);
+}
+
+.imageGallery {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  position: sticky;
+  top: 96px;
+  align-self: start;
+}
+
+.mainStage {
+  transform-style: preserve-3d;
+}
+
+.mainImage {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  box-shadow: 0 40px 90px rgba(0, 0, 0, 0.55);
+  perspective: 1200px;
+}
+
+.noPhoto {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--color-text-light);
+}
+
+.photoUnavailable {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--color-text-light);
+  background: linear-gradient(160deg, var(--color-surface), var(--color-bg-alt));
+}
+
+.slide {
+  position: absolute;
+  inset: 0;
+  cursor: zoom-in;
+  touch-action: pan-y;
+}
+
+.zoomLayer {
+  position: absolute;
+  inset: 0;
+}
+
+.navBtn {
+  position: absolute;
+  top: 50%;
+  translate: 0 -50%;
+  z-index: 3;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  background: rgba(10, 4, 7, 0.5);
+  border: 1px solid rgba(245, 232, 236, 0.2);
+  backdrop-filter: blur(8px);
+  cursor: pointer;
+  opacity: 0;
+  transition: opacity var(--transition-normal), background var(--transition-fast);
+}
+
+.mainImage:hover .navBtn {
+  opacity: 1;
+}
+
+.navBtn:hover {
+  background: rgba(10, 4, 7, 0.75);
+}
+
+.navPrev { left: 14px; }
+.navNext { right: 14px; }
+
+.dots {
+  position: absolute;
+  bottom: 14px;
+  left: 50%;
+  translate: -50% 0;
+  z-index: 3;
+  display: flex;
+  gap: 6px;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.45);
+  transition: width var(--transition-normal), background var(--transition-normal);
+}
+
+.dotActive {
+  width: 20px;
+  background: #fff;
+}
+
+.zoomHint {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  z-index: 3;
+  padding: 4px 10px;
+  border-radius: var(--radius-full);
+  font-size: 0.7rem;
+  color: #fff;
+  background: rgba(10, 4, 7, 0.55);
+  backdrop-filter: blur(6px);
+  pointer-events: none;
+}
+
+.badges {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 2;
+}
+
+.thumbnailGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-sm);
+}
+
+.thumbnail {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  cursor: pointer;
+  padding: 0;
+  opacity: 0.55;
+  transition: opacity var(--transition-fast), transform var(--transition-fast);
+}
+
+.thumbnail:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
+.thumbnail.thumbnailActive {
+  opacity: 1;
+}
+
+.thumbRing {
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  box-shadow: inset 0 0 0 2px var(--color-accent);
+  z-index: 2;
+}
+
+.productInfo {
+  display: flex;
+  flex-direction: column;
+}
+
+.category {
+  color: var(--color-accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.8125rem;
+  margin-bottom: var(--space-xs);
+}
+
+.title {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  color: var(--color-text);
+  line-height: 1.2;
+  margin-bottom: var(--space-sm);
+}
+
+.price {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-xl);
+}
+
+.description {
+  font-size: 1.1rem;
+  color: var(--color-text-muted);
+  line-height: 1.7;
+  margin-bottom: var(--space-2xl);
+}
+
+.customBox {
+  background: var(--color-bg-alt);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl);
+  margin-bottom: var(--space-2xl);
+}
+
+.customBox h3 {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-sm);
+}
+
+.customBox p {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-md);
+}
+
+.customBox ul {
+  margin-bottom: var(--space-lg);
+  padding-left: var(--space-lg);
+}
+
+.customBox li {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  margin-bottom: 4px;
+}
+
+.customBox li strong {
+  color: var(--color-text);
+}
+
+.customBtn {
+  margin-bottom: var(--space-sm);
+}
+
+.customNote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  color: var(--color-text-light);
+}
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-lg) 0;
+}
+
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 8px;
+}
+
+.feature span {
+  font-size: 1.5rem;
+}
+
+.feature p {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  padding: 4px 12px;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+/* Related */
+.relatedSection {
+  margin-top: var(--space-3xl);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-3xl);
+}
+
+.relatedTitle {
+  font-family: var(--font-heading);
+  font-size: 2rem;
+  color: var(--color-text);
+  margin-bottom: var(--space-xl);
+  text-align: center;
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--space-lg);
+}
+
+.relatedCard {
+  display: block;
+  text-decoration: none;
+  padding: var(--space-sm);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(165deg, var(--color-surface), var(--color-bg-alt));
+  border: 1px solid var(--color-border);
+}
+
+.relatedImage {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: var(--color-bg-alt);
+  margin-bottom: var(--space-sm);
+  border: 1px solid var(--color-border);
+}
+
+.relatedCard h3 {
+  font-size: 1rem;
+  color: var(--color-text);
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.relatedCard p {
+  color: var(--color-text-muted);
+  font-size: 0.9375rem;
+}
+
+@media (max-width: 900px) {
+  .productGrid {
+    grid-template-columns: 1fr;
+    gap: var(--space-xl);
+  }
+  .imageGallery {
+    position: static;
+  }
+  .relatedGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-sm);
+  }
+  /* No hover on touch screens: keep arrows visible */
+  .navBtn {
+    opacity: 1;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 600px) {
+  .page { padding-top: var(--space-lg); }
+  .mainImage { border-radius: var(--radius-lg); }
+  .features { gap: var(--space-sm); }
+  .feature p { font-size: 0.78rem; }
+  .relatedTitle { font-size: 1.6rem; }
+  .relatedCard h3 { font-size: 0.9rem; }
+}

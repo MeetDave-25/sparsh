@@ -1,0 +1,41 @@
+[
+  {
+    "id": "care-tips-candles",
+    "slug": "how-to-care-for-your-soy-candles",
+    "title": "How to Care for Your Soy Candles",
+    "category": "Care Tips",
+    "excerpt": "Make your handmade soy candles last longer and burn better with these simple care tips from our artisan.",
+    "content": "Your soy candle is a handmade treasure. Here's how to get the most out of it...",
+    "image": "/products/mocha-coffee-latte-2.jpg",
+    "author": "Sparsh Divine Art Studio",
+    "date": "2024-10-15",
+    "readTime": "4 min read",
+    "featured": true
+  },
+  {
+    "id": "story-behind-resin",
+    "slug": "the-story-behind-our-resin-art",
+    "title": "The Story Behind Our Resin Art",
+    "category": "Behind the Scenes",
+    "excerpt": "How a passion for preserving nature's beauty led to our stunning resin art collection.",
+    "content": "Every piece of resin art we create starts with a flower picked at its most beautiful...",
+    "image": "/story/scents-that-stay-2.jpg",
+    "author": "Sparsh Divine Art Studio",
+    "date": "2024-09-20",
+    "readTime": "6 min read",
+    "featured": true
+  },
+  {
+    "id": "gift-guide-diwali",
+    "slug": "ultimate-diwali-gift-guide-2024",
+    "title": "Ultimate Diwali Gift Guide 2024",
+    "category": "Gifting",
+    "excerpt": "Finding the perfect Diwali gift has never been easier. Here's our curated guide for every budget.",
+    "content": "Diwali is the festival of lights, love, and togetherness. This year, give a gift that truly sparkles...",
+    "image": "/story/blossom-ad-card.jpg",
+    "author": "Sparsh Divine Art Studio",
+    "date": "2024-10-01",
+    "readTime": "5 min read",
+    "featured": false
+  }
+]
