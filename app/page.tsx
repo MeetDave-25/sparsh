@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import IntroReveal from '@/components/intro/IntroReveal';
 import Hero from '@/components/home/Hero';
 import ArtOfCraft from '@/components/home/ArtOfCraft';
 import ScentJourney from '@/components/home/ScentJourney';
@@ -20,6 +21,7 @@ export default async function HomePage() {
 
   return (
     <>
+      <IntroReveal />
       <Hero content={content.hero} />
       <ArtOfCraft content={content.craft} />
       <ScentJourney content={content.journey} />

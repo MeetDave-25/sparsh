@@ -1,0 +1,143 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: #000;
+  overflow: hidden;
+  will-change: clip-path;
+}
+
+.fade {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.vignette {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+  pointer-events: none;
+}
+
+/* Sized and positioned exactly where the logo mark will sit; flame and glow
+   are centered relative to this box, not the overlay, so they always land
+   behind the wordmark regardless of what renders below it. */
+.stage {
+  position: relative;
+  width: min(70vw, 480px);
+}
+
+/* The ignition point: a small warm dot that flickers like a struck match */
+.flame {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ffe9b8;
+  box-shadow: 0 0 20px 8px rgba(255, 214, 140, 0.9), 0 0 60px 24px rgba(212, 175, 122, 0.5);
+  animation: flicker 2.6s ease-in-out infinite;
+  animation-delay: 0.75s;
+}
+
+@keyframes flicker {
+  0%, 100% { transform: scale(1); opacity: 0.95; }
+  20% { transform: scale(1.18); opacity: 1; }
+  45% { transform: scale(0.9); opacity: 0.82; }
+  70% { transform: scale(1.1); opacity: 1; }
+  85% { transform: scale(0.96); opacity: 0.88; }
+}
+
+/* The bloom of light the flame casts across the darkness */
+.glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  width: min(90vw, 900px);
+  height: min(90vw, 900px);
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(212, 175, 122, 0.28) 0%, rgba(122, 37, 64, 0.16) 45%, transparent 72%);
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+.logoWrap {
+  position: relative;
+  width: 100%;
+}
+
+.logoImg {
+  width: 100%;
+  height: auto;
+  /* The logo file has a true black background; on this black overlay, screen
+     blending makes the black vanish and only the gold linework remains. */
+  mix-blend-mode: screen;
+  filter: drop-shadow(0 0 30px rgba(212, 175, 122, 0.35));
+}
+
+/* A single streak of light that catches the gold like foil under a spotlight */
+.shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.55) 50%, transparent 60%);
+  mix-blend-mode: screen;
+  transform: translateX(-120%);
+  animation: shimmerSweep 1.3s ease-in-out 2.05s 1;
+}
+
+@keyframes shimmerSweep {
+  to { transform: translateX(120%); }
+}
+
+.rule {
+  width: 130px;
+  height: 1px;
+  margin-top: 22px;
+  background: linear-gradient(90deg, transparent, var(--color-accent, #d4af7a), transparent);
+  transform-origin: center;
+}
+
+.tagline {
+  margin-top: 18px;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: rgba(232, 213, 176, 0.75);
+}
+
+.skip {
+  position: absolute;
+  bottom: 28px;
+  right: 28px;
+  padding: 8px 16px;
+  border-radius: 999px;
+  border: 1px solid rgba(232, 213, 176, 0.3);
+  background: rgba(255, 255, 255, 0.04);
+  color: rgba(232, 213, 176, 0.7);
+  font-size: 0.72rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+.skip:hover {
+  border-color: rgba(232, 213, 176, 0.6);
+  color: #f0e2bf;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+@media (max-width: 600px) {
+  .stage { width: 82vw; }
+  .glow { width: 110vw; height: 110vw; }
+  .tagline { font-size: 0.62rem; letter-spacing: 0.24em; text-align: center; padding: 0 24px; }
+  .skip { bottom: 20px; right: 20px; }
+}
