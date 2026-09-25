@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import Image from 'next/image';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import styles from './IntroReveal.module.css';
 
@@ -14,7 +13,7 @@ const HOLD_UNTIL_EXIT = 3600;
 
 /**
  * A one-time cinematic opener for the homepage: darkness, a flame ignites, light
- * blooms, the logo forms out of the glow, then an iris wipe reveals the page
+ * blooms, the wordmark forms out of the glow, then an iris wipe reveals the page
  * beneath (which has already finished its own entrance animation while hidden).
  * Plays once per browser session; skipped entirely for reduced-motion users.
  */
@@ -102,14 +101,8 @@ export default function IntroReveal() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 1.1, delay: 0.85, ease: EASE_OUT }}
               >
-                <Image
-                  src="/brand/sparsh-logo.png"
-                  alt="SpArsh Divine Art Studio"
-                  width={550}
-                  height={367}
-                  priority
-                  className={styles.logoImg}
-                />
+                <span className={styles.wordmark}>SpArsh</span>
+                <span className={styles.wordmarkSub}>Divine Art Studio</span>
                 <div className={styles.shimmer} />
               </motion.div>
             </div>

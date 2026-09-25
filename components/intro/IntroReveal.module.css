@@ -23,12 +23,13 @@
   pointer-events: none;
 }
 
-/* Sized and positioned exactly where the logo mark will sit; flame and glow
-   are centered relative to this box, not the overlay, so they always land
-   behind the wordmark regardless of what renders below it. */
+/* Shrink-wraps the wordmark's own box; flame and glow are centered relative
+   to this box, not the overlay, so they always land behind the wordmark
+   regardless of what renders below it. */
 .stage {
   position: relative;
-  width: min(70vw, 480px);
+  width: fit-content;
+  max-width: 90vw;
 }
 
 /* The ignition point: a small warm dot that flickers like a struck match */
@@ -70,16 +71,39 @@
 
 .logoWrap {
   position: relative;
-  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 12px;
 }
 
-.logoImg {
-  width: 100%;
-  height: auto;
-  /* The logo file has a true black background; on this black overlay, screen
-     blending makes the black vanish and only the gold linework remains. */
-  mix-blend-mode: screen;
-  filter: drop-shadow(0 0 30px rgba(212, 175, 122, 0.35));
+/* Real type, not an image — a script-style serif in a warm gold gradient,
+   matching the italic accent treatment already used in the hero headline. */
+.wordmark {
+  font-family: var(--font-heading);
+  font-style: italic;
+  font-weight: 500;
+  font-size: clamp(2.6rem, 9vw, 5.2rem);
+  line-height: 1;
+  background: linear-gradient(135deg, #f3e0b0 0%, #d4af7a 50%, #b3894f 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  /* text-shadow, not filter: drop-shadow — a CSS filter on an element using
+     background-clip: text can break the clipped gradient fill entirely in
+     Chromium (renders fully invisible). text-shadow draws from the glyph
+     outlines regardless of fill color, so it's the safe way to add glow here. */
+  text-shadow: 0 0 30px rgba(212, 175, 122, 0.55), 0 0 64px rgba(212, 175, 122, 0.3);
+}
+
+.wordmarkSub {
+  margin-top: 10px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: rgba(232, 213, 176, 0.8);
+  white-space: nowrap;
 }
 
 /* A single streak of light that catches the gold like foil under a spotlight */
