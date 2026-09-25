@@ -23,13 +23,15 @@ export default async function FeaturedProducts({ content }: { content: FeaturedC
 
         <div className={styles.grid}>
           {featured.map((product: any, i: number) => (
-            <Link
-              href={`/products/${product.id}`}
+            <div
               key={product.id}
               className={styles.productCard}
               id={`featured-product-${product.id}`}
               style={{ animationDelay: `${i * 0.1}s` }}
             >
+              {/* Covers the whole card so it's clickable, while the Customise link
+                  below still sits above it in stacking order and works independently. */}
+              <Link href={`/products/${product.id}`} className={styles.stretchedLink} aria-label={product.name} />
               <div className={styles.imageWrapper}>
                 {product.images[0] && (
                   <Image
@@ -65,7 +67,7 @@ export default async function FeaturedProducts({ content }: { content: FeaturedC
                   <span className={styles.viewBtn}>View →</span>
                 </div>
               </div>
-            </Link>
+            </div>
           ))}
         </div>
 

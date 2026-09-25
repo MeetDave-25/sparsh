@@ -193,6 +193,17 @@
   pointer-events: none;
 }
 
+/* Thin gold foil frame, floating slightly in front of the photo for depth */
+.frameRing {
+  position: absolute;
+  inset: -10px;
+  border-radius: calc(var(--radius-xl) + 8px);
+  border: 1px solid rgba(212, 175, 122, 0.55);
+  box-shadow: 0 0 0 1px rgba(245, 232, 236, 0.08), inset 0 0 24px rgba(212, 175, 122, 0.12);
+  transform: translateZ(36px);
+  pointer-events: none;
+}
+
 .visualCard {
   position: absolute;
   inset: 0;
@@ -211,6 +222,69 @@
   z-index: -1;
   background: radial-gradient(circle, rgba(184,75,99,0.45) 0%, transparent 70%);
   filter: blur(50px);
+}
+
+/* Vertical shaft of light behind the card, like a museum spotlight */
+.lightBeam {
+  position: absolute;
+  top: -18%;
+  left: 50%;
+  width: 46%;
+  height: 130%;
+  translate: -50% 0;
+  z-index: -2;
+  background: linear-gradient(180deg, rgba(245, 232, 236, 0.16) 0%, rgba(245, 232, 236, 0.05) 45%, transparent 80%);
+  clip-path: polygon(38% 0%, 62% 0%, 100% 100%, 0% 100%);
+  filter: blur(6px);
+  pointer-events: none;
+}
+
+/* Drifting gold dust */
+.dustLayer {
+  position: absolute;
+  inset: -10% -5%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.dustMote {
+  position: absolute;
+  border-radius: 50%;
+  background: var(--color-accent-light);
+  box-shadow: 0 0 8px 2px rgba(212, 175, 122, 0.65);
+  opacity: 0;
+  animation-name: heroDust;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes heroDust {
+  0% { transform: translate(0, 0) scale(0.6); opacity: 0; }
+  15% { opacity: 0.85; }
+  50% { transform: translate(14px, -34px) scale(1); }
+  85% { opacity: 0.6; }
+  100% { transform: translate(-10px, -64px) scale(0.5); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .dustLayer { display: none; }
+}
+
+/* Reflection on a glass floor beneath the card */
+.reflection {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 55%;
+  overflow: hidden;
+  border-radius: 0 0 var(--radius-xl) var(--radius-xl);
+  transform: scaleY(-1);
+  transform-origin: top;
+  opacity: 0.28;
+  -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,0.55), transparent 75%);
+  mask-image: linear-gradient(to bottom, rgba(0,0,0,0.55), transparent 75%);
+  pointer-events: none;
 }
 
 .floatChip {
@@ -285,6 +359,7 @@
   }
   .chipTop { left: -4%; }
   .chipBottom { right: -4%; }
+  .reflection { opacity: 0.18; height: 40%; }
 }
 
 @media (max-width: 600px) {
@@ -313,4 +388,6 @@
   }
   .chipTop { left: 0; top: 4%; }
   .chipBottom { right: 0; bottom: 4%; }
+  .reflection { display: none; }
+  .dustMote { width: 3px !important; height: 3px !important; }
 }

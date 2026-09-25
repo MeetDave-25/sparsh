@@ -18,6 +18,16 @@ import styles from './Hero.module.css';
 
 const TRUST_ICONS = [Leaf, Heart];
 
+// Fixed positions (not random) so server and client render identically.
+const DUST = [
+  { left: '6%', top: '14%', size: 5, delay: 0, dur: 9 },
+  { left: '88%', top: '10%', size: 4, delay: 2.2, dur: 11 },
+  { left: '14%', top: '78%', size: 3, delay: 4, dur: 8 },
+  { left: '92%', top: '68%', size: 5, delay: 1.2, dur: 10 },
+  { left: '50%', top: '4%', size: 3, delay: 5.5, dur: 12 },
+  { left: '4%', top: '46%', size: 4, delay: 3, dur: 9.5 },
+];
+
 export default function Hero({ content }: { content: HeroContent }) {
   const reduceMotion = useReducedMotion();
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -155,6 +165,27 @@ export default function Hero({ content }: { content: HeroContent }) {
           onPointerMove={handlePointerMove}
           onPointerLeave={handlePointerLeave}
         >
+          {/* Drifting gold dust, sits behind the card. Rendered unconditionally and
+              switched off via CSS (not a JS branch) so server/client markup always matches. */}
+          <div className={styles.dustLayer} aria-hidden="true">
+            {DUST.map((d, i) => (
+              <span
+                key={i}
+                className={styles.dustMote}
+                style={{
+                  left: d.left,
+                  top: d.top,
+                  width: d.size,
+                  height: d.size,
+                  animationDelay: `${d.delay}s`,
+                  animationDuration: `${d.dur}s`,
+                }}
+              />
+            ))}
+          </div>
+
+          <div className={styles.lightBeam} aria-hidden="true" />
+
           <motion.div
             className={styles.tiltLayer}
             style={reduceMotion ? undefined : { rotateX: combinedTiltX, rotateY: tiltY }}
@@ -164,9 +195,10 @@ export default function Hero({ content }: { content: HeroContent }) {
             animate={reduceMotion ? undefined : { y: [0, -14, 0] }}
             transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
           >
+            <div className={styles.frameRing} aria-hidden="true" />
             <div className={styles.visualCard}>
               <Image
-                src={content.image || '/story/wave-wreath-fantasy.jpg'}
+                src={content.image || '/products/blossom-1.jpg'}
                 alt={content.imageAlt}
                 fill
                 priority
@@ -197,6 +229,18 @@ export default function Hero({ content }: { content: HeroContent }) {
               <span className={styles.dot} />
               {content.chipBottom}
             </motion.div>
+
+            {/* Glass-floor reflection */}
+            <div className={styles.reflection} aria-hidden="true">
+              <Image
+                src={content.image || '/products/blossom-1.jpg'}
+                alt=""
+                fill
+                unoptimized={isRemoteImage(content.image)}
+                sizes="(max-width: 1024px) 80vw, 40vw"
+                style={{ objectFit: 'cover' }}
+              />
+            </div>
           </motion.div>
           </motion.div>
 
