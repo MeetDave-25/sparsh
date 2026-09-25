@@ -463,6 +463,19 @@ h4 { font-size: clamp(1.1rem, 2.5vw, 1.5rem); }
   background-repeat: no-repeat;
   background-position: right 16px center;
   padding-right: 48px;
+  /* Tells the browser to draw the native dropdown popup (and its default
+     option colors) in dark mode, so it doesn't fall back to light-gray-on-white
+     text that's unreadable against our light --color-text. */
+  color-scheme: dark;
+}
+
+[data-mode='light'] .form-select {
+  color-scheme: light;
+}
+
+.form-select option {
+  background: var(--color-surface);
+  color: var(--color-text);
 }
 
 .form-error {
