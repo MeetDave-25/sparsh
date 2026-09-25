@@ -1,9 +1,10 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, Sun, Moon, ShoppingBag, Sparkles } from 'lucide-react';
+import { Menu, X, Sun, Moon, ShoppingBag } from 'lucide-react';
 import { useTheme } from '@/components/layout/ThemeProvider';
 import styles from './Navbar.module.css';
 
@@ -65,13 +66,14 @@ export default function Navbar() {
         <div className={`container ${styles.navInner}`}>
           {/* Logo */}
           <Link href="/" className={styles.logo} aria-label="Sparsh Divine Art Studio - Home">
-            <div className={styles.logoIcon}>
-              <Sparkles size={20} />
-            </div>
-            <div className={styles.logoText}>
-              <span className={styles.logoMain}>Sparsh</span>
-              <span className={styles.logoSub}>Divine Art Studio</span>
-            </div>
+            <Image
+              src="/brand/sparsh-wordmark.png"
+              alt="Sparsh Divine Art Studio"
+              width={892}
+              height={452}
+              priority
+              className={styles.logoImg}
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -132,7 +134,7 @@ export default function Navbar() {
         aria-modal="true"
       >
         <div className={styles.mobileMenuHeader}>
-          <span className={styles.logoMain}>Sparsh Divine</span>
+          <Image src="/brand/sparsh-wordmark.png" alt="Sparsh Divine Art Studio" width={892} height={452} className={styles.logoImgMobileMenu} />
           <button onClick={() => setMenuOpen(false)} aria-label="Close menu" className={styles.iconBtn}>
             <X size={22} />
           </button>
