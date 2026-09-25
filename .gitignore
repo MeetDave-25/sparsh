@@ -42,3 +42,6 @@ next-env.d.ts
 
 # local archives / source photos
 *.zip
+
+# stray duplicate assets dropped in repo root
+WhatsApp Image*.jpeg

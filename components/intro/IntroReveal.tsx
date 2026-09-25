@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import styles from './IntroReveal.module.css';
@@ -25,16 +25,30 @@ export default function IntroReveal() {
   // mismatch. A useEffect below immediately hides it again for repeat visits.
   const [show, setShow] = useState(true);
   const [exiting, setExiting] = useState(false);
+  // React's Strict Mode (on by default in `next dev`) runs this effect twice
+  // on mount — mount, cleanup, mount again — to surface side-effect bugs. The
+  // decision ("have we already played this session?") must only be computed
+  // once, since the first pass's own sessionStorage write would otherwise
+  // read back as "already seen" on the second pass. But the exit *timer*
+  // still needs to be (re)created on every pass, including the second one,
+  // since Strict Mode's simulated cleanup cancels the first pass's timer —
+  // otherwise the intro plays but the iris wipe never fires. Splitting these
+  // two concerns is what makes it correct in both dev and production.
+  const decided = useRef<'skip' | 'play' | null>(null);
 
   useEffect(() => {
-    if (reduceMotion || sessionStorage.getItem(SEEN_KEY)) {
+    if (decided.current === null) {
+      decided.current = reduceMotion || sessionStorage.getItem(SEEN_KEY) ? 'skip' : 'play';
+      if (decided.current === 'play') sessionStorage.setItem(SEEN_KEY, '1');
+    }
+
+    if (decided.current === 'skip') {
       // `show` starts true to match the server's SSR output (which can't see
       // sessionStorage) and is only ever corrected here, once, after mount.
-      // eslint-disable-next-line react-hooks/set-state-in-effect
       setShow(false);
       return;
     }
-    sessionStorage.setItem(SEEN_KEY, '1');
+
     const exitTimer = setTimeout(() => setExiting(true), HOLD_UNTIL_EXIT);
     return () => clearTimeout(exitTimer);
   }, [reduceMotion]);
