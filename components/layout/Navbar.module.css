@@ -57,13 +57,26 @@
 }
 
 .logoImg {
-  height: 38px;
+  height: 54px;
   width: auto;
+  /* The wordmark's strokes are deliberately thin and delicate; a soft warm
+     glow keeps it reading clearly on the dark theme, rather than relying on
+     the gold alone for contrast. */
+  filter: drop-shadow(0 0 5px rgba(212, 175, 122, 0.55)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
 }
 
 .logoImgMobileMenu {
-  height: 34px;
+  height: 40px;
   width: auto;
+  filter: drop-shadow(0 0 5px rgba(212, 175, 122, 0.55)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
+}
+
+/* On the light theme, pale gold on a near-white navbar has almost no
+   contrast — a warm glow does nothing there. A dark contact shadow instead
+   gives the strokes a visible edge against a light background. */
+[data-mode='light'] .logoImg,
+[data-mode='light'] .logoImgMobileMenu {
+  filter: drop-shadow(0 1px 1px rgba(45, 27, 38, 0.55)) drop-shadow(0 0 3px rgba(45, 27, 38, 0.4));
 }
 
 .navLinks {
@@ -222,6 +235,6 @@
 }
 
 @media (max-width: 480px) {
-  .logoImg { height: 32px; }
+  .logoImg { height: 42px; }
   .navInner { height: 64px; }
 }
