@@ -1,13 +1,15 @@
 import type { Metadata } from 'next';
 import IntroReveal from '@/components/intro/IntroReveal';
-import Hero from '@/components/home/Hero';
-import ArtOfCraft from '@/components/home/ArtOfCraft';
-import ScentJourney from '@/components/home/ScentJourney';
-import ScentCarousel3D from '@/components/home/ScentCarousel3D';
-import CategoryGrid from '@/components/home/CategoryGrid';
-import FeaturedProducts from '@/components/home/FeaturedProducts';
-import Testimonials from '@/components/home/Testimonials';
-import CustomOrderCTA from '@/components/home/CustomOrderCTA';
+import ProductJourney from '@/components/home/journey/ProductJourney';
+import BenefitsMarquee from '@/components/home/lux/BenefitsMarquee';
+import CollectionArches from '@/components/home/lux/CollectionArches';
+import MostLoved from '@/components/home/lux/MostLoved';
+import MomentsStrip from '@/components/home/lux/MomentsStrip';
+import MoodSlider from '@/components/home/lux/MoodSlider';
+import MakeItYours from '@/components/home/lux/MakeItYours';
+import GiftBundles from '@/components/home/lux/GiftBundles';
+import WhatPeopleSay from '@/components/home/lux/WhatPeopleSay';
+import BigType from '@/components/home/lux/BigType';
 import { getHomeContent } from '@/lib/siteContent';
 
 export const metadata: Metadata = {
@@ -20,16 +22,18 @@ export default async function HomePage() {
   const content = await getHomeContent();
 
   return (
-    <>
+    <div className="lux" data-nav="light">
       <IntroReveal />
-      <Hero content={content.hero} />
-      <ArtOfCraft content={content.craft} />
-      <ScentJourney content={content.journey} />
-      <ScentCarousel3D content={content.scents} />
-      <CategoryGrid content={content.categories} />
-      <FeaturedProducts content={content.featured} />
-      <CustomOrderCTA content={content.customOrder} />
-      <Testimonials content={content.testimonials} />
-    </>
+      <ProductJourney hero={content.hero} craft={content.craft} scents={content.scents} />
+      <BenefitsMarquee />
+      <CollectionArches content={content.categories} />
+      <MostLoved content={content.featured} scents={content.scents} />
+      <MomentsStrip />
+      <MoodSlider />
+      <MakeItYours content={content.customOrder} />
+      <GiftBundles />
+      <WhatPeopleSay content={content.testimonials} />
+      <BigType />
+    </div>
   );
 }

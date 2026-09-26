@@ -1,0 +1,119 @@
+.section {
+  background: var(--ivory);
+}
+
+.row {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: clamp(16px, 2.2vw, 32px);
+  list-style: none;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  color: var(--ink);
+}
+
+/* Thin gold outline floating a few px outside the temple arch. */
+.arch {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4.4;
+  padding: 7px;
+  border: 1px solid rgba(212, 169, 79, 0.7);
+  border-bottom: 0;
+  border-radius: 999px 999px 0 0;
+  margin-bottom: 22px;
+  transition: border-color 400ms ease;
+}
+
+.photo {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 999px 999px 0 0;
+  background: var(--sand);
+}
+
+.photo img {
+  transition: transform 600ms var(--ease-lux);
+}
+
+.card:hover .photo img,
+.card:focus-visible .photo img {
+  transform: scale(1.06);
+}
+
+.card:hover .arch { border-color: var(--gold); }
+
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(ellipse 70% 50% at 50% 35%, rgba(212, 169, 79, 0.28) 0%, transparent 70%),
+    linear-gradient(180deg, #5B1020 0%, #2A0A12 100%);
+}
+
+.placeholderMark {
+  font-family: var(--font-script);
+  font-size: clamp(5rem, 9vw, 8rem);
+  line-height: 1;
+  color: var(--gold);
+  opacity: 0.85;
+}
+
+.card:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 6px;
+  border-radius: 12px;
+}
+
+.hindi {
+  font-family: var(--font-script);
+  font-size: clamp(2.1rem, 3vw, 2.7rem);
+  line-height: 0.8;
+  color: var(--gold-text);
+}
+
+.name {
+  margin-top: 6px;
+  font-family: var(--font-sans);
+  font-size: 0.74rem;
+  font-weight: 500;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.desc {
+  margin-top: 6px;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+@media (max-width: 900px) {
+  .row {
+    display: flex;
+    gap: 18px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin: 0 calc(-1 * clamp(16px, 4vw, 48px));
+    padding: 0 clamp(16px, 4vw, 48px) 8px;
+    scrollbar-width: none;
+  }
+
+  .row::-webkit-scrollbar { display: none; }
+
+  .item {
+    flex: 0 0 58vw;
+    max-width: 240px;
+    scroll-snap-align: center;
+  }
+}

@@ -1,0 +1,131 @@
+.section {
+  background: var(--ivory);
+}
+
+.strip {
+  display: flex;
+  gap: 10px;
+  height: clamp(420px, 68vh, 640px);
+  padding: 0 clamp(16px, 4vw, 48px);
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.panel {
+  position: relative;
+  flex: 1 1 0;
+  min-width: 0;
+  overflow: hidden;
+  border-radius: 2px;
+  color: var(--ivory);
+  transition: flex-grow 600ms var(--ease-lux);
+}
+
+.panel img {
+  filter: grayscale(1) contrast(1.05) brightness(0.9);
+  transform: scale(1.08);
+  transition: filter 600ms var(--ease-lux), transform 900ms var(--ease-lux);
+}
+
+.active {
+  flex-grow: 5;
+}
+
+.active img {
+  filter: grayscale(0) contrast(1) brightness(1);
+  transform: scale(1);
+}
+
+.shade {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, rgba(26, 11, 14, 0.1) 40%, rgba(26, 11, 14, 0.78) 100%);
+}
+
+.vertical {
+  position: absolute;
+  left: 50%;
+  bottom: 28px;
+  writing-mode: vertical-rl;
+  transform: translateX(-50%) rotate(180deg);
+  font-family: var(--font-serif);
+  font-size: 1.25rem;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  transition: opacity 300ms ease;
+}
+
+.active .vertical { opacity: 0; }
+
+.caption {
+  position: absolute;
+  left: clamp(20px, 3vw, 40px);
+  right: 20px;
+  bottom: clamp(22px, 3vw, 40px);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 400ms ease, transform 600ms var(--ease-lux);
+}
+
+.active .caption {
+  opacity: 1;
+  transform: none;
+  transition-delay: 200ms;
+}
+
+.num {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.3em;
+  color: var(--gold);
+}
+
+.title {
+  font-family: var(--font-serif);
+  font-size: clamp(2rem, 3.6vw, 3.2rem);
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.line {
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: rgba(251, 246, 238, 0.85);
+}
+
+.panel:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 3px;
+}
+
+@media (max-width: 768px) {
+  .strip {
+    flex-direction: column;
+    height: auto;
+  }
+
+  .panel {
+    flex: none;
+    height: 74px;
+    transition: height 600ms var(--ease-lux);
+  }
+
+  .active { height: 400px; }
+
+  .vertical {
+    writing-mode: horizontal-tb;
+    transform: none;
+    left: 20px;
+    bottom: 50%;
+    translate: 0 50%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .panel,
+  .panel img,
+  .caption { transition: none !important; }
+}

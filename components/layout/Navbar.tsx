@@ -24,18 +24,42 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
+  const [onDark, setOnDark] = useState(true);
   const menuRef = useRef<HTMLDivElement>(null);
+  const navRef = useRef<HTMLElement>(null);
+  const isHome = pathname === '/';
 
   useEffect(() => {
+    let frame = 0;
     const handleScroll = () => {
-      const scrollY = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      setScrolled(scrollY > 60);
-      setScrollProgress(docHeight > 0 ? (scrollY / docHeight) * 100 : 0);
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+        setScrolled(scrollY > 60);
+        setScrollProgress(docHeight > 0 ? (scrollY / docHeight) * 100 : 0);
+
+        // On the homepage the bar is see-through; read what's underneath it
+        // so it can switch between ivory and transparent-on-dark styling.
+        const nav = navRef.current;
+        if (!isHome || !nav) return;
+        const rect = nav.getBoundingClientRect();
+        const y = rect.top + rect.height / 2;
+        const under = document
+          .elementsFromPoint(window.innerWidth / 2, y)
+          .find((el) => !nav.contains(el) && el.closest('[data-nav]'));
+        setOnDark(under?.closest('[data-nav]')?.getAttribute('data-nav') === 'dark');
+      });
     };
+    handleScroll();
     window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('resize', handleScroll);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener('resize', handleScroll);
+    };
+  }, [isHome]);
 
   useEffect(() => {
     if (menuOpen) {
@@ -57,12 +81,18 @@ export default function Navbar() {
       <div className={styles.scrollProgress} style={{ width: `${scrollProgress}%` }} />
 
       {/* Announcement Banner */}
-      <div className={styles.banner}>
+      <div className={`${styles.banner} ${isHome ? styles.bannerLux : ''}`}>
+        {isHome && <span className={styles.bannerBadge}>Custom orders open</span>}
         <p>{activeTheme.bannerText}</p>
       </div>
 
       {/* Navbar */}
-      <nav className={`${styles.navbar} ${scrolled ? styles.scrolled : ''}`} role="navigation" aria-label="Main navigation">
+      <nav
+        ref={navRef}
+        className={`${styles.navbar} ${scrolled ? styles.scrolled : ''} ${isHome ? styles.lux : ''} ${isHome && onDark ? styles.luxDark : ''}`}
+        role="navigation"
+        aria-label="Main navigation"
+      >
         <div className={`container ${styles.navInner}`}>
           {/* Logo */}
           <Link href="/" className={styles.logo} aria-label="Sparsh Divine Art Studio - Home">
@@ -102,7 +132,7 @@ export default function Navbar() {
               {darkMode === 'light' ? <Moon size={18} /> : <Sun size={18} />}
             </button>
 
-            <Link href="/customize" className="btn btn-primary btn-sm" id="nav-customize-btn">
+            <Link href="/customize" className={`btn btn-primary btn-sm ${isHome ? styles.luxCta : ''}`} id="nav-customize-btn">
               Custom Order
             </Link>
 
