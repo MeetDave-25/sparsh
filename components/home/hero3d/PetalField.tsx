@@ -1,7 +1,7 @@
 'use client';
 /* eslint-disable react-hooks/immutability -- three.js objects are mutated per frame inside useFrame by design; copying them each frame would defeat the render loop. */
 
-import { useEffect, useMemo, useRef, type MutableRefObject } from 'react';
+import { Component, useEffect, useMemo, useRef, useState, type MutableRefObject, type ReactNode } from 'react';
 import * as THREE from 'three';
 import { Canvas, useFrame } from '@react-three/fiber';
 
@@ -163,25 +163,69 @@ function Dust({ count }: { count: number }) {
 
 type Props = { progress: MutableRefObject<number>; active: boolean; lite: boolean; onLost?: () => void };
 
+/** Whether this browser will hand out a WebGL context right now (it can refuse after repeated context losses). */
+function canUseWebGL() {
+  try {
+    const canvas = document.createElement('canvas');
+    const gl = canvas.getContext('webgl2') || canvas.getContext('webgl');
+    if (!gl) return false;
+    gl.getExtension('WEBGL_lose_context')?.loseContext();
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+/** Swallows a failed renderer so the hero simply renders without petals instead of crashing the page. */
+class WebGLBoundary extends Component<{ onError: () => void; children: ReactNode }, { failed: boolean }> {
+  state = { failed: false };
+
+  static getDerivedStateFromError() {
+    return { failed: true };
+  }
+
+  componentDidCatch(error: unknown) {
+    console.warn('Petal effect disabled: WebGL unavailable', error);
+    this.props.onError();
+  }
+
+  render() {
+    return this.state.failed ? null : this.props.children;
+  }
+}
+
 /** Transparent WebGL layer of drifting 3D petals and gold dust, composited over the hero photography. */
 export default function PetalField({ progress, active, lite, onLost }: Props) {
   const smooth = useRef(progress.current);
+  const [supported] = useState(canUseWebGL);
+  const [lost, setLost] = useState(false);
+
+  if (!supported || lost) return null;
+
+  const disable = () => {
+    setLost(true);
+    onLost?.();
+  };
+
   return (
-    <Canvas
-      dpr={lite ? [1, 1.25] : [1, 1.6]}
-      camera={{ fov: 40, near: 0.1, far: 40, position: [0, 0, 7] }}
-      gl={{ alpha: true, antialias: !lite, powerPreference: 'high-performance' }}
-      frameloop={active ? 'always' : 'never'}
-      onCreated={({ gl }) => {
-        gl.setClearColor(0x000000, 0);
-        gl.domElement.addEventListener('webglcontextlost', () => onLost?.(), { once: true });
-      }}
-    >
-      <ambientLight intensity={0.9} color="#ffe9dc" />
-      <directionalLight position={[4, 6, 5]} intensity={2.4} color="#fff1e0" />
-      <directionalLight position={[-5, -2, 3]} intensity={0.9} color="#f2a7bd" />
-      <Petals count={lite ? 45 : 90} progress={progress} smooth={smooth} />
-      <Dust count={lite ? 90 : 200} />
-    </Canvas>
+    <WebGLBoundary onError={disable}>
+      <Canvas
+        dpr={lite ? [1, 1.25] : [1, 1.6]}
+        camera={{ fov: 40, near: 0.1, far: 40, position: [0, 0, 7] }}
+        gl={{ alpha: true, antialias: !lite, powerPreference: 'high-performance' }}
+        frameloop={active ? 'always' : 'never'}
+        onCreated={({ gl }) => {
+          gl.setClearColor(0x000000, 0);
+          // Unmount rather than let three.js try to restore: browsers block pages that keep losing contexts.
+          gl.domElement.addEventListener('webglcontextlost', disable, { once: true });
+        }}
+      >
+        <ambientLight intensity={0.9} color="#ffe9dc" />
+        <directionalLight position={[4, 6, 5]} intensity={2.4} color="#fff1e0" />
+        <directionalLight position={[-5, -2, 3]} intensity={0.9} color="#f2a7bd" />
+        <Petals count={lite ? 45 : 90} progress={progress} smooth={smooth} />
+        <Dust count={lite ? 90 : 200} />
+      </Canvas>
+    </WebGLBoundary>
   );
 }
