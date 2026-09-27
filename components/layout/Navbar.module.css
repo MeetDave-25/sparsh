@@ -56,27 +56,9 @@
   flex-shrink: 0;
 }
 
-.logoImg {
-  height: 54px;
-  width: auto;
-  /* The wordmark's strokes are deliberately thin and delicate; a soft warm
-     glow keeps it reading clearly on the dark theme, rather than relying on
-     the gold alone for contrast. */
-  filter: drop-shadow(0 0 5px rgba(212, 175, 122, 0.55)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
-}
-
-.logoImgMobileMenu {
-  height: 40px;
-  width: auto;
-  filter: drop-shadow(0 0 5px rgba(212, 175, 122, 0.55)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
-}
-
-/* On the light theme, pale gold on a near-white navbar has almost no
-   contrast — a warm glow does nothing there. A dark contact shadow instead
-   gives the strokes a visible edge against a light background. */
-[data-mode='light'] .logoImg,
-[data-mode='light'] .logoImgMobileMenu {
-  filter: drop-shadow(0 1px 1px rgba(45, 27, 38, 0.55)) drop-shadow(0 0 3px rgba(45, 27, 38, 0.4));
+.logoMark {
+  /* The script's tall swashes would otherwise push the bar taller. */
+  margin: -10px 0 -6px;
 }
 
 .navLinks {
@@ -310,14 +292,6 @@
 .luxDark .navLink:hover,
 .luxDark .navLink.active { color: #F6DFA6; }
 
-.lux .logoImg {
-  filter: drop-shadow(0 1px 1px rgba(45, 27, 38, 0.55)) drop-shadow(0 0 3px rgba(45, 27, 38, 0.4));
-}
-
-.luxDark .logoImg {
-  filter: drop-shadow(0 0 5px rgba(212, 175, 122, 0.55)) drop-shadow(0 1px 2px rgba(0, 0, 0, 0.35));
-}
-
 .lux .iconBtn,
 .lux .menuBtn {
   border-color: rgba(42, 26, 20, 0.2);
@@ -355,6 +329,25 @@
 }
 
 @media (max-width: 480px) {
-  .logoImg { height: 42px; }
   .navInner { height: 64px; }
 }
+
+/* ---------- Seasonal accents for the homepage bar ---------- */
+:global([data-season='christmas']) .bannerLux { background: linear-gradient(90deg, #8E1224, #A3172B 50%, #14552F); color: #FFF3D6; }
+:global([data-season='christmas']) .lux .luxCta { background: linear-gradient(120deg, #E23B4E 0%, #1F8A4C 100%); box-shadow: 0 10px 30px -10px rgba(226, 59, 78, 0.7); }
+:global([data-season='christmas']) .lux .navLink:hover,
+:global([data-season='christmas']) .lux .navLink.active { color: #A3172B; }
+
+:global([data-season='diwali']) .bannerLux { background: linear-gradient(90deg, #7A1E05, #B8420E 50%, #7A1E05); color: #FFE7A8; }
+:global([data-season='diwali']) .lux .luxCta { background: linear-gradient(120deg, #FFB000 0%, #E8431F 100%); box-shadow: 0 10px 30px -10px rgba(232, 67, 31, 0.7); }
+:global([data-season='diwali']) .lux .navLink:hover,
+:global([data-season='diwali']) .lux .navLink.active { color: #9A2A0A; }
+
+:global([data-season='valentine']) .bannerLux { background: linear-gradient(90deg, #8A0F2A, #C9184A 50%, #8A0F2A); color: #FFE4EA; }
+:global([data-season='valentine']) .lux .luxCta { background: linear-gradient(120deg, #FF6F91 0%, #C9184A 100%); }
+
+:global([data-season='monsoon']) .bannerLux { background: linear-gradient(90deg, #163A47, #1F4E5F 50%, #2E6B7D); color: #E3F1F5; }
+:global([data-season='monsoon']) .bannerBadge { background: #87A878; }
+:global([data-season='monsoon']) .lux .luxCta { background: linear-gradient(120deg, #4A90A4 0%, #87A878 100%); box-shadow: 0 10px 30px -10px rgba(74, 144, 164, 0.7); }
+:global([data-season='monsoon']) .lux .navLink:hover,
+:global([data-season='monsoon']) .lux .navLink.active { color: #1F4E5F; }

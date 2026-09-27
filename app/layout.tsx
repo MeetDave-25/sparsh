@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { getSiteTheme } from "@/lib/siteTheme";
 import { themeMode, themeStyle } from "@/lib/themes";
-import { Cormorant_Garamond, Italianno, Jost } from "next/font/google";
+import { Cormorant_Garamond, Italianno, Jost, Mrs_Saint_Delafield } from "next/font/google";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -20,6 +20,14 @@ const italianno = Italianno({
   display: "swap",
 });
 
+// Signature script closest to the hand-drawn SpArsh logo.
+const signature = Mrs_Saint_Delafield({
+  subsets: ["latin"],
+  weight: "400",
+  variable: "--font-signature",
+  display: "swap",
+});
+
 const jost = Jost({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600"],
@@ -30,6 +38,7 @@ import { ThemeProvider } from "@/components/layout/ThemeProvider";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/motion/SmoothScroll";
+import SeasonalDecor from "@/components/seasonal/SeasonalDecor";
 
 export const metadata: Metadata = {
   title: {
@@ -74,8 +83,9 @@ export default async function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${italianno.variable} ${jost.variable}`}
+      className={`${cormorant.variable} ${italianno.variable} ${jost.variable} ${signature.variable}`}
       data-mode={themeMode(theme)}
+      data-season={theme.season}
       style={themeStyle(theme) as CSSProperties}
     >
       <head>
@@ -85,6 +95,7 @@ export default async function RootLayout({
       <body>
         <ThemeProvider theme={theme}>
           <SmoothScroll />
+          <SeasonalDecor season={theme.season} />
           <Navbar />
           <main id="main-content">
             {children}

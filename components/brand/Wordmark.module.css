@@ -1,0 +1,55 @@
+.mark {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1;
+  user-select: none;
+}
+
+.script {
+  font-family: var(--font-signature), 'Mrs Saint Delafield', cursive;
+  font-weight: 400;
+  line-height: 1;
+  /* The script's swashes overhang its box; padding keeps them from being clipped
+     by background-clip. */
+  padding: 0.12em 0.22em 0.02em;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  white-space: nowrap;
+}
+
+.sub {
+  margin-top: -0.1em;
+  font-family: var(--font-jost), var(--font-body);
+  font-weight: 500;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.dark .script {
+  /* No filter/drop-shadow here: on background-clip:text Chromium can render it invisible. */
+  background-image: linear-gradient(120deg, #F7E7B4 0%, #E3BE6C 45%, #F9E9BC 60%, #C99A45 100%);
+}
+
+.dark .sub { color: rgba(240, 220, 176, 0.9); }
+
+.light .script {
+  background-image: linear-gradient(120deg, #A87523 0%, #7E5510 45%, #B98A35 65%, #6E4A0D 100%);
+}
+
+.light .sub { color: #7A5C3A; }
+
+.sm .script { font-size: 2.4rem; }
+.sm .sub { font-size: 0.5rem; letter-spacing: 0.34em; }
+
+.md .script { font-size: 3.1rem; }
+.md .sub { font-size: 0.56rem; letter-spacing: 0.38em; }
+
+.lg .script { font-size: clamp(4rem, 12vw, 7rem); }
+.lg .sub { font-size: clamp(0.7rem, 1.6vw, 0.85rem); letter-spacing: 0.4em; }
+
+@media (max-width: 480px) {
+  .md .script { font-size: 2.5rem; }
+  .md .sub { font-size: 0.48rem; letter-spacing: 0.3em; }
+}

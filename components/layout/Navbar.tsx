@@ -1,11 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTheme } from '@/components/layout/ThemeProvider';
+import Wordmark from '@/components/brand/Wordmark';
+import NavTrim from '@/components/seasonal/NavTrim';
+import { themeMode } from '@/lib/themes';
 import styles from './Navbar.module.css';
 
 const navLinks = [
@@ -28,6 +30,8 @@ export default function Navbar() {
   const menuRef = useRef<HTMLDivElement>(null);
   const navRef = useRef<HTMLElement>(null);
   const isHome = pathname === '/';
+  // Which background the wordmark sits on decides its gold: deep on light, bright on dark.
+  const logoTone = isHome ? (onDark ? 'dark' : 'light') : themeMode(activeTheme);
 
   useEffect(() => {
     let frame = 0;
@@ -96,14 +100,7 @@ export default function Navbar() {
         <div className={`container ${styles.navInner}`}>
           {/* Logo */}
           <Link href="/" className={styles.logo} aria-label="Sparsh Divine Art Studio - Home">
-            <Image
-              src="/brand/sparsh-wordmark.png"
-              alt="Sparsh Divine Art Studio"
-              width={892}
-              height={452}
-              priority
-              className={styles.logoImg}
-            />
+            <Wordmark tone={logoTone} className={styles.logoMark} />
           </Link>
 
           {/* Desktop Navigation */}
@@ -139,6 +136,7 @@ export default function Navbar() {
             </button>
           </div>
         </div>
+        <NavTrim season={activeTheme.season} />
       </nav>
 
       {/* Mobile Menu Overlay */}
@@ -155,7 +153,7 @@ export default function Navbar() {
         aria-modal="true"
       >
         <div className={styles.mobileMenuHeader}>
-          <Image src="/brand/sparsh-wordmark.png" alt="Sparsh Divine Art Studio" width={892} height={452} className={styles.logoImgMobileMenu} />
+          <Wordmark tone={themeMode(activeTheme)} size="sm" />
           <button onClick={() => setMenuOpen(false)} aria-label="Close menu" className={styles.iconBtn}>
             <X size={22} />
           </button>

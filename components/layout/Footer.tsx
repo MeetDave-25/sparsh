@@ -3,13 +3,17 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { Mail, Phone, Heart, MapPin, Globe } from 'lucide-react';
+import { useTheme } from '@/components/layout/ThemeProvider';
+import { FooterTrim } from '@/components/seasonal/SeasonArt';
 import styles from './Footer.module.css';
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const { activeTheme } = useTheme();
 
   return (
     <footer className={styles.footer}>
+      <FooterTrim season={activeTheme.season} />
       {/* WhatsApp Floating Button */}
       <a
         href="https://wa.me/918160901481"

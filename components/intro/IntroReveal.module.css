@@ -77,14 +77,14 @@
   padding: 0 12px;
 }
 
-/* Real type, not an image — a script-style serif in a warm gold gradient,
-   matching the italic accent treatment already used in the hero headline. */
+/* Real type, not an image — the same signature script as the logo, in a warm
+   gold gradient. */
 .wordmark {
-  font-family: var(--font-heading);
-  font-style: italic;
-  font-weight: 500;
-  font-size: clamp(2.6rem, 9vw, 5.2rem);
+  font-family: var(--font-signature), 'Mrs Saint Delafield', cursive;
+  font-weight: 400;
+  font-size: clamp(4.2rem, 14vw, 8.5rem);
   line-height: 1;
+  padding: 0.1em 0.25em 0;
   background: linear-gradient(135deg, #f3e0b0 0%, #d4af7a 50%, #b3894f 100%);
   -webkit-background-clip: text;
   background-clip: text;
