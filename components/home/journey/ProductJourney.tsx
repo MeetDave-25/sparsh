@@ -240,9 +240,7 @@ export default function ProductJourney({ hero, craft, scents }: Props) {
             <PetalField progress={progressRef} active lite={lite} />
           </div>
         )}
-        <p className={styles.giantWord} aria-hidden="true">
-          SpArsh
-        </p>
+        <div className={styles.giantWord} aria-hidden="true" />
 
         <div className={styles.heroGrid}>
           <div className={styles.heroCopy}>

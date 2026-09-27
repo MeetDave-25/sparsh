@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import Wordmark from '@/components/brand/Wordmark';
+import { themeMode } from '@/lib/themes';
 import { Mail, Phone, Heart, MapPin, Globe } from 'lucide-react';
 import { useTheme } from '@/components/layout/ThemeProvider';
 import { FooterTrim } from '@/components/seasonal/SeasonArt';
@@ -13,7 +14,7 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      <FooterTrim season={activeTheme.season} />
+      <FooterTrim season={activeTheme.season} decor={activeTheme.decor} />
       {/* WhatsApp Floating Button */}
       <a
         href="https://wa.me/918160901481"
@@ -34,13 +35,7 @@ export default function Footer() {
             {/* Brand Column */}
             <div className={styles.brandCol}>
               <Link href="/" className={styles.footerLogo} aria-label="Sparsh Divine Art Studio - Home">
-                <Image
-                  src="/brand/sparsh-wordmark.png"
-                  alt="Sparsh Divine Art Studio"
-                  width={892}
-                  height={452}
-                  className={styles.footerLogoImg}
-                />
+                <Wordmark tone={themeMode(activeTheme)} size="lg" className={styles.footerLogoImg} />
               </Link>
               <p className={styles.brandDesc}>
                 Handcrafted with love in India. Every piece carries a story, 

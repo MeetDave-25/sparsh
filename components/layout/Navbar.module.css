@@ -57,8 +57,8 @@
 }
 
 .logoMark {
-  /* The script's tall swashes would otherwise push the bar taller. */
-  margin: -10px 0 -6px;
+  /* The logo's tall A-stroke would otherwise push the bar taller. */
+  margin: -6px 0 -4px;
 }
 
 .navLinks {
@@ -351,3 +351,8 @@
 :global([data-season='monsoon']) .lux .luxCta { background: linear-gradient(120deg, #4A90A4 0%, #87A878 100%); box-shadow: 0 10px 30px -10px rgba(74, 144, 164, 0.7); }
 :global([data-season='monsoon']) .lux .navLink:hover,
 :global([data-season='monsoon']) .lux .navLink.active { color: #1F4E5F; }
+
+:global([data-palette]) .bannerLux { background: var(--p-banner); color: var(--p-banner-text); }
+:global([data-palette]) .lux .luxCta { background: var(--p-glow); }
+:global([data-palette]) .lux .navLink:hover,
+:global([data-palette]) .lux .navLink.active { color: var(--p-maroon); }

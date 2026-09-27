@@ -1,4 +1,5 @@
 import type { CSSProperties } from 'react';
+import type { ThemeDecor } from '@/lib/themes';
 import styles from './Seasonal.module.css';
 
 const TILES = 28;
@@ -112,8 +113,50 @@ function Lantern({ side }: { side: 'left' | 'right' }) {
   );
 }
 
+/** One repeat of a data-driven garland: triangle bunting along a swag, with an emoji swinging from the middle. */
+function DecorTile({ i, garland }: { i: number; garland: NonNullable<ThemeDecor['garland']> }) {
+  const W = 110;
+  const bunting = garland.bunting ?? [];
+  const items = garland.items ?? [];
+  const line = garland.string ?? (bunting.length ? '#6B5A4A' : '#8A6A3A');
+  const flags = bunting.length ? [0.14, 0.32, 0.68, 0.86] : [];
+  const mid = swag(0.5, W, 2, 20);
+  const item = items.length ? items[i % items.length] : null;
+  return (
+    <svg viewBox="0 0 110 60" width={W} height="60" className={styles.tile}>
+      <path d={`M0 2 Q${W / 2} 20 ${W} 2`} stroke={line} strokeWidth="1.2" fill="none" />
+      {flags.map((t, k) => {
+        const p = swag(t, W, 2, 20);
+        const color = bunting[(i * flags.length + k) % bunting.length];
+        return <path key={k} d={`M${p.x - 8} ${p.y - 1} L${p.x + 8} ${p.y - 1} L${p.x} ${p.y + 16} Z`} fill={color} stroke="rgba(0,0,0,0.12)" strokeWidth="0.6" />;
+      })}
+      {item && (
+        <g className={styles.swing} style={{ transformOrigin: `${mid.x}px ${mid.y}px`, animationDelay: `${(i % 5) * 0.3}s` }}>
+          <path d={`M${mid.x} ${mid.y} V${mid.y + 8}`} stroke={line} strokeWidth="0.9" />
+          <text x={mid.x} y={mid.y + 22} fontSize="20" textAnchor="middle" dominantBaseline="central">
+            {item}
+          </text>
+        </g>
+      )}
+    </svg>
+  );
+}
+
 /** Seasonal garland hanging from the bottom edge of the navbar. */
-export default function NavTrim({ season }: { season: string }) {
+export default function NavTrim({ season, decor }: { season: string; decor?: ThemeDecor }) {
+  if (decor) {
+    const garland = decor.garland;
+    if (!garland) return null;
+    return (
+      <div className={`${styles.trim} ${styles.trimDecor}`} aria-hidden="true">
+        <div className={styles.tiles}>
+          {Array.from({ length: TILES }, (_, i) => (
+            <DecorTile key={i} i={i} garland={garland} />
+          ))}
+        </div>
+      </div>
+    );
+  }
   const Tile =
     season === 'christmas'
       ? ChristmasTile

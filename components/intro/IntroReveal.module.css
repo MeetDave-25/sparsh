@@ -77,33 +77,9 @@
   padding: 0 12px;
 }
 
-/* Real type, not an image — the same signature script as the logo, in a warm
-   gold gradient. */
+/* The real logo; a drop-shadow glow is safe here because the fill is a mask, not clipped text. */
 .wordmark {
-  font-family: var(--font-signature), 'Mrs Saint Delafield', cursive;
-  font-weight: 400;
-  font-size: clamp(4.2rem, 14vw, 8.5rem);
-  line-height: 1;
-  padding: 0.1em 0.25em 0;
-  background: linear-gradient(135deg, #f3e0b0 0%, #d4af7a 50%, #b3894f 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  /* text-shadow, not filter: drop-shadow — a CSS filter on an element using
-     background-clip: text can break the clipped gradient fill entirely in
-     Chromium (renders fully invisible). text-shadow draws from the glyph
-     outlines regardless of fill color, so it's the safe way to add glow here. */
-  text-shadow: 0 0 30px rgba(212, 175, 122, 0.55), 0 0 64px rgba(212, 175, 122, 0.3);
-}
-
-.wordmarkSub {
-  margin-top: 10px;
-  font-size: 0.8rem;
-  font-weight: 500;
-  letter-spacing: 0.36em;
-  text-transform: uppercase;
-  color: rgba(232, 213, 176, 0.8);
-  white-space: nowrap;
+  filter: drop-shadow(0 0 22px rgba(212, 175, 122, 0.5)) drop-shadow(0 0 48px rgba(212, 175, 122, 0.25));
 }
 
 /* A single streak of light that catches the gold like foil under a spotlight */

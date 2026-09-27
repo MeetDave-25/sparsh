@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import Wordmark from '@/components/brand/Wordmark';
 import styles from './IntroReveal.module.css';
 
 const SEEN_KEY = 'sparsh_intro_seen';
@@ -101,8 +102,7 @@ export default function IntroReveal() {
                 animate={{ opacity: 1, scale: 1, y: 0 }}
                 transition={{ duration: 1.1, delay: 0.85, ease: EASE_OUT }}
               >
-                <span className={styles.wordmark}>SpArsh</span>
-                <span className={styles.wordmarkSub}>Divine Art Studio</span>
+                <Wordmark tone="dark" size="xl" className={styles.wordmark} />
                 <div className={styles.shimmer} />
               </motion.div>
             </div>

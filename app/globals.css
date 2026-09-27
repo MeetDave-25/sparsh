@@ -813,6 +813,20 @@ h4 { font-size: clamp(1.1rem, 2.5vw, 1.5rem); }
     linear-gradient(180deg, #10232C 0%, #081319 100%);
 }
 
+/* Data-only themes (lib/themes.ts derivedPalette) supply these on <html>. */
+[data-palette] .lux {
+  --ivory: var(--p-ivory);
+  --sand: var(--p-sand);
+  --ink: var(--p-ink);
+  --muted: var(--p-muted);
+  --maroon: var(--p-maroon);
+  --night: var(--p-night);
+  --gold: var(--p-gold);
+  --gold-text: var(--p-gold-text);
+  --glow: var(--p-glow);
+  --hero-bg: var(--p-hero-bg);
+}
+
 /* Inner-page hero glow per season (components/layout/PageHero). */
 [data-season='christmas'] {
   --page-hero-glow: #1F7A45;

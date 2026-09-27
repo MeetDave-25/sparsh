@@ -136,7 +136,7 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-        <NavTrim season={activeTheme.season} />
+        <NavTrim season={activeTheme.season} decor={activeTheme.decor} />
       </nav>
 
       {/* Mobile Menu Overlay */}

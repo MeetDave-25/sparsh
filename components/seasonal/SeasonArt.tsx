@@ -1,3 +1,5 @@
+import type { CSSProperties } from 'react';
+import type { ThemeDecor } from '@/lib/themes';
 import styles from './Seasonal.module.css';
 
 const HEART = 'M0,-0.2 C0,-0.45 -0.5,-0.5 -0.5,-0.15 C-0.5,0.1 -0.2,0.3 0,0.5 C0.2,0.3 0.5,0.1 0.5,-0.15 C0.5,-0.5 0,-0.45 0,-0.2 Z';
@@ -124,7 +126,19 @@ function MonsoonScene() {
 }
 
 /** A small festive vignette fixed to the bottom-left corner of every page. */
-export function SeasonScene({ season }: { season: string }) {
+export function SeasonScene({ season, decor }: { season: string; decor?: ThemeDecor }) {
+  if (decor) {
+    if (!decor.corner?.length) return null;
+    return (
+      <div className={`${styles.corner} ${styles.cornerEmoji}`}>
+        {decor.corner.map((e, i) => (
+          <span key={i} style={{ animationDelay: `${i * 0.45}s` }}>
+            {e}
+          </span>
+        ))}
+      </div>
+    );
+  }
   const Scene =
     season === 'christmas'
       ? ChristmasScene
@@ -144,8 +158,19 @@ export function SeasonScene({ season }: { season: string }) {
 }
 
 /** Seasonal edge sitting on top of the footer: a snow drift or a row of lights. */
-export function FooterTrim({ season }: { season: string }) {
-  if (season === 'christmas') {
+export function FooterTrim({ season, decor }: { season: string; decor?: ThemeDecor }) {
+  if (decor?.footerLights?.length) {
+    const colors = decor.footerLights;
+    return (
+      <div className={styles.footerLights} aria-hidden="true">
+        {Array.from({ length: 40 }, (_, i) => {
+          const c = colors[i % colors.length];
+          return <span key={i} style={{ animationDelay: `${(i % 6) * 0.25}s`, background: c, boxShadow: `0 0 8px 2px ${c}` } as CSSProperties} />;
+        })}
+      </div>
+    );
+  }
+  if (season === 'christmas' || decor?.footer === 'snow') {
     return (
       <svg className={styles.footerTrim} viewBox="0 0 1200 40" preserveAspectRatio="none" aria-hidden="true">
         <path

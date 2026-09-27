@@ -194,18 +194,12 @@
   left: 50%;
   top: 54%;
   translate: -50% -50%;
-  /* Same signature script as the logo, as a faint gold watermark. */
-  font-family: var(--font-signature), 'Mrs Saint Delafield', cursive;
-  font-weight: 400;
-  font-size: 26vw;
-  line-height: 1;
-  padding: 0.1em 0.3em;
-  white-space: nowrap;
-  background-image: linear-gradient(120deg, rgba(247, 231, 180, 0.2) 0%, rgba(212, 169, 79, 0.1) 50%, rgba(247, 231, 180, 0.18) 100%);
-  background-clip: text;
-  -webkit-background-clip: text;
-  color: transparent;
-  -webkit-text-stroke: 1px rgba(227, 190, 108, 0.32);
+  /* The real logo as a faint gold watermark. */
+  width: min(92vw, 1400px);
+  aspect-ratio: 817 / 375;
+  -webkit-mask: url('/brand/sparsh-logo-mask.png') center / contain no-repeat;
+  mask: url('/brand/sparsh-logo-mask.png') center / contain no-repeat;
+  background-image: linear-gradient(120deg, rgba(247, 231, 180, 0.34) 0%, rgba(212, 169, 79, 0.2) 50%, rgba(247, 231, 180, 0.3) 100%);
   pointer-events: none;
   user-select: none;
 }
@@ -765,7 +759,7 @@
   .anchorHero { width: min(62vw, 360px); }
   .badge { width: 92px; height: 92px; right: 0; top: 2%; }
   .tag { bottom: -6px; }
-  .giantWord { top: 72%; font-size: 40vw; }
+  .giantWord { top: 72%; width: 130vw; }
 
   .craftGrid { grid-template-columns: 1fr; }
   .archWrap { height: 440px; }

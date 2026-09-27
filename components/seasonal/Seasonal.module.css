@@ -83,6 +83,28 @@
 .wave { animation: waveShift 6s linear infinite; }
 .wave2 { animation: waveShift 4.5s linear infinite reverse; }
 
+/* Data-driven themes: a small row of bobbing emoji. */
+.cornerEmoji {
+  display: flex;
+  align-items: flex-end;
+  gap: 2px;
+  bottom: 10px;
+  font-size: 42px;
+  line-height: 1;
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif;
+}
+
+.cornerEmoji span {
+  display: inline-block;
+  animation: float 3.6s ease-in-out infinite;
+}
+
+.cornerEmoji span:nth-child(2) { font-size: 1.25em; }
+
+@media (max-width: 768px) {
+  .cornerEmoji { font-size: 26px; }
+}
+
 /* ---------- Navbar trim ---------- */
 .trim {
   position: absolute;
@@ -108,6 +130,7 @@
 
 .trim_christmas .tile { filter: drop-shadow(0 2px 3px rgba(20, 40, 60, 0.25)); }
 .trim_diwali .tile { filter: drop-shadow(0 3px 4px rgba(60, 25, 0, 0.3)); }
+.trimDecor .tile { filter: drop-shadow(0 2px 3px rgba(0, 0, 0, 0.18)); }
 
 .bulb {
   animation: bulb 1.4s ease-in-out infinite;

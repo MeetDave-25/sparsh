@@ -27,7 +27,8 @@
       "heroSubtitle": "Handcrafted with love — candles, resin art, jewellery & more, made just for you.",
       "heroCTA": "Explore Our Collection",
       "bannerText": "✨ Free shipping on orders above ₹999 | Made with love in India 🇮🇳",
-      "active": true
+      "active": true,
+      "group": "Everyday"
     },
     {
       "id": "diwali",
@@ -56,7 +57,8 @@
       "heroSubtitle": "Celebrate the festival of lights with our special Diwali collection — diyas, candles, and festive hampers.",
       "heroCTA": "Shop Diwali Collection",
       "bannerText": "🪔 Diwali Special — Order by Oct 25 for guaranteed delivery | Bulk orders welcome",
-      "active": false
+      "active": false,
+      "group": "Indian festivals"
     },
     {
       "id": "christmas",
@@ -85,7 +87,8 @@
       "heroSubtitle": "Spread Christmas cheer with our handcrafted candles, ornaments, and festive gift hampers.",
       "heroCTA": "Shop Christmas Gifts",
       "bannerText": "🎄 Christmas Special — Order by Dec 20 for guaranteed delivery | Gift wrapping available",
-      "active": false
+      "active": false,
+      "group": "Global occasions"
     },
     {
       "id": "valentine",
@@ -114,7 +117,8 @@
       "heroSubtitle": "Make this Valentine's Day unforgettable with our handcrafted love collection — jewellery, candles & more.",
       "heroCTA": "Shop Valentine's Gifts",
       "bannerText": "💕 Valentine's Special — Customise a gift for your love | Orders close Feb 12",
-      "active": false
+      "active": false,
+      "group": "Global occasions"
     },
     {
       "id": "monsoon",
@@ -143,7 +147,2121 @@
       "heroSubtitle": "Cosy monsoon days call for warm candlelight and handmade treasures. Explore our calming collection.",
       "heroCTA": "Explore Monsoon Edit",
       "bannerText": "🌧️ Monsoon Mood — Light a candle, curl up & shop | Free delivery on ₹799+",
-      "active": false
+      "active": false,
+      "group": "Seasons"
+    },
+    {
+      "id": "holi",
+      "name": "Holi",
+      "emoji": "🎨",
+      "season": "holi",
+      "colors": {
+        "primary": "#E0218A",
+        "primaryDark": "#AF1A6C",
+        "primaryLight": "#F19BCA",
+        "accent": "#FFB400",
+        "accentLight": "#FFDD8C",
+        "background": "#FFF8F2",
+        "backgroundAlt": "#FDEBEC",
+        "surface": "#FFFCF8",
+        "surfaceAlt": "#FCE2E8",
+        "text": "#3A1620",
+        "textMuted": "#755A5F",
+        "textLight": "#9C8789",
+        "border": "#F9CDDD",
+        "heroGradientFrom": "#F9D1DF",
+        "heroGradientTo": "#FFF8F2",
+        "heroBadge": "#FFB400"
+      },
+      "heroTitle": "Rang Barse,\nKhushiyan Barse",
+      "heroSubtitle": "Colour-splashed candles, gift hampers and handmade treats for the festival of colours.",
+      "heroCTA": "Shop Holi Collection",
+      "bannerText": "🎨 Happy Holi — Festive hampers & colourful gifts | Order by the 10th for delivery",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "float",
+          "dots": [
+            "#FF3D9A",
+            "#FFC300",
+            "#2EC4F1",
+            "#7CDA3F",
+            "#9B5DE5",
+            "#FF7A1A"
+          ],
+          "density": 0.35,
+          "max": 55,
+          "size": [
+            8,
+            18
+          ],
+          "speed": [
+            10,
+            26
+          ],
+          "opacity": [
+            0.45,
+            0.8
+          ]
+        },
+        "bursts": {
+          "style": "powder",
+          "colors": [
+            "#FF3D9A",
+            "#FFC300",
+            "#2EC4F1",
+            "#7CDA3F",
+            "#9B5DE5",
+            "#FF7A1A"
+          ],
+          "every": [
+            1600,
+            3400
+          ]
+        },
+        "garland": {
+          "bunting": [
+            "#FF3D9A",
+            "#FFC300",
+            "#2EC4F1",
+            "#7CDA3F",
+            "#9B5DE5"
+          ],
+          "items": [
+            "🎈",
+            "🌼",
+            "🎈",
+            "🌸"
+          ]
+        },
+        "corner": [
+          "🎨",
+          "🌈",
+          "🎈"
+        ]
+      },
+      "group": "Indian festivals"
+    },
+    {
+      "id": "onam",
+      "name": "Onam",
+      "emoji": "🌼",
+      "season": "onam",
+      "colors": {
+        "primary": "#D99A00",
+        "primaryDark": "#A97800",
+        "primaryLight": "#EED28C",
+        "accent": "#2F7D32",
+        "accentLight": "#A1C4A3",
+        "background": "#FFFAEC",
+        "backgroundAlt": "#FDF4DE",
+        "surface": "#FFFCF6",
+        "surfaceAlt": "#FBF0D4",
+        "text": "#392510",
+        "textMuted": "#746552",
+        "textLight": "#9C907E",
+        "border": "#F7E7BD",
+        "heroGradientFrom": "#F8E9C2",
+        "heroGradientTo": "#FFFAEC",
+        "heroBadge": "#2F7D32"
+      },
+      "heroTitle": "Onashamsakal,\nFrom Our Home",
+      "heroSubtitle": "Pookalam-bright candles and kasavu-gold gifts to welcome Maveli home.",
+      "heroCTA": "Shop Onam Collection",
+      "bannerText": "🌼 Onam Special — Sadhya-season gift hampers | Free gift wrap on all orders",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "fall",
+          "emoji": [
+            "🌼",
+            "🌸",
+            "🏵️",
+            "🌺"
+          ],
+          "density": 0.22,
+          "max": 32,
+          "size": [
+            16,
+            28
+          ],
+          "speed": [
+            22,
+            44
+          ],
+          "spin": true,
+          "opacity": [
+            0.7,
+            1
+          ]
+        },
+        "garland": {
+          "items": [
+            "🌼",
+            "🍃",
+            "🌸",
+            "🍃"
+          ],
+          "string": "#2F7D32"
+        },
+        "corner": [
+          "🛶",
+          "🌴",
+          "🐘"
+        ],
+        "footerLights": [
+          "#FFC21A",
+          "#FF8A00",
+          "#FFF1B8"
+        ]
+      },
+      "group": "Indian festivals"
+    },
+    {
+      "id": "navratri",
+      "name": "Navratri & Durga Puja",
+      "emoji": "🔱",
+      "season": "navratri",
+      "colors": {
+        "primary": "#D7263D",
+        "primaryDark": "#A81E30",
+        "primaryLight": "#ED9DA8",
+        "accent": "#F4B400",
+        "accentLight": "#FADD8C",
+        "background": "#1C0508",
+        "backgroundAlt": "#27070B",
+        "surface": "#2F080D",
+        "surfaceAlt": "#360A0F",
+        "text": "#F9E8E2",
+        "textMuted": "#B7A4A1",
+        "textLight": "#8A7675",
+        "border": "#4B0D15",
+        "heroGradientFrom": "#500E17",
+        "heroGradientTo": "#1C0508",
+        "heroBadge": "#F4B400"
+      },
+      "heroTitle": "Nau Raatein,\nNau Rang",
+      "heroSubtitle": "Celebrate nine nights of garba, dhunuchi and devotion with festive candles and decor.",
+      "heroCTA": "Shop Navratri Collection",
+      "bannerText": "🔱 Navratri & Durga Puja — Festive diyas, candles & hampers | Bulk orders welcome",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "rise",
+          "glow": [
+            [
+              "#FFF4C8",
+              "#FF8A1A"
+            ],
+            [
+              "#FFE3E8",
+              "#E0304A"
+            ]
+          ],
+          "emoji": [
+            "🌺"
+          ],
+          "density": 0.35,
+          "max": 50,
+          "size": [
+            5,
+            12
+          ],
+          "speed": [
+            16,
+            38
+          ],
+          "opacity": [
+            0.5,
+            0.95
+          ]
+        },
+        "garland": {
+          "items": [
+            "🌺",
+            "🔔",
+            "🌼",
+            "🔔"
+          ],
+          "string": "#B8860B"
+        },
+        "corner": [
+          "🥁",
+          "💃",
+          "🪔"
+        ],
+        "footerLights": [
+          "#FFC940",
+          "#E0304A",
+          "#FF8A00"
+        ]
+      },
+      "group": "Indian festivals"
+    },
+    {
+      "id": "ganesh",
+      "name": "Ganesh Chaturthi",
+      "emoji": "🌺",
+      "season": "ganesh",
+      "colors": {
+        "primary": "#E86A10",
+        "primaryDark": "#B5530C",
+        "primaryLight": "#F5BC93",
+        "accent": "#C8102E",
+        "accentLight": "#E693A1",
+        "background": "#FFF6EA",
+        "backgroundAlt": "#FEEEDD",
+        "surface": "#FFFAF4",
+        "surfaceAlt": "#FDE8D4",
+        "text": "#3B1F12",
+        "textMuted": "#766053",
+        "textLight": "#9D8A7E",
+        "border": "#FADABE",
+        "heroGradientFrom": "#FBDDC3",
+        "heroGradientTo": "#FFF6EA",
+        "heroBadge": "#C8102E"
+      },
+      "heroTitle": "Ganpati Bappa\nMorya",
+      "heroSubtitle": "Marigold-bright candles, diyas and hampers to welcome Bappa home.",
+      "heroCTA": "Shop Festive Collection",
+      "bannerText": "🌺 Ganesh Chaturthi — Pooja-ready candles & diyas | Order early for guaranteed delivery",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "fall",
+          "emoji": [
+            "🌺",
+            "🌼",
+            "🏵️"
+          ],
+          "density": 0.2,
+          "max": 30,
+          "size": [
+            16,
+            26
+          ],
+          "speed": [
+            22,
+            40
+          ],
+          "spin": true,
+          "opacity": [
+            0.75,
+            1
+          ]
+        },
+        "garland": {
+          "items": [
+            "🌼",
+            "🍃",
+            "🌼",
+            "🔔"
+          ],
+          "string": "#7A4A12"
+        },
+        "corner": [
+          "🪔",
+          "🌺",
+          "🪔"
+        ],
+        "footerLights": [
+          "#FFC21A",
+          "#FF8A00",
+          "#FFF1B8"
+        ]
+      },
+      "group": "Indian festivals"
+    },
+    {
+      "id": "janmashtami",
+      "name": "Janmashtami",
+      "emoji": "🦚",
+      "season": "janmashtami",
+      "colors": {
+        "primary": "#1B4F9C",
+        "primaryDark": "#153E7A",
+        "primaryLight": "#98B0D2",
+        "accent": "#E8B100",
+        "accentLight": "#F5DC8C",
+        "background": "#07122A",
+        "backgroundAlt": "#081631",
+        "surface": "#091835",
+        "surfaceAlt": "#0A1B3A",
+        "text": "#EEEAE7",
+        "textMuted": "#A9A9AE",
+        "textLight": "#7A7E88",
+        "border": "#0C2146",
+        "heroGradientFrom": "#0D234A",
+        "heroGradientTo": "#07122A",
+        "heroBadge": "#E8B100"
+      },
+      "heroTitle": "Nand Ke Anand\nBhayo",
+      "heroSubtitle": "Peacock-blue and butter-gold candles for the night Krishna arrives.",
+      "heroCTA": "Shop Janmashtami Collection",
+      "bannerText": "🦚 Janmashtami — Festive diyas & candles for your mandir | Free gift wrap",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "float",
+          "glow": [
+            [
+              "#FFF6CF",
+              "#E8B100"
+            ],
+            [
+              "#DFF8FF",
+              "#2FB6C9"
+            ]
+          ],
+          "emoji": [
+            "🦚"
+          ],
+          "density": 0.22,
+          "max": 34,
+          "size": [
+            5,
+            12
+          ],
+          "speed": [
+            8,
+            20
+          ],
+          "opacity": [
+            0.5,
+            0.95
+          ]
+        },
+        "garland": {
+          "items": [
+            "🦚",
+            "🌼",
+            "🔔",
+            "🌼"
+          ],
+          "string": "#E8B100"
+        },
+        "corner": [
+          "🏺",
+          "🦚",
+          "🧈"
+        ],
+        "footerLights": [
+          "#E8B100",
+          "#2FB6C9",
+          "#FFF1B8"
+        ]
+      },
+      "group": "Indian festivals"
+    },
+    {
+      "id": "raksha-bandhan",
+      "name": "Raksha Bandhan",
+      "emoji": "🎀",
+      "season": "raksha-bandhan",
+      "colors": {
+        "primary": "#D6336C",
+        "primaryDark": "#A72854",
+        "primaryLight": "#EDA3BD",
+        "accent": "#F2B233",
+        "accentLight": "#F9DCA3",
+        "background": "#FFF6F4",
+        "backgroundAlt": "#FDEAEC",
+        "surface": "#FFFAFA",
+        "surfaceAlt": "#FBE2E6",
+        "text": "#38191D",
+        "textMuted": "#745B5E",
+        "textLight": "#9C8888",
+        "border": "#F7CFD9",
+        "heroGradientFrom": "#F8D3DC",
+        "heroGradientTo": "#FFF6F4",
+        "heroBadge": "#F2B233"
+      },
+      "heroTitle": "Pyaar Ka\nPakka Dhaaga",
+      "heroSubtitle": "Thoughtful handmade gifts and hampers for the sibling who always has your back.",
+      "heroCTA": "Shop Rakhi Gifts",
+      "bannerText": "🎀 Raksha Bandhan — Rakhi gift hampers delivered across India | Order by the 5th",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "float",
+          "emoji": [
+            "🎀",
+            "✨",
+            "🌸"
+          ],
+          "density": 0.14,
+          "max": 22,
+          "size": [
+            14,
+            22
+          ],
+          "speed": [
+            8,
+            18
+          ],
+          "opacity": [
+            0.5,
+            0.85
+          ]
+        },
+        "garland": {
+          "items": [
+            "🌟",
+            "🎀",
+            "🌸",
+            "🎀"
+          ],
+          "string": "#D6336C"
+        },
+        "corner": [
+          "🎁",
+          "🎀",
+          "🍬"
+        ]
+      },
+      "group": "Indian festivals"
+    },
+    {
+      "id": "eid",
+      "name": "Eid Mubarak",
+      "emoji": "🌙",
+      "season": "eid",
+      "colors": {
+        "primary": "#1F7A5A",
+        "primaryDark": "#185F46",
+        "primaryLight": "#9AC3B5",
+        "accent": "#E3B53C",
+        "accentLight": "#F2DEA7",
+        "background": "#06140F",
+        "backgroundAlt": "#081A14",
+        "surface": "#081E16",
+        "surfaceAlt": "#0A221A",
+        "text": "#EEEDE3",
+        "textMuted": "#A8ACA3",
+        "textLight": "#7A8079",
+        "border": "#0C2E22",
+        "heroGradientFrom": "#0D3124",
+        "heroGradientTo": "#06140F",
+        "heroBadge": "#E3B53C"
+      },
+      "heroTitle": "Eid Mubarak,\nWith Love",
+      "heroSubtitle": "Lantern-lit candles and gift hampers to share the joy of Eid.",
+      "heroCTA": "Shop Eid Collection",
+      "bannerText": "🌙 Eid Mubarak — Festive gift hampers & candles | Order early for delivery",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "twinkle",
+          "emoji": [
+            "⭐",
+            "✨"
+          ],
+          "glow": [
+            [
+              "#FFF7D6",
+              "#E3B53C"
+            ]
+          ],
+          "density": 0.3,
+          "max": 46,
+          "size": [
+            5,
+            14
+          ],
+          "opacity": [
+            0.5,
+            1
+          ]
+        },
+        "garland": {
+          "items": [
+            "🏮",
+            "⭐",
+            "🌙",
+            "⭐"
+          ],
+          "string": "#E3B53C"
+        },
+        "corner": [
+          "🕌",
+          "🌙",
+          "🏮"
+        ],
+        "footerLights": [
+          "#E3B53C",
+          "#FFF1B8",
+          "#7FD1AE"
+        ]
+      },
+      "group": "Indian festivals"
+    },
+    {
+      "id": "sankranti",
+      "name": "Makar Sankranti & Pongal",
+      "emoji": "🪁",
+      "season": "sankranti",
+      "colors": {
+        "primary": "#1E88E5",
+        "primaryDark": "#176AB3",
+        "primaryLight": "#9AC9F3",
+        "accent": "#FF7A00",
+        "accentLight": "#FFC38C",
+        "background": "#F2F9FF",
+        "backgroundAlt": "#E5F2FD",
+        "surface": "#F8FCFF",
+        "surfaceAlt": "#DDEEFC",
+        "text": "#22232B",
+        "textMuted": "#60636B",
+        "textLight": "#8A8E95",
+        "border": "#C8E2FA",
+        "heroGradientFrom": "#CCE5FA",
+        "heroGradientTo": "#F2F9FF",
+        "heroBadge": "#FF7A00"
+      },
+      "heroTitle": "Kai Po Che!\nSkies of Colour",
+      "heroSubtitle": "Til-gul sweet gifts and sunny candles for the harvest festival of kites.",
+      "heroCTA": "Shop Sankranti Collection",
+      "bannerText": "🪁 Makar Sankranti, Pongal & Lohri — Harvest gift hampers | Pan-India delivery",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "drift",
+          "emoji": [
+            "🪁"
+          ],
+          "density": 0.07,
+          "max": 10,
+          "size": [
+            26,
+            40
+          ],
+          "speed": [
+            10,
+            22
+          ],
+          "opacity": [
+            0.85,
+            1
+          ]
+        },
+        "garland": {
+          "bunting": [
+            "#FF3D3D",
+            "#FFB400",
+            "#1E88E5",
+            "#2EBD59",
+            "#9B5DE5"
+          ],
+          "items": [
+            "🪁",
+            "🌾"
+          ]
+        },
+        "corner": [
+          "🌾",
+          "🍯",
+          "🐄"
+        ]
+      },
+      "group": "Indian festivals"
+    },
+    {
+      "id": "lohri",
+      "name": "Lohri",
+      "emoji": "🔥",
+      "season": "lohri",
+      "colors": {
+        "primary": "#E4572E",
+        "primaryDark": "#B24424",
+        "primaryLight": "#F3B3A1",
+        "accent": "#F3C13A",
+        "accentLight": "#FAE3A6",
+        "background": "#170904",
+        "backgroundAlt": "#230E07",
+        "surface": "#2C1108",
+        "surfaceAlt": "#34140A",
+        "text": "#FAEBE1",
+        "textMuted": "#B6A79F",
+        "textLight": "#887A72",
+        "border": "#4A1C0E",
+        "heroGradientFrom": "#501F10",
+        "heroGradientTo": "#170904",
+        "heroBadge": "#F3C13A"
+      },
+      "heroTitle": "Sunder Mundriye\nHo!",
+      "heroSubtitle": "Bonfire-warm candles and gift hampers for the first Lohri and every one after.",
+      "heroCTA": "Shop Lohri Collection",
+      "bannerText": "🔥 Happy Lohri — Warm candles & festive hampers | Order by the 10th",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "rise",
+          "glow": [
+            [
+              "#FFF1C2",
+              "#FF7A1A"
+            ],
+            [
+              "#FFE0B0",
+              "#E4572E"
+            ]
+          ],
+          "density": 0.5,
+          "max": 75,
+          "size": [
+            4,
+            10
+          ],
+          "speed": [
+            25,
+            55
+          ],
+          "opacity": [
+            0.5,
+            0.95
+          ]
+        },
+        "garland": {
+          "items": [
+            "🌾",
+            "🌽",
+            "🌾",
+            "🥜"
+          ],
+          "string": "#8A5A1A"
+        },
+        "corner": [
+          "🔥",
+          "🥁",
+          "🌽"
+        ],
+        "footerLights": [
+          "#FF7A1A",
+          "#F3C13A",
+          "#FFF1B8"
+        ]
+      },
+      "group": "Indian festivals"
+    },
+    {
+      "id": "baisakhi",
+      "name": "Baisakhi",
+      "emoji": "🌾",
+      "season": "baisakhi",
+      "colors": {
+        "primary": "#E0A100",
+        "primaryDark": "#AF7E00",
+        "primaryLight": "#F1D58C",
+        "accent": "#2E7D32",
+        "accentLight": "#A1C4A3",
+        "background": "#FFF9E6",
+        "backgroundAlt": "#FDF4D8",
+        "surface": "#FFFCF2",
+        "surfaceAlt": "#FCF0CF",
+        "text": "#3A2610",
+        "textMuted": "#756550",
+        "textLight": "#9C907B",
+        "border": "#F9E7B8",
+        "heroGradientFrom": "#F9E9BD",
+        "heroGradientTo": "#FFF9E6",
+        "heroBadge": "#2E7D32"
+      },
+      "heroTitle": "Fasal Di Khushi,\nDil Di Khushi",
+      "heroSubtitle": "Golden harvest-season candles and gifts, handcrafted with the same care.",
+      "heroCTA": "Shop Baisakhi Collection",
+      "bannerText": "🌾 Happy Baisakhi — Harvest-season gift hampers | Free gift wrap",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "fall",
+          "emoji": [
+            "🌾",
+            "🌼"
+          ],
+          "density": 0.14,
+          "max": 20,
+          "size": [
+            16,
+            26
+          ],
+          "speed": [
+            20,
+            38
+          ],
+          "spin": true,
+          "opacity": [
+            0.75,
+            1
+          ]
+        },
+        "garland": {
+          "bunting": [
+            "#E0A100",
+            "#FF6F00",
+            "#2E7D32",
+            "#D7263D"
+          ],
+          "items": [
+            "🌼"
+          ]
+        },
+        "corner": [
+          "🥁",
+          "🌾",
+          "🚜"
+        ]
+      },
+      "group": "Indian festivals"
+    },
+    {
+      "id": "karwa-chauth",
+      "name": "Karwa Chauth",
+      "emoji": "🌕",
+      "season": "karwa-chauth",
+      "colors": {
+        "primary": "#B3123C",
+        "primaryDark": "#8C0E2F",
+        "primaryLight": "#DD94A7",
+        "accent": "#E8B53C",
+        "accentLight": "#F5DEA7",
+        "background": "#1A0509",
+        "backgroundAlt": "#23060C",
+        "surface": "#29060E",
+        "surfaceAlt": "#2F0710",
+        "text": "#F7E6E1",
+        "textMuted": "#B5A2A0",
+        "textLight": "#887675",
+        "border": "#400816",
+        "heroGradientFrom": "#450917",
+        "heroGradientTo": "#1A0509",
+        "heroBadge": "#E8B53C"
+      },
+      "heroTitle": "Chand Sa\nPyaar",
+      "heroSubtitle": "Moonlit candles, diyas and thali-ready gifts for the evening you wait for.",
+      "heroCTA": "Shop Karwa Chauth Gifts",
+      "bannerText": "🌕 Karwa Chauth — Pooja diyas, candles & gift hampers | Order by the 15th",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "twinkle",
+          "glow": [
+            [
+              "#FFF6D8",
+              "#E8B53C"
+            ],
+            [
+              "#FFE6EA",
+              "#E0405E"
+            ]
+          ],
+          "emoji": [
+            "✨"
+          ],
+          "density": 0.25,
+          "max": 38,
+          "size": [
+            4,
+            12
+          ],
+          "opacity": [
+            0.5,
+            1
+          ]
+        },
+        "garland": {
+          "items": [
+            "🌼",
+            "🔔",
+            "🌼",
+            "🌺"
+          ],
+          "string": "#E8B53C"
+        },
+        "corner": [
+          "🌕",
+          "🪔",
+          "🌺"
+        ],
+        "footerLights": [
+          "#E8B53C",
+          "#E0405E",
+          "#FFF1B8"
+        ]
+      },
+      "group": "Indian festivals"
+    },
+    {
+      "id": "independence-day",
+      "name": "Independence & Republic Day",
+      "emoji": "🕊️",
+      "season": "independence-day",
+      "colors": {
+        "primary": "#FF7A1A",
+        "primaryDark": "#C75F14",
+        "primaryLight": "#FFC398",
+        "accent": "#138808",
+        "accentLight": "#95C990",
+        "background": "#FFFCF6",
+        "backgroundAlt": "#FFF4E9",
+        "surface": "#FFFEFA",
+        "surfaceAlt": "#FFEFE0",
+        "text": "#3D2113",
+        "textMuted": "#776357",
+        "textLight": "#9E8E84",
+        "border": "#FFE2CA",
+        "heroGradientFrom": "#FFE5CE",
+        "heroGradientTo": "#FFFCF6",
+        "heroBadge": "#138808"
+      },
+      "heroTitle": "Rang De\nTiranga",
+      "heroSubtitle": "Handmade in India, with pride — celebrate with tricolour candles and gifts.",
+      "heroCTA": "Shop Tricolour Collection",
+      "bannerText": "🕊️ Celebrating India — Proudly handmade in India | Special offers all week",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "fall",
+          "confetti": [
+            "#FF9933",
+            "#FFFFFF",
+            "#138808",
+            "#FF9933",
+            "#138808"
+          ],
+          "density": 0.35,
+          "max": 55,
+          "size": [
+            7,
+            12
+          ],
+          "speed": [
+            30,
+            60
+          ],
+          "spin": true,
+          "opacity": [
+            0.85,
+            1
+          ]
+        },
+        "garland": {
+          "bunting": [
+            "#FF9933",
+            "#FFFFFF",
+            "#138808"
+          ],
+          "items": [
+            "🪁"
+          ]
+        },
+        "corner": [
+          "🪁",
+          "🕊️",
+          "🪁"
+        ]
+      },
+      "group": "Indian festivals"
+    },
+    {
+      "id": "wedding",
+      "name": "Wedding Season",
+      "emoji": "💍",
+      "season": "wedding",
+      "colors": {
+        "primary": "#9E1B32",
+        "primaryDark": "#7B1527",
+        "primaryLight": "#D398A3",
+        "accent": "#D4A94F",
+        "accentLight": "#ECD8B0",
+        "background": "#FFF8EF",
+        "backgroundAlt": "#F9EBE4",
+        "surface": "#FFFCF7",
+        "surfaceAlt": "#F5E2DC",
+        "text": "#321616",
+        "textMuted": "#705A57",
+        "textLight": "#988782",
+        "border": "#ECCCC9",
+        "heroGradientFrom": "#EED0CD",
+        "heroGradientTo": "#FFF8EF",
+        "heroBadge": "#D4A94F"
+      },
+      "heroTitle": "Shaadi Ki\nRoshni",
+      "heroSubtitle": "Return gifts, mehndi-night candles and wedding hampers, made by hand for your big day.",
+      "heroCTA": "Shop Wedding Gifts",
+      "bannerText": "💍 Wedding Season — Custom return gifts & bulk hampers | Enquire for bulk pricing",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "fall",
+          "emoji": [
+            "🌼",
+            "🌹",
+            "🏵️"
+          ],
+          "density": 0.16,
+          "max": 24,
+          "size": [
+            14,
+            24
+          ],
+          "speed": [
+            22,
+            40
+          ],
+          "spin": true,
+          "opacity": [
+            0.75,
+            1
+          ]
+        },
+        "garland": {
+          "items": [
+            "🌼",
+            "🌼",
+            "🔔",
+            "🌼"
+          ],
+          "string": "#D4A94F"
+        },
+        "corner": [
+          "💍",
+          "🪔",
+          "💐"
+        ],
+        "footerLights": [
+          "#D4A94F",
+          "#FFF1B8",
+          "#E86A7A"
+        ]
+      },
+      "group": "Indian festivals"
+    },
+    {
+      "id": "new-year",
+      "name": "New Year",
+      "emoji": "🎆",
+      "season": "new-year",
+      "colors": {
+        "primary": "#D4AF37",
+        "primaryDark": "#A5882B",
+        "primaryLight": "#ECDBA5",
+        "accent": "#E84A8A",
+        "accentLight": "#F5AECA",
+        "background": "#0A0B1E",
+        "backgroundAlt": "#161520",
+        "surface": "#1E1B20",
+        "surfaceAlt": "#262222",
+        "text": "#F9F0E1",
+        "textMuted": "#B1ABA6",
+        "textLight": "#827E80",
+        "border": "#3C3424",
+        "heroGradientFrom": "#433925",
+        "heroGradientTo": "#0A0B1E",
+        "heroBadge": "#E84A8A"
+      },
+      "heroTitle": "Hello,\nNew Year",
+      "heroSubtitle": "Start the year with a little light — candles and gifts for fresh beginnings.",
+      "heroCTA": "Shop New Year Collection",
+      "bannerText": "🎆 Happy New Year — New year, new scents | Special offers this week",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "fall",
+          "confetti": [
+            "#D4AF37",
+            "#F7E7B4",
+            "#E84A8A",
+            "#6FD3FF",
+            "#FFFFFF"
+          ],
+          "density": 0.3,
+          "max": 50,
+          "size": [
+            6,
+            11
+          ],
+          "speed": [
+            26,
+            50
+          ],
+          "spin": true,
+          "opacity": [
+            0.75,
+            1
+          ]
+        },
+        "bursts": {
+          "style": "firework",
+          "colors": [
+            "#FFD34D",
+            "#F7E7B4",
+            "#E84A8A",
+            "#6FD3FF",
+            "#FFFFFF",
+            "#B38CFF"
+          ]
+        },
+        "garland": {
+          "items": [
+            "✨",
+            "🎉",
+            "✨",
+            "🎊"
+          ],
+          "string": "#D4AF37"
+        },
+        "corner": [
+          "🎉",
+          "🎁",
+          "🎊"
+        ],
+        "footerLights": [
+          "#D4AF37",
+          "#FFF1B8",
+          "#E84A8A"
+        ]
+      },
+      "group": "Global occasions"
+    },
+    {
+      "id": "easter",
+      "name": "Easter",
+      "emoji": "🐣",
+      "season": "easter",
+      "colors": {
+        "primary": "#8E7CC3",
+        "primaryDark": "#6F6198",
+        "primaryLight": "#CCC4E4",
+        "accent": "#F6B94A",
+        "accentLight": "#FBE0AE",
+        "background": "#FBF8FF",
+        "backgroundAlt": "#F4F1FB",
+        "surface": "#FDFCFF",
+        "surfaceAlt": "#F0ECF9",
+        "text": "#302127",
+        "textMuted": "#6D6268",
+        "textLight": "#968C93",
+        "border": "#E5DFF3",
+        "heroGradientFrom": "#E7E2F4",
+        "heroGradientTo": "#FBF8FF",
+        "heroBadge": "#F6B94A"
+      },
+      "heroTitle": "Hop Into\nSpring",
+      "heroSubtitle": "Pastel candles and sweet little gifts for egg hunts and spring brunches.",
+      "heroCTA": "Shop Easter Collection",
+      "bannerText": "🐣 Happy Easter — Pastel gift baskets & candles | Free gift wrap",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "fall",
+          "emoji": [
+            "🌷",
+            "🌼",
+            "🥚"
+          ],
+          "density": 0.12,
+          "max": 18,
+          "size": [
+            14,
+            22
+          ],
+          "speed": [
+            20,
+            36
+          ],
+          "spin": true,
+          "opacity": [
+            0.75,
+            1
+          ]
+        },
+        "garland": {
+          "bunting": [
+            "#F9C6D3",
+            "#C8E7C8",
+            "#FFE7A3",
+            "#C9D7F8",
+            "#E1CCF5"
+          ],
+          "items": [
+            "🥚"
+          ]
+        },
+        "corner": [
+          "🐰",
+          "🧺",
+          "🐣"
+        ]
+      },
+      "group": "Global occasions"
+    },
+    {
+      "id": "mothers-day",
+      "name": "Mother's Day",
+      "emoji": "💐",
+      "season": "mothers-day",
+      "colors": {
+        "primary": "#E0607E",
+        "primaryDark": "#AF4B62",
+        "primaryLight": "#F1B7C5",
+        "accent": "#C99A45",
+        "accentLight": "#E7D2AB",
+        "background": "#FFF7F7",
+        "backgroundAlt": "#FDEEF0",
+        "surface": "#FFFBFB",
+        "surfaceAlt": "#FCE8EB",
+        "text": "#3A1E1F",
+        "textMuted": "#755F60",
+        "textLight": "#9C8A8B",
+        "border": "#F9D9DF",
+        "heroGradientFrom": "#F9DCE1",
+        "heroGradientTo": "#FFF7F7",
+        "heroBadge": "#C99A45"
+      },
+      "heroTitle": "For the One\nWho Made Home",
+      "heroSubtitle": "Soft florals, soothing scents and handmade gifts to say thank you, Maa.",
+      "heroCTA": "Shop Mother's Day Gifts",
+      "bannerText": "💐 Mother's Day — Gift hampers with a handwritten note | Order by Friday",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "fall",
+          "emoji": [
+            "🌷",
+            "🌸",
+            "💗"
+          ],
+          "density": 0.12,
+          "max": 18,
+          "size": [
+            14,
+            22
+          ],
+          "speed": [
+            18,
+            34
+          ],
+          "spin": true,
+          "opacity": [
+            0.65,
+            0.95
+          ]
+        },
+        "garland": {
+          "items": [
+            "🌷",
+            "💗",
+            "🌸",
+            "💗"
+          ],
+          "string": "#E0607E"
+        },
+        "corner": [
+          "💐",
+          "💌",
+          "🎁"
+        ]
+      },
+      "group": "Global occasions"
+    },
+    {
+      "id": "fathers-day",
+      "name": "Father's Day",
+      "emoji": "👔",
+      "season": "fathers-day",
+      "colors": {
+        "primary": "#27476E",
+        "primaryDark": "#1E3756",
+        "primaryLight": "#9EACBE",
+        "accent": "#C48A3A",
+        "accentLight": "#E4CAA6",
+        "background": "#F5F8FC",
+        "backgroundAlt": "#E9EDF3",
+        "surface": "#FAFCFE",
+        "surfaceAlt": "#E0E6EE",
+        "text": "#231B1D",
+        "textMuted": "#625D60",
+        "textLight": "#8C8A8C",
+        "border": "#CCD5E0",
+        "heroGradientFrom": "#D0D8E2",
+        "heroGradientTo": "#F5F8FC",
+        "heroBadge": "#C48A3A"
+      },
+      "heroTitle": "For the Quiet\nHero at Home",
+      "heroSubtitle": "Woody, warm scents and thoughtful handmade gifts for Papa.",
+      "heroCTA": "Shop Father's Day Gifts",
+      "bannerText": "👔 Father's Day — Gift hampers for Dad | Order by Friday for delivery",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "float",
+          "emoji": [
+            "⭐",
+            "💙"
+          ],
+          "density": 0.08,
+          "max": 14,
+          "size": [
+            12,
+            18
+          ],
+          "speed": [
+            8,
+            16
+          ],
+          "opacity": [
+            0.45,
+            0.8
+          ]
+        },
+        "garland": {
+          "bunting": [
+            "#27476E",
+            "#C48A3A",
+            "#8FB3D9"
+          ]
+        },
+        "corner": [
+          "☕",
+          "🎁",
+          "👔"
+        ]
+      },
+      "group": "Global occasions"
+    },
+    {
+      "id": "halloween",
+      "name": "Halloween",
+      "emoji": "🎃",
+      "season": "halloween",
+      "colors": {
+        "primary": "#FF7518",
+        "primaryDark": "#C75B13",
+        "primaryLight": "#FFC197",
+        "accent": "#8E4FD6",
+        "accentLight": "#CCB0ED",
+        "background": "#120A1C",
+        "backgroundAlt": "#20101C",
+        "surface": "#2A151C",
+        "surfaceAlt": "#33191B",
+        "text": "#FBECDF",
+        "textMuted": "#B5A8A4",
+        "textLight": "#867B7E",
+        "border": "#4D251B",
+        "heroGradientFrom": "#54281B",
+        "heroGradientTo": "#120A1C",
+        "heroBadge": "#8E4FD6"
+      },
+      "heroTitle": "Spooky\nSeason",
+      "heroSubtitle": "Pumpkin-spice candles and cosy gifts for long, spooky nights.",
+      "heroCTA": "Shop Halloween Collection",
+      "bannerText": "🎃 Halloween — Pumpkin spice candles are back | Limited edition",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "float",
+          "emoji": [
+            "🦇",
+            "🦇",
+            "👻"
+          ],
+          "glow": [
+            [
+              "#FFE3B8",
+              "#FF7518"
+            ]
+          ],
+          "density": 0.14,
+          "max": 22,
+          "size": [
+            14,
+            24
+          ],
+          "speed": [
+            14,
+            30
+          ],
+          "opacity": [
+            0.55,
+            0.9
+          ]
+        },
+        "garland": {
+          "items": [
+            "🎃",
+            "🕸️",
+            "🦇",
+            "🕸️"
+          ],
+          "string": "#3A2A4A"
+        },
+        "corner": [
+          "🎃",
+          "👻",
+          "🕯️"
+        ],
+        "footerLights": [
+          "#FF7518",
+          "#8E4FD6",
+          "#FFE3B8"
+        ]
+      },
+      "group": "Global occasions"
+    },
+    {
+      "id": "sale",
+      "name": "Mega Sale",
+      "emoji": "🛍️",
+      "season": "sale",
+      "colors": {
+        "primary": "#E63946",
+        "primaryDark": "#B32C37",
+        "primaryLight": "#F4A6AC",
+        "accent": "#FFB703",
+        "accentLight": "#FFDF8E",
+        "background": "#FFF9F2",
+        "backgroundAlt": "#FEEDE8",
+        "surface": "#FFFCF8",
+        "surfaceAlt": "#FCE6E1",
+        "text": "#3A1918",
+        "textMuted": "#755C59",
+        "textLight": "#9C8985",
+        "border": "#FAD3D0",
+        "heroGradientFrom": "#FAD6D3",
+        "heroGradientTo": "#FFF9F2",
+        "heroBadge": "#FFB703"
+      },
+      "heroTitle": "The Big\nSparsh Sale",
+      "heroSubtitle": "Our favourite handmade candles and gifts at their lowest prices of the season.",
+      "heroCTA": "Shop the Sale",
+      "bannerText": "🛍️ MEGA SALE — Up to 40% off handmade favourites | Limited time only",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "fall",
+          "confetti": [
+            "#E63946",
+            "#FFB703",
+            "#219EBC",
+            "#8ECAE6",
+            "#FB8500"
+          ],
+          "density": 0.25,
+          "max": 40,
+          "size": [
+            6,
+            11
+          ],
+          "speed": [
+            28,
+            55
+          ],
+          "spin": true,
+          "opacity": [
+            0.85,
+            1
+          ]
+        },
+        "garland": {
+          "bunting": [
+            "#E63946",
+            "#FFB703",
+            "#219EBC",
+            "#FB8500"
+          ],
+          "items": [
+            "🏷️"
+          ]
+        },
+        "corner": [
+          "🛍️",
+          "🏷️",
+          "🎁"
+        ]
+      },
+      "group": "Global occasions"
+    },
+    {
+      "id": "summer",
+      "name": "Summer",
+      "emoji": "☀️",
+      "season": "summer",
+      "colors": {
+        "primary": "#F28C28",
+        "primaryDark": "#BD6D1F",
+        "primaryLight": "#F9CB9E",
+        "accent": "#1FA6A0",
+        "accentLight": "#9AD7D4",
+        "background": "#FFFBF1",
+        "backgroundAlt": "#FEF4E5",
+        "surface": "#FFFDF8",
+        "surfaceAlt": "#FEF0DD",
+        "text": "#3C2315",
+        "textMuted": "#766457",
+        "textLight": "#9E8F83",
+        "border": "#FCE5C9",
+        "heroGradientFrom": "#FDE7CD",
+        "heroGradientTo": "#FFFBF1",
+        "heroBadge": "#1FA6A0"
+      },
+      "heroTitle": "Sunshine\nin a Jar",
+      "heroSubtitle": "Fresh citrus, ocean and tropical scents for long, golden days.",
+      "heroCTA": "Shop Summer Collection",
+      "bannerText": "☀️ Summer Collection — Fresh, breezy scents are here | Free shipping above ₹999",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "float",
+          "dots": [
+            "#FFD166",
+            "#FFE8A3",
+            "#9FE3DE"
+          ],
+          "density": 0.14,
+          "max": 24,
+          "size": [
+            6,
+            14
+          ],
+          "speed": [
+            8,
+            18
+          ],
+          "opacity": [
+            0.35,
+            0.7
+          ]
+        },
+        "garland": {
+          "items": [
+            "🌻",
+            "🍋",
+            "🌻",
+            "🍉"
+          ],
+          "string": "#1FA6A0"
+        },
+        "corner": [
+          "🌴",
+          "🍹",
+          "🌞"
+        ]
+      },
+      "group": "Seasons"
+    },
+    {
+      "id": "winter",
+      "name": "Winter",
+      "emoji": "❄️",
+      "season": "winter",
+      "colors": {
+        "primary": "#4F7CAC",
+        "primaryDark": "#3E6186",
+        "primaryLight": "#B0C4DA",
+        "accent": "#C9A15B",
+        "accentLight": "#E7D5B5",
+        "background": "#F5F9FC",
+        "backgroundAlt": "#EBF2F7",
+        "surface": "#FAFCFE",
+        "surfaceAlt": "#E4ECF4",
+        "text": "#282124",
+        "textMuted": "#666265",
+        "textLight": "#8E8D90",
+        "border": "#D4E0EC",
+        "heroGradientFrom": "#D7E2EE",
+        "heroGradientTo": "#F5F9FC",
+        "heroBadge": "#C9A15B"
+      },
+      "heroTitle": "Warm Light,\nCold Nights",
+      "heroSubtitle": "Cosy vanilla, cinnamon and woody scents to warm up winter evenings.",
+      "heroCTA": "Shop Winter Collection",
+      "bannerText": "❄️ Winter Collection — Cosy scents for cold nights | Free shipping above ₹999",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "fall",
+          "glow": [
+            [
+              "#FFFFFF",
+              "#CFE0F0"
+            ]
+          ],
+          "emoji": [
+            "❄️"
+          ],
+          "density": 0.8,
+          "max": 110,
+          "size": [
+            3,
+            8
+          ],
+          "speed": [
+            20,
+            45
+          ],
+          "opacity": [
+            0.7,
+            1
+          ]
+        },
+        "garland": {
+          "items": [
+            "❄️",
+            "⭐",
+            "❄️",
+            "☕"
+          ],
+          "string": "#9BB5CF"
+        },
+        "corner": [
+          "⛄",
+          "☕",
+          "🧣"
+        ],
+        "footer": "snow"
+      },
+      "group": "Seasons"
+    },
+    {
+      "id": "autumn",
+      "name": "Autumn",
+      "emoji": "🍂",
+      "season": "autumn",
+      "colors": {
+        "primary": "#B5541C",
+        "primaryDark": "#8D4216",
+        "primaryLight": "#DEB299",
+        "accent": "#D9A441",
+        "accentLight": "#EED6AA",
+        "background": "#FFF8EF",
+        "backgroundAlt": "#FBEEE2",
+        "surface": "#FFFCF7",
+        "surfaceAlt": "#F8E8DA",
+        "text": "#351D13",
+        "textMuted": "#725F55",
+        "textLight": "#9A8A81",
+        "border": "#F0D7C5",
+        "heroGradientFrom": "#F2DAC9",
+        "heroGradientTo": "#FFF8EF",
+        "heroBadge": "#D9A441"
+      },
+      "heroTitle": "Golden Days,\nCosy Nights",
+      "heroSubtitle": "Spiced, woody and warm — our autumn candles for falling leaves.",
+      "heroCTA": "Shop Autumn Collection",
+      "bannerText": "🍂 Autumn Collection — Spiced & woody scents are back | Free gift wrap",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "fall",
+          "emoji": [
+            "🍂",
+            "🍁",
+            "🍂"
+          ],
+          "density": 0.14,
+          "max": 22,
+          "size": [
+            16,
+            26
+          ],
+          "speed": [
+            22,
+            42
+          ],
+          "spin": true,
+          "opacity": [
+            0.8,
+            1
+          ]
+        },
+        "garland": {
+          "items": [
+            "🍁",
+            "🍂",
+            "🌰",
+            "🍂"
+          ],
+          "string": "#7A4A22"
+        },
+        "corner": [
+          "🍄",
+          "🍂",
+          "🧺"
+        ]
+      },
+      "group": "Seasons"
+    },
+    {
+      "id": "spring",
+      "name": "Spring Blossom",
+      "emoji": "🌸",
+      "season": "spring",
+      "colors": {
+        "primary": "#E5739B",
+        "primaryDark": "#B35A79",
+        "primaryLight": "#F3C0D2",
+        "accent": "#7CB342",
+        "accentLight": "#C4DDAA",
+        "background": "#FFF8FA",
+        "backgroundAlt": "#FDF0F4",
+        "surface": "#FFFCFC",
+        "surfaceAlt": "#FCEBF0",
+        "text": "#3A2022",
+        "textMuted": "#756163",
+        "textLight": "#9C8C8E",
+        "border": "#FADDE7",
+        "heroGradientFrom": "#FAE0E9",
+        "heroGradientTo": "#FFF8FA",
+        "heroBadge": "#7CB342"
+      },
+      "heroTitle": "In Full\nBloom",
+      "heroSubtitle": "Fresh florals and soft pastel candles for the season of new beginnings.",
+      "heroCTA": "Shop Spring Collection",
+      "bannerText": "🌸 Spring Collection — Fresh florals just launched | Free shipping above ₹999",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "fall",
+          "emoji": [
+            "🌸",
+            "🌸",
+            "🌼"
+          ],
+          "density": 0.2,
+          "max": 30,
+          "size": [
+            12,
+            20
+          ],
+          "speed": [
+            18,
+            36
+          ],
+          "spin": true,
+          "opacity": [
+            0.7,
+            1
+          ]
+        },
+        "garland": {
+          "items": [
+            "🌸",
+            "🌿",
+            "🌸",
+            "🦋"
+          ],
+          "string": "#7CB342"
+        },
+        "corner": [
+          "🌷",
+          "🦋",
+          "🌸"
+        ]
+      },
+      "group": "Seasons"
+    },
+    {
+      "id": "wizard",
+      "name": "Wizarding Magic",
+      "emoji": "⚡",
+      "season": "wizard",
+      "colors": {
+        "primary": "#7A1E2C",
+        "primaryDark": "#5F1722",
+        "primaryLight": "#C39AA0",
+        "accent": "#D9A93E",
+        "accentLight": "#EED8A8",
+        "background": "#0B0D1A",
+        "backgroundAlt": "#120E1B",
+        "surface": "#160F1C",
+        "surfaceAlt": "#1B0F1D",
+        "text": "#F3E7E0",
+        "textMuted": "#ADA6A5",
+        "textLight": "#7F7A7D",
+        "border": "#27111E",
+        "heroGradientFrom": "#2A121F",
+        "heroGradientTo": "#0B0D1A",
+        "heroBadge": "#D9A93E"
+      },
+      "heroTitle": "A Little Bit\nof Magic",
+      "heroSubtitle": "Spellbinding candles and enchanted gifts for every witch, wizard and dreamer.",
+      "heroCTA": "Shop the Magic Collection",
+      "bannerText": "⚡ Wizarding Magic — Enchanted candles & spellbook gift boxes | Limited edition",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "float",
+          "emoji": [
+            "🕯️",
+            "🕯️"
+          ],
+          "glow": [
+            [
+              "#FFF3C4",
+              "#D9A93E"
+            ]
+          ],
+          "density": 0.22,
+          "max": 34,
+          "size": [
+            6,
+            22
+          ],
+          "speed": [
+            3,
+            9
+          ],
+          "opacity": [
+            0.6,
+            1
+          ]
+        },
+        "garland": {
+          "bunting": [
+            "#7A1E2C",
+            "#D9A93E",
+            "#1F4E3D",
+            "#D9A93E",
+            "#1C2E5C",
+            "#D9A93E",
+            "#E1B12C",
+            "#2B2B2B"
+          ],
+          "items": [
+            "⚡",
+            "⭐",
+            "🌙"
+          ]
+        },
+        "corner": [
+          "🦉",
+          "📜",
+          "🧹"
+        ],
+        "footerLights": [
+          "#D9A93E",
+          "#FFF3C4",
+          "#7A1E2C"
+        ]
+      },
+      "group": "Fun & fandom"
+    },
+    {
+      "id": "superhero",
+      "name": "Superhero Comics",
+      "emoji": "💥",
+      "season": "superhero",
+      "colors": {
+        "primary": "#E23636",
+        "primaryDark": "#B02A2A",
+        "primaryLight": "#F2A5A5",
+        "accent": "#FFD23F",
+        "accentLight": "#FFEBA9",
+        "background": "#0E1330",
+        "backgroundAlt": "#1B1530",
+        "surface": "#231631",
+        "surfaceAlt": "#2C1831",
+        "text": "#FAE9E1",
+        "textMuted": "#B3A9AC",
+        "textLight": "#847E88",
+        "border": "#431C32",
+        "heroGradientFrom": "#491D32",
+        "heroGradientTo": "#0E1330",
+        "heroBadge": "#FFD23F"
+      },
+      "heroTitle": "Assemble Your\nGift Squad",
+      "heroSubtitle": "Bold, action-packed gifts and candles for the superhero in your life.",
+      "heroCTA": "Shop Hero Collection",
+      "bannerText": "💥 Superhero Week — Gifts with superpowers | Limited edition packs",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "float",
+          "emoji": [
+            "⭐",
+            "⚡"
+          ],
+          "dots": [
+            "#FFD23F",
+            "#E23636",
+            "#3A86FF"
+          ],
+          "density": 0.12,
+          "max": 20,
+          "size": [
+            10,
+            18
+          ],
+          "speed": [
+            10,
+            22
+          ],
+          "opacity": [
+            0.55,
+            0.9
+          ]
+        },
+        "bursts": {
+          "style": "comic",
+          "colors": [
+            "#FFD23F",
+            "#FF6B35",
+            "#3A86FF",
+            "#FF4D6D"
+          ],
+          "words": [
+            "POW!",
+            "BAM!",
+            "ZAP!",
+            "WHAM!",
+            "BOOM!",
+            "KA-POW!"
+          ],
+          "every": [
+            2600,
+            5200
+          ]
+        },
+        "garland": {
+          "bunting": [
+            "#E23636",
+            "#FFD23F",
+            "#3A86FF"
+          ]
+        },
+        "corner": [
+          "🦸",
+          "🛡️",
+          "💥"
+        ]
+      },
+      "group": "Fun & fandom"
+    },
+    {
+      "id": "galaxy",
+      "name": "Galaxy & Space",
+      "emoji": "🚀",
+      "season": "galaxy",
+      "colors": {
+        "primary": "#6C5CE7",
+        "primaryDark": "#5448B4",
+        "primaryLight": "#BDB6F4",
+        "accent": "#00D2FF",
+        "accentLight": "#8CEBFF",
+        "background": "#05061A",
+        "backgroundAlt": "#0B0B26",
+        "surface": "#0F0F2E",
+        "surfaceAlt": "#131237",
+        "text": "#F2EBEC",
+        "textMuted": "#ABA6AD",
+        "textLight": "#7C7883",
+        "border": "#1F1C4D",
+        "heroGradientFrom": "#221E53",
+        "heroGradientTo": "#05061A",
+        "heroBadge": "#00D2FF"
+      },
+      "heroTitle": "Out of This\nWorld",
+      "heroSubtitle": "Cosmic candles and stellar gifts for stargazers and space lovers.",
+      "heroCTA": "Shop Galaxy Collection",
+      "bannerText": "🚀 Galaxy Collection — Cosmic scents have landed | Limited edition",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "twinkle",
+          "glow": [
+            [
+              "#FFFFFF",
+              "#A6B8FF"
+            ],
+            [
+              "#E6FBFF",
+              "#00D2FF"
+            ],
+            [
+              "#F3E6FF",
+              "#B38CFF"
+            ]
+          ],
+          "density": 0.6,
+          "max": 90,
+          "size": [
+            2,
+            8
+          ],
+          "opacity": [
+            0.5,
+            1
+          ]
+        },
+        "bursts": {
+          "style": "shooting",
+          "colors": [
+            "#FFFFFF"
+          ],
+          "every": [
+            2500,
+            6000
+          ]
+        },
+        "garland": {
+          "items": [
+            "🪐",
+            "⭐",
+            "🌙",
+            "⭐"
+          ],
+          "string": "#6C5CE7"
+        },
+        "corner": [
+          "🚀",
+          "🪐",
+          "🌠"
+        ]
+      },
+      "group": "Fun & fandom"
+    },
+    {
+      "id": "fairytale",
+      "name": "Fairytale",
+      "emoji": "🦄",
+      "season": "fairytale",
+      "colors": {
+        "primary": "#B565D8",
+        "primaryDark": "#8D4FA8",
+        "primaryLight": "#DEBAED",
+        "accent": "#F7B2D9",
+        "accentLight": "#FBDCEE",
+        "background": "#FCF7FF",
+        "backgroundAlt": "#F8EEFD",
+        "surface": "#FEFBFF",
+        "surfaceAlt": "#F5E8FB",
+        "text": "#351F2A",
+        "textMuted": "#71606A",
+        "textLight": "#988B94",
+        "border": "#EEDAF7",
+        "heroGradientFrom": "#EFDDF8",
+        "heroGradientTo": "#FCF7FF",
+        "heroBadge": "#F7B2D9"
+      },
+      "heroTitle": "Once Upon\na Candle",
+      "heroSubtitle": "Dreamy pastel candles and magical gifts fit for a princess (or a unicorn).",
+      "heroCTA": "Shop Fairytale Collection",
+      "bannerText": "🦄 Fairytale Collection — Dreamy gifts for little royals | Free gift wrap",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "float",
+          "emoji": [
+            "✨",
+            "🦋"
+          ],
+          "dots": [
+            "#F7B2D9",
+            "#C9B6FF",
+            "#FFE3A3"
+          ],
+          "density": 0.16,
+          "max": 26,
+          "size": [
+            8,
+            16
+          ],
+          "speed": [
+            8,
+            18
+          ],
+          "opacity": [
+            0.5,
+            0.9
+          ]
+        },
+        "garland": {
+          "bunting": [
+            "#F7B2D9",
+            "#C9B6FF",
+            "#FFE3A3",
+            "#B5EAD7"
+          ]
+        },
+        "corner": [
+          "🏰",
+          "🦄",
+          "👑"
+        ]
+      },
+      "group": "Fun & fandom"
+    },
+    {
+      "id": "cricket",
+      "name": "Cricket Fever",
+      "emoji": "🏏",
+      "season": "cricket",
+      "colors": {
+        "primary": "#1565C0",
+        "primaryDark": "#104F96",
+        "primaryLight": "#96BAE3",
+        "accent": "#FF8F00",
+        "accentLight": "#FFCD8C",
+        "background": "#F4F8FF",
+        "backgroundAlt": "#E7EFFB",
+        "surface": "#FAFCFF",
+        "surfaceAlt": "#DEE9F9",
+        "text": "#211F27",
+        "textMuted": "#606068",
+        "textLight": "#8A8C93",
+        "border": "#C7DBF2",
+        "heroGradientFrom": "#CCDEF4",
+        "heroGradientTo": "#F4F8FF",
+        "heroBadge": "#FF8F00"
+      },
+      "heroTitle": "Game On,\nIndia!",
+      "heroSubtitle": "Match-day hampers and gifts for the loudest fan in the house.",
+      "heroCTA": "Shop Match-Day Gifts",
+      "bannerText": "🏏 Cricket Fever — Match-day gift hampers | Special offers on big match days",
+      "active": false,
+      "decor": {
+        "particles": {
+          "motion": "fall",
+          "confetti": [
+            "#1565C0",
+            "#FF8F00",
+            "#FFFFFF",
+            "#2E7D32"
+          ],
+          "density": 0.2,
+          "max": 32,
+          "size": [
+            6,
+            11
+          ],
+          "speed": [
+            28,
+            55
+          ],
+          "spin": true,
+          "opacity": [
+            0.85,
+            1
+          ]
+        },
+        "garland": {
+          "bunting": [
+            "#FF9933",
+            "#FFFFFF",
+            "#138808",
+            "#1565C0"
+          ],
+          "items": [
+            "🏏"
+          ]
+        },
+        "corner": [
+          "🏏",
+          "🏆",
+          "🏟️"
+        ]
+      },
+      "group": "Fun & fandom"
     }
   ]
 }

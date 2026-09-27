@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
 import { getSiteTheme } from "@/lib/siteTheme";
-import { themeMode, themeStyle } from "@/lib/themes";
+import { hasDerivedPalette, themeMode, themeStyle } from "@/lib/themes";
 import { Cormorant_Garamond, Italianno, Jost, Mrs_Saint_Delafield } from "next/font/google";
 import "./globals.css";
 
@@ -86,6 +86,7 @@ export default async function RootLayout({
       className={`${cormorant.variable} ${italianno.variable} ${jost.variable} ${signature.variable}`}
       data-mode={themeMode(theme)}
       data-season={theme.season}
+      data-palette={hasDerivedPalette(theme) ? '' : undefined}
       style={themeStyle(theme) as CSSProperties}
     >
       <head>
@@ -95,7 +96,7 @@ export default async function RootLayout({
       <body>
         <ThemeProvider theme={theme}>
           <SmoothScroll />
-          <SeasonalDecor season={theme.season} />
+          <SeasonalDecor season={theme.season} decor={theme.decor} />
           <Navbar />
           <main id="main-content">
             {children}
