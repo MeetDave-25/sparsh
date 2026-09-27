@@ -1,7 +1,8 @@
 'use client';
 
 import Link from 'next/link';
-import { Mail, Phone, Heart, Sparkles, MapPin, Globe } from 'lucide-react';
+import Image from 'next/image';
+import { Mail, Phone, Heart, MapPin, Globe } from 'lucide-react';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -28,15 +29,15 @@ export default function Footer() {
           <div className={styles.footerGrid}>
             {/* Brand Column */}
             <div className={styles.brandCol}>
-              <div className={styles.footerLogo}>
-                <div className={styles.footerLogoIcon}>
-                  <Sparkles size={18} />
-                </div>
-                <div>
-                  <div className={styles.footerLogoMain}>Sparsh Divine</div>
-                  <div className={styles.footerLogoSub}>Art Studio</div>
-                </div>
-              </div>
+              <Link href="/" className={styles.footerLogo} aria-label="Sparsh Divine Art Studio - Home">
+                <Image
+                  src="/brand/sparsh-wordmark.png"
+                  alt="Sparsh Divine Art Studio"
+                  width={892}
+                  height={452}
+                  className={styles.footerLogoImg}
+                />
+              </Link>
               <p className={styles.brandDesc}>
                 Handcrafted with love in India. Every piece carries a story, 
                 made with intention and care. <span className="hindi-phrase">Dil se banaya, aapke liye.</span>

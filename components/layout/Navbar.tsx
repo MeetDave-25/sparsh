@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
-import { Menu, X, Sun, Moon, ShoppingBag } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { useTheme } from '@/components/layout/ThemeProvider';
 import styles from './Navbar.module.css';
 
@@ -20,7 +20,7 @@ const navLinks = [
 
 export default function Navbar() {
   const pathname = usePathname();
-  const { darkMode, toggleDarkMode, activeTheme } = useTheme();
+  const { activeTheme } = useTheme();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -123,15 +123,6 @@ export default function Navbar() {
 
           {/* Actions */}
           <div className={styles.actions}>
-            <button
-              onClick={toggleDarkMode}
-              className={styles.iconBtn}
-              aria-label={`Switch to ${darkMode === 'light' ? 'dark' : 'light'} mode`}
-              id="dark-mode-toggle"
-            >
-              {darkMode === 'light' ? <Moon size={18} /> : <Sun size={18} />}
-            </button>
-
             <Link href="/customize" className={`btn btn-primary btn-sm ${isHome ? styles.luxCta : ''}`} id="nav-customize-btn">
               Custom Order
             </Link>
@@ -186,9 +177,6 @@ export default function Navbar() {
           <Link href="/customize" className="btn btn-primary w-full" onClick={() => setMenuOpen(false)} id="mobile-customize-btn">
             ✨ Request Custom Order
           </Link>
-          <button onClick={toggleDarkMode} className="btn btn-secondary w-full" id="mobile-dark-toggle">
-            {darkMode === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
-          </button>
         </div>
       </div>
     </>

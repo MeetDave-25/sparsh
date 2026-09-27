@@ -43,8 +43,26 @@ export function getActiveTheme(): Theme {
   return themes.find(t => t.active) || themes[0];
 }
 
-export function getThemeById(id: ThemeId): Theme | undefined {
+export function getThemeById(id: string): Theme | undefined {
   return getAllThemes().find(t => t.id === id);
+}
+
+/** Whether a theme's palette is dark or light, from its background luminance. */
+export function themeMode(theme: Theme): 'light' | 'dark' {
+  const hex = theme.colors.background.replace('#', '');
+  const [r, g, b] = [0, 2, 4].map((i) => parseInt(hex.slice(i, i + 2), 16) / 255);
+  const luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b;
+  return luminance < 0.4 ? 'dark' : 'light';
+}
+
+/** The theme's CSS custom properties as a style object for the <html> element. */
+export function themeStyle(theme: Theme): Record<string, string> {
+  const style: Record<string, string> = {};
+  for (const declaration of generateCSSVariables(theme).split(';')) {
+    const [prop, val] = declaration.split(':').map((s) => s.trim());
+    if (prop && val) style[prop] = val;
+  }
+  return style;
 }
 
 export function generateCSSVariables(theme: Theme): string {

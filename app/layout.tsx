@@ -1,4 +1,7 @@
 import type { Metadata } from "next";
+import type { CSSProperties } from "react";
+import { getSiteTheme } from "@/lib/siteTheme";
+import { themeMode, themeStyle } from "@/lib/themes";
 import { Cormorant_Garamond, Italianno, Jost } from "next/font/google";
 import "./globals.css";
 
@@ -61,19 +64,26 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const theme = await getSiteTheme();
+
   return (
-    <html lang="en" className={`${cormorant.variable} ${italianno.variable} ${jost.variable}`}>
+    <html
+      lang="en"
+      className={`${cormorant.variable} ${italianno.variable} ${jost.variable}`}
+      data-mode={themeMode(theme)}
+      style={themeStyle(theme) as CSSProperties}
+    >
       <head>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body>
-        <ThemeProvider>
+        <ThemeProvider theme={theme}>
           <SmoothScroll />
           <Navbar />
           <main id="main-content">
