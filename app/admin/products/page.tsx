@@ -1,9 +1,12 @@
 import Link from 'next/link';
-import Image from 'next/image';
-import { isRemoteImage } from '@/lib/homeContent';
+import ProductImage from '@/components/product/ProductImage';
 import { prisma } from '@/lib/prisma';
 import styles from './ProductsAdmin.module.css';
-import { Edit, Trash, Plus } from 'lucide-react';
+import { Edit, Plus } from 'lucide-react';
+import DeleteProductButton from './DeleteProductButton';
+
+// Always show the latest list after adding, editing or deleting.
+export const dynamic = 'force-dynamic';
 
 export default async function AdminProductsPage() {
   const products = await prisma.product.findMany({
@@ -32,40 +35,27 @@ export default async function AdminProductsPage() {
             </tr>
           </thead>
           <tbody>
-            {products.map((product: any) => (
+            {products.map((product) => (
               <tr key={product.id}>
-                <td>
+                <td className={styles.imgCell}>
                   <div className={styles.imgWrapper}>
-                    {product.images[0] ? (
-                      <Image 
-                        src={product.images[0]} 
-                        unoptimized={isRemoteImage(product.images[0])}
-                        alt={product.name} 
-                        fill 
-                        style={{ objectFit: 'cover' }} 
-                      />
-                    ) : (
-                      <div className={styles.noImg}>No Img</div>
-                    )}
+                    <ProductImage src={product.images[0]} alt={product.name} fill sizes="56px" style={{ objectFit: 'cover' }} />
                   </div>
                 </td>
-                <td className={styles.fw600}>{product.name}</td>
-                <td>{product.category}</td>
-                <td>₹{product.price}</td>
-                <td>
+                <td className={`${styles.fw600} ${styles.nameCell}`}>{product.name}</td>
+                <td className={styles.catCell}>{product.category}</td>
+                <td className={styles.priceCell}>₹{product.price}</td>
+                <td className={styles.statusCell}>
                   <span className={`${styles.badge} ${styles['badge-' + product.stock.replace(/_/g, '-')]}`}>
                     {product.stock.replace(/_/g, ' ')}
                   </span>
                 </td>
-                <td>
+                <td className={styles.actionsCell}>
                   <div className={styles.actions}>
-                    <Link href={`/admin/products/${product.id}/edit`} className={styles.actionBtn}>
+                    <Link href={`/admin/products/${product.id}/edit`} className={styles.actionBtn} aria-label={`Edit ${product.name}`}>
                       <Edit size={16} />
                     </Link>
-                    {/* Note: In a real app we would have a delete confirmation modal */}
-                    <button className={`${styles.actionBtn} ${styles.danger}`}>
-                      <Trash size={16} />
-                    </button>
+                    <DeleteProductButton id={product.id} name={product.name} />
                   </div>
                 </td>
               </tr>

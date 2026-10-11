@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import Wordmark from '@/components/brand/Wordmark';
 import { themeMode } from '@/lib/themes';
 import { Mail, Phone, Heart, MapPin } from 'lucide-react';
@@ -13,9 +14,12 @@ import styles from './Footer.module.css';
 
 export default function Footer() {
   const year = new Date().getFullYear();
+  const pathname = usePathname();
   const { activeTheme } = useTheme();
   const { contact, social, footer, features } = useSite();
   const wa = whatsappLink(contact.whatsappNumber);
+  // Admin has its own layout.
+  if (pathname.startsWith('/admin')) return null;
 
   return (
     <footer className={styles.footer}>

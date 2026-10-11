@@ -3,15 +3,23 @@
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { LayoutDashboard, Palette, LogOut, Package, FileText, Home, Image as ImageIcon, Settings, BookOpen, HelpCircle, Mail, Images, ShoppingBag } from 'lucide-react';
+import { LayoutDashboard, Palette, LogOut, Package, FileText, Home, Image as ImageIcon, Settings, BookOpen, HelpCircle, Mail, Images, ShoppingBag, Menu, X, ExternalLink } from 'lucide-react';
 import styles from './admin.module.css';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
   const [auth, setAuth] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
   const router = useRouter();
   const pathname = usePathname();
 
   const isLoginPage = pathname === '/admin';
+
+  // Close the phone menu whenever the page changes.
+  const [lastPath, setLastPath] = useState(pathname);
+  if (lastPath !== pathname) {
+    setLastPath(pathname);
+    setMenuOpen(false);
+  }
 
   useEffect(() => {
     if (isLoginPage) return;
@@ -49,11 +57,29 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
     { href: '/admin/themes', icon: Palette, label: 'Seasonal Themes' },
   ];
 
+  const current = links.find((l) => pathname.startsWith(l.href));
+
   return (
     <div className={styles.adminLayout}>
-      <aside className={styles.sidebar}>
+      {/* Phone top bar */}
+      <header className={styles.topBar}>
+        <button type="button" className={styles.topBarBtn} onClick={() => setMenuOpen(true)} aria-label="Open admin menu" aria-expanded={menuOpen}>
+          <Menu size={22} />
+        </button>
+        <span className={styles.topBarTitle}>{current?.label ?? 'Studio Admin'}</span>
+        <a href="/" target="_blank" rel="noopener noreferrer" className={styles.topBarBtn} aria-label="View website">
+          <ExternalLink size={18} />
+        </a>
+      </header>
+
+      {menuOpen && <div className={styles.sidebarOverlay} onClick={() => setMenuOpen(false)} aria-hidden="true" />}
+
+      <aside className={`${styles.sidebar} ${menuOpen ? styles.sidebarOpen : ''}`}>
         <div className={styles.sidebarHeader}>
           <h2>Studio Admin</h2>
+          <button type="button" className={styles.sidebarClose} onClick={() => setMenuOpen(false)} aria-label="Close admin menu">
+            <X size={20} />
+          </button>
         </div>
         <nav className={styles.sidebarNav}>
           {links.map(link => {

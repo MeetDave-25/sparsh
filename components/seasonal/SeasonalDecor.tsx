@@ -2,6 +2,7 @@
 
 import { useEffect, useRef } from 'react';
 import { useReducedMotion } from 'framer-motion';
+import { usePathname } from 'next/navigation';
 import type { ThemeDecor } from '@/lib/themes';
 import { SeasonScene } from './SeasonArt';
 import styles from './Seasonal.module.css';
@@ -366,9 +367,10 @@ function starburst(ctx: CanvasRenderingContext2D, r: number, points = 12) {
 export default function SeasonalDecor({ season, decor }: { season: Season; decor?: ThemeDecor }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const reduce = useReducedMotion();
+  const inAdmin = usePathname().startsWith('/admin');
 
   useEffect(() => {
-    if (reduce) return;
+    if (reduce || inAdmin) return;
     const canvas = canvasRef.current;
     const ctx = canvas?.getContext('2d');
     const config = configFor(season, decor);
@@ -608,7 +610,9 @@ export default function SeasonalDecor({ season, decor }: { season: Season; decor
       window.removeEventListener('resize', resize);
       document.removeEventListener('visibilitychange', onVisibility);
     };
-  }, [season, decor, reduce]);
+  }, [season, decor, reduce, inAdmin]);
+
+  if (inAdmin) return null;
 
   return (
     <div className={styles.decor} aria-hidden="true">

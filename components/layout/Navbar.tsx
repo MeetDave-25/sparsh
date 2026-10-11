@@ -74,6 +74,9 @@ export default function Navbar() {
     return pathname.startsWith(href);
   };
 
+  // Admin has its own sidebar and top bar.
+  if (pathname.startsWith('/admin')) return null;
+
   return (
     <>
       {/* Scroll Progress Bar */}
