@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
-import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import Image from 'next/image';
 import { AnimatePresence, motion, useMotionValueEvent, useReducedMotion, useScroll } from 'framer-motion';
@@ -9,7 +8,6 @@ import { ArrowRight, ChevronDown, Flame, Hourglass, Leaf, Sparkles } from 'lucid
 import type { CraftContent, HeroContent, ScentsContent } from '@/lib/homeContent';
 import styles from './ProductJourney.module.css';
 
-const PetalField = dynamic(() => import('../hero3d/PetalField'), { ssr: false });
 
 const EASE = [0.22, 1, 0.36, 1] as const;
 
@@ -47,15 +45,9 @@ export default function ProductJourney({ hero, craft, scents }: Props) {
   const glowRef = useRef<HTMLDivElement>(null);
   const shadowRef = useRef<HTMLDivElement>(null);
   const finaleRef = useRef<HTMLDivElement>(null);
-  const progressRef = useRef(0);
   const [scent, setScent] = useState(0);
   const [shown, setShown] = useState(0);
   const [ready, setReady] = useState(false);
-  const [lite] = useState(
-    () =>
-      typeof window !== 'undefined' &&
-      (window.matchMedia('(max-width: 768px)').matches || (navigator.hardwareConcurrency || 8) <= 4),
-  );
 
   const details = JARS.map((jar) => {
     const item = scents.items.find((s) => s.name.toLowerCase() === jar.key.toLowerCase());
@@ -66,7 +58,6 @@ export default function ProductJourney({ hero, craft, scents }: Props) {
   // The finale pins for four steps; each step turns the jar to the next scent.
   const { scrollYProgress: finaleProgress } = useScroll({ target: finaleRef, offset: ['start start', 'end end'] });
   useMotionValueEvent(finaleProgress, 'change', (v) => {
-    progressRef.current = v;
     const next = Math.min(JARS.length - 1, Math.max(0, Math.floor(v * JARS.length * 0.999)));
     setScent((s) => (s === next ? s : next));
   });
@@ -235,11 +226,6 @@ export default function ProductJourney({ hero, craft, scents }: Props) {
 
       {/* ---------------- 1. Hero ---------------- */}
       <section className={styles.hero} data-nav="dark">
-        {!reduce && (
-          <div className={styles.petals} aria-hidden="true">
-            <PetalField progress={progressRef} active lite={lite} />
-          </div>
-        )}
         <div className={styles.giantWord} aria-hidden="true" />
 
         <div className={styles.heroGrid}>

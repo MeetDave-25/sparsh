@@ -2,7 +2,7 @@
   position: fixed;
   inset: 0;
   z-index: 9999;
-  background: #000;
+  background: radial-gradient(ellipse 80% 70% at 50% 40%, #241014 0%, #120709 55%, #070304 100%);
   overflow: hidden;
   will-change: clip-path;
 }
@@ -11,7 +11,6 @@
   position: absolute;
   inset: 0;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -19,125 +18,155 @@
 .vignette {
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 70% 60% at 50% 50%, transparent 0%, rgba(0, 0, 0, 0.7) 100%);
+  background: radial-gradient(ellipse 75% 70% at 50% 45%, transparent 40%, rgba(0, 0, 0, 0.65) 100%);
   pointer-events: none;
 }
 
-/* Shrink-wraps the wordmark's own box; flame and glow are centered relative
-   to this box, not the overlay, so they always land behind the wordmark
-   regardless of what renders below it. */
-.stage {
-  position: relative;
-  width: fit-content;
-  max-width: 90vw;
-}
-
-/* The ignition point: a small warm dot that flickers like a struck match */
-.flame {
+/* A warm beam falling from above onto the plinth. */
+.spotlight {
   position: absolute;
-  top: 50%;
+  top: -10%;
   left: 50%;
-  translate: -50% -50%;
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background: #ffe9b8;
-  box-shadow: 0 0 20px 8px rgba(255, 214, 140, 0.9), 0 0 60px 24px rgba(212, 175, 122, 0.5);
-  animation: flicker 2.6s ease-in-out infinite;
-  animation-delay: 0.75s;
-}
-
-@keyframes flicker {
-  0%, 100% { transform: scale(1); opacity: 0.95; }
-  20% { transform: scale(1.18); opacity: 1; }
-  45% { transform: scale(0.9); opacity: 0.82; }
-  70% { transform: scale(1.1); opacity: 1; }
-  85% { transform: scale(0.96); opacity: 0.88; }
-}
-
-/* The bloom of light the flame casts across the darkness */
-.glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  translate: -50% -50%;
-  width: min(90vw, 900px);
-  height: min(90vw, 900px);
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(212, 175, 122, 0.28) 0%, rgba(122, 37, 64, 0.16) 45%, transparent 72%);
-  filter: blur(10px);
+  width: min(70vw, 760px);
+  height: 75%;
+  translate: -50% 0;
+  background: radial-gradient(ellipse 50% 100% at 50% 0%, rgba(255, 224, 170, 0.16) 0%, rgba(255, 210, 150, 0.06) 45%, transparent 75%);
+  clip-path: polygon(38% 0, 62% 0, 100% 100%, 0 100%);
+  filter: blur(18px);
   pointer-events: none;
 }
 
-.logoWrap {
+.scene {
   position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 12px;
+  padding: 0 24px;
+  text-align: center;
 }
 
-/* The real logo; a drop-shadow glow is safe here because the fill is a mask, not clipped text. */
-.wordmark {
-  filter: drop-shadow(0 0 22px rgba(212, 175, 122, 0.5)) drop-shadow(0 0 48px rgba(212, 175, 122, 0.25));
+.podium {
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.mascot {
+  position: relative;
+  z-index: 1;
+  /* Sized from the viewport height so the whole column always fits. */
+  width: clamp(130px, 26vh, 240px);
+}
+
+/* Gold-rimmed disc the panda stands on, with a soft pool of light. */
+.plinth {
+  position: absolute;
+  z-index: 0;
+  left: 50%;
+  bottom: -26px;
+  width: clamp(200px, 40vh, 360px);
+  height: clamp(30px, 6vh, 52px);
+  translate: -50% 0;
+  border-radius: 50%;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(255, 220, 160, 0.35) 0%, rgba(212, 175, 122, 0.12) 45%, transparent 70%),
+    linear-gradient(180deg, #3a2418 0%, #1b0f0b 100%);
+  box-shadow:
+    inset 0 2px 0 rgba(243, 224, 176, 0.65),
+    inset 0 -6px 14px rgba(0, 0, 0, 0.6),
+    0 0 60px 6px rgba(212, 175, 122, 0.18),
+    0 18px 30px -10px rgba(0, 0, 0, 0.8);
+  transform-origin: center;
+}
+
+.logoWrap {
+  position: relative;
+  margin-top: clamp(28px, 5vh, 48px);
+  /* Keeps the light sweep from showing outside the logo while it waits. */
+  overflow: hidden;
+}
+
+.logoWrap .wordmark {
+  display: block;
+  height: clamp(70px, 11vh, 118px);
+  filter: drop-shadow(0 0 18px rgba(212, 175, 122, 0.35));
 }
 
 /* A single streak of light that catches the gold like foil under a spotlight */
 .shimmer {
   position: absolute;
   inset: 0;
-  background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.55) 50%, transparent 60%);
+  background: linear-gradient(115deg, transparent 40%, rgba(255, 255, 255, 0.5) 50%, transparent 60%);
   mix-blend-mode: screen;
   transform: translateX(-120%);
-  animation: shimmerSweep 1.3s ease-in-out 2.05s 1;
+  animation: shimmerSweep 1.3s ease-in-out 2.2s 1;
 }
 
 @keyframes shimmerSweep {
   to { transform: translateX(120%); }
 }
 
-.rule {
-  width: 130px;
-  height: 1px;
-  margin-top: 22px;
-  background: linear-gradient(90deg, transparent, var(--color-accent, #d4af7a), transparent);
-  transform-origin: center;
-}
-
 .tagline {
-  margin-top: 18px;
+  margin-top: 14px;
   font-size: 0.72rem;
   font-weight: 500;
-  letter-spacing: 0.32em;
+  letter-spacing: 0.3em;
   text-transform: uppercase;
-  color: rgba(232, 213, 176, 0.75);
+  color: rgba(232, 213, 176, 0.7);
 }
 
-.skip {
-  position: absolute;
-  bottom: 28px;
-  right: 28px;
-  padding: 8px 16px;
+/* Gold pill with a hairline that fills as the auto-continue timer runs. */
+.enter {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: clamp(22px, 4vh, 34px);
+  padding: 14px 32px;
+  overflow: hidden;
+  border: 0;
   border-radius: 999px;
-  border: 1px solid rgba(232, 213, 176, 0.3);
-  background: rgba(255, 255, 255, 0.04);
-  color: rgba(232, 213, 176, 0.7);
-  font-size: 0.72rem;
-  letter-spacing: 0.1em;
+  background: linear-gradient(120deg, #f3e0b0 0%, #d4af7a 55%, #b3894f 100%);
+  color: #2a1608;
+  font: inherit;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   cursor: pointer;
-  transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+  box-shadow: 0 12px 34px -12px rgba(212, 175, 122, 0.7);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
-.skip:hover {
-  border-color: rgba(232, 213, 176, 0.6);
-  color: #f0e2bf;
-  background: rgba(255, 255, 255, 0.08);
+.enter:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 40px -12px rgba(212, 175, 122, 0.9);
+}
+
+.enter:focus-visible {
+  outline: 2px solid #f3e0b0;
+  outline-offset: 3px;
+}
+
+.timer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: rgba(42, 22, 8, 0.45);
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: timer linear 2s forwards;
+}
+
+@keyframes timer {
+  to { transform: scaleX(1); }
 }
 
 @media (max-width: 600px) {
-  .stage { width: 82vw; }
-  .glow { width: 110vw; height: 110vw; }
-  .tagline { font-size: 0.62rem; letter-spacing: 0.24em; text-align: center; padding: 0 24px; }
-  .skip { bottom: 20px; right: 20px; }
+  .mascot { width: clamp(120px, 21vh, 190px); }
+  .plinth { width: clamp(180px, 34vh, 280px); }
+  .tagline { font-size: 0.6rem; letter-spacing: 0.22em; }
+  .logoWrap .wordmark { height: clamp(64px, 20vw, 90px); }
 }
