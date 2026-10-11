@@ -2,8 +2,7 @@
 
 import { useState, useMemo } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
-import { isRemoteImage } from '@/lib/homeContent';
+import ProductImage from '@/components/product/ProductImage';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { Search, SlidersHorizontal } from 'lucide-react';
 import PageHero from '@/components/layout/PageHero';
@@ -145,16 +144,13 @@ export default function ProductsPageClient({ initialProducts }: { initialProduct
                   <Link href={`/products/${product.id}`} className={styles.cardLink} id={`product-card-${product.id}`}>
                     <TiltCard className={styles.productCard} max={8}>
                       <div className={styles.imageWrapper}>
-                        {product.images[0] && (
-                          <Image
-                            src={product.images[0]}
-                            unoptimized={isRemoteImage(product.images[0])}
-                            alt={product.name}
-                            fill
-                            sizes="(max-width: 600px) 50vw, (max-width: 1024px) 50vw, 25vw"
-                            style={{ objectFit: 'cover' }}
-                          />
-                        )}
+                        <ProductImage
+                          src={product.images[0]}
+                          alt={product.name}
+                          fill
+                          sizes="(max-width: 600px) 50vw, (max-width: 1024px) 50vw, 25vw"
+                          style={{ objectFit: 'cover' }}
+                        />
                         <div className={styles.imgBadges}>
                           {product.isNew && <span className="badge badge-new">New</span>}
                           {product.tags.includes('bestseller') && <span className="badge badge-bestseller">★ Best</span>}

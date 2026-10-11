@@ -156,7 +156,10 @@
   background: var(--color-surface);
   z-index: calc(var(--z-sticky) + 2);
   transform: translateX(100%);
-  transition: transform var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
+  /* Hidden when closed so it can't be tabbed into or nudge the page sideways on iOS. */
+  visibility: hidden;
+  transition: transform var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1), visibility 0s linear var(--transition-slow);
+  overscroll-behavior: contain;
   display: flex;
   flex-direction: column;
   box-shadow: -8px 0 40px rgba(0,0,0,0.15);
@@ -165,6 +168,8 @@
 
 .mobileMenu.mobileMenuOpen {
   transform: translateX(0);
+  visibility: visible;
+  transition: transform var(--transition-slow) cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .mobileMenuHeader {

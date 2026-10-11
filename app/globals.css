@@ -103,6 +103,12 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
+  /* Stop iOS from enlarging text on rotation. */
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  /* iOS Safari ignores overflow-x: hidden on body for touch panning, so clip at
+     the root too; clip (unlike hidden) keeps position: sticky working. */
+  overflow-x: clip;
 }
 
 /* Editorial homepage palette (ivory / maroon / gold), scoped so the rest of
@@ -157,6 +163,25 @@ body {
   line-height: 1.6;
   transition: background-color var(--transition-slow), color var(--transition-slow);
   overflow-x: hidden;
+  overflow-x: clip;
+}
+
+main {
+  overflow-x: clip;
+}
+
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* iOS zooms the page when a field under 16px gets focus. */
+@media (max-width: 768px) {
+  input,
+  select,
+  textarea {
+    font-size: 16px !important;
+  }
 }
 
 img {

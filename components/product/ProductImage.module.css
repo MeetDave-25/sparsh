@@ -1,0 +1,18 @@
+.placeholder {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  background:
+    radial-gradient(ellipse at 50% 40%, rgba(212, 175, 122, 0.18), transparent 70%),
+    linear-gradient(160deg, var(--color-surface-alt, #2e1824), var(--color-bg-alt, #21121a));
+}
+
+.mark {
+  width: 46%;
+  aspect-ratio: 817 / 376;
+  -webkit-mask: url('/brand/sparsh-logo-mask.png') center / contain no-repeat;
+  mask: url('/brand/sparsh-logo-mask.png') center / contain no-repeat;
+  background: linear-gradient(120deg, #e3be6c, #f7e7b4 50%, #c99a45);
+  opacity: 0.55;
+}

@@ -1,6 +1,7 @@
 .article {
   padding-bottom: var(--space-3xl);
   min-height: 100vh;
+  min-height: 100svh;
 }
 
 .heroMeta {

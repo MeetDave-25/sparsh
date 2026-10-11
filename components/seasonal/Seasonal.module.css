@@ -9,6 +9,7 @@
   inset: 0;
   width: 100vw;
   height: 100vh;
+  height: 100lvh;
   /* Above page content, beneath the sticky navbar and floating buttons. */
   z-index: calc(var(--z-sticky) - 1);
   pointer-events: none;

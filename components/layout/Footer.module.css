@@ -220,12 +220,34 @@
 }
 
 @media (max-width: 600px) {
+  /* Brand and contact span the width; the two link lists sit side by side. */
   .footerGrid {
-    grid-template-columns: 1fr;
-    gap: var(--space-xl);
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl) var(--space-lg);
+  }
+  .brandCol,
+  .contactCol {
+    grid-column: 1 / -1;
   }
   .footerBottomInner {
     flex-direction: column;
     text-align: center;
+  }
+}
+
+/* Touch screens: give every footer link a comfortable tap area. */
+@media (max-width: 768px) {
+  .linkList { gap: 2px; }
+
+  .linkList a,
+  .footerBottomRight a {
+    display: inline-flex;
+    align-items: center;
+    min-height: 40px;
+  }
+
+  .contactItem {
+    min-height: 40px;
+    align-items: center;
   }
 }

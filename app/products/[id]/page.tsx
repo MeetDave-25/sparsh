@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
-import { isRemoteImage } from '@/lib/homeContent';
+import ProductImage from '@/components/product/ProductImage';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { ArrowLeft } from 'lucide-react';
@@ -111,9 +110,7 @@ export default async function ProductDetailPage({ params }: Props) {
                   <Link href={`/products/${p.id}`}>
                     <TiltCard className={styles.relatedCard}>
                       <div className={styles.relatedImage}>
-                        {p.images[0] && (
-                          <Image src={p.images[0]} unoptimized={isRemoteImage(p.images[0])} alt={p.name} fill sizes="(max-width: 900px) 50vw, 25vw" style={{ objectFit: 'cover' }} />
-                        )}
+                        <ProductImage src={p.images[0]} alt={p.name} fill sizes="(max-width: 900px) 50vw, 25vw" style={{ objectFit: 'cover' }} />
                       </div>
                       <h3>{p.name}</h3>
                       <p>{p.priceRange}</p>

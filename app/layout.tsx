@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { CSSProperties } from "react";
 import { getSiteTheme } from "@/lib/siteTheme";
 import { hasDerivedPalette, themeMode, themeStyle } from "@/lib/themes";
@@ -39,6 +39,16 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import SmoothScroll from "@/components/motion/SmoothScroll";
 import SeasonalDecor from "@/components/seasonal/SeasonalDecor";
+
+/** Mobile browser chrome (iOS Safari's top bar, Android's address bar) takes the theme's colour. */
+export async function generateViewport(): Promise<Viewport> {
+  const theme = await getSiteTheme();
+  return {
+    width: "device-width",
+    initialScale: 1,
+    themeColor: theme.colors.background,
+  };
+}
 
 export const metadata: Metadata = {
   title: {

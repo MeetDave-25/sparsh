@@ -113,6 +113,7 @@
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: rgba(232, 213, 176, 0.7);
+  text-wrap: balance;
 }
 
 /* Gold pill with a hairline that fills as the auto-continue timer runs. */
