@@ -4,7 +4,8 @@ import Link from 'next/link';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, Mail, MessageCircle } from 'lucide-react';
 import type { CustomOrderContent } from '@/lib/homeContent';
-import { getWhatsAppDirectURL } from '@/lib/whatsapp';
+import { useSite } from '@/components/layout/SiteProvider';
+import { whatsappLink } from '@/lib/content/docs';
 import LuxHeading from './LuxHeading';
 import lux from './lux.module.css';
 import styles from './MakeItYours.module.css';
@@ -13,6 +14,7 @@ const EASE = [0.22, 1, 0.36, 1] as const;
 
 export default function MakeItYours({ content }: { content: CustomOrderContent }) {
   const reduce = useReducedMotion();
+  const { contact } = useSite();
 
   return (
     <section className={`${lux.section} ${styles.section}`}>
@@ -62,11 +64,11 @@ export default function MakeItYours({ content }: { content: CustomOrderContent }
             {content.primaryLabel}
             <ArrowRight size={16} />
           </Link>
-          <a href={getWhatsAppDirectURL()} target="_blank" rel="noopener noreferrer" className={lux.btnOutline}>
+          <a href={whatsappLink(contact.whatsappNumber)} target="_blank" rel="noopener noreferrer" className={lux.btnOutline}>
             <MessageCircle size={16} />
             {content.whatsappLabel}
           </a>
-          <a href="mailto:info@sparshdivineartstudio.com" className={lux.btnOutline}>
+          <a href={`mailto:${contact.email}`} className={lux.btnOutline}>
             <Mail size={16} />
             {content.emailLabel}
           </a>

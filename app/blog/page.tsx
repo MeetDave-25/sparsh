@@ -2,11 +2,12 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
-import blogData from '@/data/blog.json';
 import PageHero from '@/components/layout/PageHero';
 import Reveal from '@/components/motion/Reveal';
 import { Stagger, StaggerItem } from '@/components/motion/Stagger';
 import TiltCard from '@/components/motion/TiltCard';
+import { getContent } from '@/lib/siteContent';
+import { isRemoteImage } from '@/lib/homeContent';
 import styles from './blog.module.css';
 
 export const metadata: Metadata = {
@@ -14,25 +15,27 @@ export const metadata: Metadata = {
   description: 'Read our latest thoughts on handcrafted goods, care tips for candles and jewelry, and stories behind our creations.',
 };
 
-export default function BlogPage() {
-  const [lead, ...rest] = blogData;
+export default async function BlogPage() {
+  const { hero, posts } = await getContent('journal');
+  const [lead, ...rest] = posts.items;
 
   return (
     <div className={styles.page}>
       <PageHero
-        eyebrow="Journal"
-        title="Stories &"
-        accent="Inspiration"
-        subtitle="Care tips, behind the scenes, and our creative journey."
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        accent={hero.accent}
+        subtitle={hero.subtitle}
         compact
       />
 
       <div className="container">
+        {!lead && <p style={{ textAlign: 'center', padding: '80px 0', opacity: 0.7 }}>New stories are on their way.</p>}
         {lead && (
           <Reveal variant="zoom">
             <Link href={`/blog/${lead.slug}`} className={styles.featured}>
               <TiltCard className={styles.featuredImage} max={6}>
-                <Image src={lead.image} alt={lead.title} fill sizes="(max-width: 900px) 100vw, 55vw" style={{ objectFit: 'cover' }} priority />
+                {lead.image && <Image src={lead.image} alt={lead.title} fill sizes="(max-width: 900px) 100vw, 55vw" style={{ objectFit: 'cover' }} priority unoptimized={isRemoteImage(lead.image)} />}
                 <span className={styles.categoryBadge}>{lead.category}</span>
               </TiltCard>
               <div className={styles.featuredBody}>
@@ -54,11 +57,11 @@ export default function BlogPage() {
 
         <Stagger className={styles.grid} gap={0.14}>
           {rest.map((post) => (
-            <StaggerItem key={post.id}>
+            <StaggerItem key={post.slug}>
               <Link href={`/blog/${post.slug}`} className={styles.cardLink}>
                 <TiltCard className={styles.card}>
                   <div className={styles.imageWrapper}>
-                    <Image src={post.image} alt={post.title} fill sizes="(max-width: 700px) 100vw, 50vw" style={{ objectFit: 'cover' }} />
+                    {post.image && <Image src={post.image} alt={post.title} fill sizes="(max-width: 700px) 100vw, 50vw" style={{ objectFit: 'cover' }} unoptimized={isRemoteImage(post.image)} />}
                     <span className={styles.categoryBadge}>{post.category}</span>
                   </div>
                   <div className={styles.content}>

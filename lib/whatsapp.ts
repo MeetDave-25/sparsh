@@ -33,8 +33,8 @@ export function buildWhatsAppMessage(order: WhatsAppOrderMessage): string {
   return lines;
 }
 
-export function getWhatsAppURL(message: WhatsAppOrderMessage): string {
-  const whatsappNumber = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '918160901481';
+export function getWhatsAppURL(message: WhatsAppOrderMessage, number?: string): string {
+  const whatsappNumber = number || process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || '918160901481';
   const text = buildWhatsAppMessage(message);
   const encoded = encodeURIComponent(text);
   return `https://wa.me/${whatsappNumber}?text=${encoded}`;

@@ -10,7 +10,7 @@ import MakeItYours from '@/components/home/lux/MakeItYours';
 import GiftBundles from '@/components/home/lux/GiftBundles';
 import WhatPeopleSay from '@/components/home/lux/WhatPeopleSay';
 import BigType from '@/components/home/lux/BigType';
-import { getHomeContent } from '@/lib/siteContent';
+import { getHomeContent, getSiteSettings } from '@/lib/siteContent';
 
 export const metadata: Metadata = {
   title: 'Sparsh Divine Art Studio — Handmade Candles, Resin Art & Jewellery',
@@ -19,21 +19,22 @@ export const metadata: Metadata = {
 };
 
 export default async function HomePage() {
-  const content = await getHomeContent();
+  const [content, site] = await Promise.all([getHomeContent(), getSiteSettings()]);
+  const show = site.homeSections;
 
   return (
     <div className="lux" data-nav="light">
-      <IntroReveal />
+      {site.features.welcomeScreen && <IntroReveal />}
       <ProductJourney hero={content.hero} craft={content.craft} scents={content.scents} />
-      <BenefitsMarquee />
-      <CollectionArches content={content.categories} />
-      <MostLoved content={content.featured} scents={content.scents} />
-      <MomentsStrip />
-      <MoodSlider />
-      <MakeItYours content={content.customOrder} />
-      <GiftBundles />
-      <WhatPeopleSay content={content.testimonials} />
-      <BigType />
+      {show.marquee && <BenefitsMarquee />}
+      {show.collections && <CollectionArches content={content.categories} />}
+      {show.mostLoved && <MostLoved content={content.featured} scents={content.scents} />}
+      {show.moments && <MomentsStrip />}
+      {show.moodSlider && <MoodSlider />}
+      {show.makeItYours && <MakeItYours content={content.customOrder} />}
+      {show.giftBundles && <GiftBundles />}
+      {show.testimonials && <WhatPeopleSay content={content.testimonials} />}
+      {show.bigType && <BigType />}
     </div>
   );
 }

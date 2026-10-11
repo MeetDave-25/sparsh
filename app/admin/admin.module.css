@@ -308,3 +308,39 @@
   align-items: center;
   gap: 4px;
 }
+
+/* Dashboard: one tile per editor */
+.editorGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: var(--space-md);
+  margin-top: var(--space-lg);
+}
+
+.editorTile {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: var(--space-lg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-bg);
+  color: var(--color-text);
+  text-decoration: none;
+  transition: border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.editorTile svg {
+  color: var(--color-accent);
+}
+
+.editorTile span {
+  font-size: 0.8rem;
+  line-height: 1.5;
+  color: var(--color-text-muted);
+}
+
+.editorTile:hover {
+  border-color: var(--color-accent);
+  transform: translateY(-2px);
+}

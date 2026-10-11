@@ -3,6 +3,8 @@ import PageHero from '@/components/layout/PageHero';
 import GalleryClient, { type GalleryImage } from './GalleryClient';
 import { prisma } from '@/lib/prisma';
 import { BUILTIN_IMAGES } from '@/lib/builtinImages';
+import { getContent } from '@/lib/siteContent';
+import type { GalleryContent } from '@/lib/content/docs';
 import styles from './gallery.module.css';
 
 export const metadata: Metadata = {
@@ -13,29 +15,35 @@ export const metadata: Metadata = {
 // Picks up new product photos without a redeploy
 export const revalidate = 300;
 
-async function getGalleryImages(): Promise<GalleryImage[]> {
-  const brand: GalleryImage[] = BUILTIN_IMAGES.map((b) => ({
+async function getGalleryImages(photos: GalleryContent['photos']): Promise<GalleryImage[]> {
+  const own: GalleryImage[] = photos.items
+    .filter((p) => p.image)
+    .map((p) => ({ url: p.image, caption: p.caption, group: p.group || 'Studio' }));
+
+  const brand: GalleryImage[] = !photos.includeBrand ? [] : BUILTIN_IMAGES.map((b) => ({
     url: b.url,
     caption: b.label,
     group: b.url.startsWith('/story/') ? 'Stories' : 'Candles',
   }));
 
   let products: GalleryImage[] = [];
-  try {
-    const rows = await prisma.product.findMany({ select: { name: true, category: true, images: true }, orderBy: { createdAt: 'desc' } });
-    products = rows.flatMap((p) =>
-      p.images.filter(Boolean).map((url) => ({
-        url,
-        caption: p.name,
-        group: p.category.charAt(0).toUpperCase() + p.category.slice(1),
-      }))
-    );
-  } catch (error) {
-    console.error('Gallery: could not load product images', error);
+  if (photos.includeProducts) {
+    try {
+      const rows = await prisma.product.findMany({ select: { name: true, category: true, images: true }, orderBy: { createdAt: 'desc' } });
+      products = rows.flatMap((p) =>
+        p.images.filter(Boolean).map((url) => ({
+          url,
+          caption: p.name,
+          group: p.category.charAt(0).toUpperCase() + p.category.slice(1),
+        }))
+      );
+    } catch (error) {
+      console.error('Gallery: could not load product images', error);
+    }
   }
 
   const seen = new Set<string>();
-  const unique = [...brand, ...products].filter((img) => (seen.has(img.url) ? false : (seen.add(img.url), true)));
+  const unique = [...own, ...brand, ...products].filter((img) => (seen.has(img.url) ? false : (seen.add(img.url), true)));
 
   // Old product records point at external photos that have since been deleted; skip those
   const alive = await Promise.all(unique.map((img) => (img.url.startsWith('/') ? true : isReachable(img.url))));
@@ -52,15 +60,16 @@ async function isReachable(url: string): Promise<boolean> {
 }
 
 export default async function GalleryPage() {
-  const images = await getGalleryImages();
+  const { hero, photos } = await getContent('gallery');
+  const images = await getGalleryImages(photos);
 
   return (
     <div className={styles.page}>
       <PageHero
-        eyebrow="Lookbook"
-        title="The Gallery"
-        accent="Moments in Every Flame"
-        subtitle="Candles, keepsakes and the little worlds we build around them. Tap any photo to see it up close."
+        eyebrow={hero.eyebrow}
+        title={hero.title}
+        accent={hero.accent}
+        subtitle={hero.subtitle}
         compact
       />
       <div className="container">

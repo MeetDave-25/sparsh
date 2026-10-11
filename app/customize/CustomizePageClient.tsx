@@ -7,6 +7,7 @@ import PageHero from '@/components/layout/PageHero';
 import TiltCard from '@/components/motion/TiltCard';
 import { CheckCircle, Loader, MessageCircle, ChevronRight, ChevronLeft } from 'lucide-react';
 import { getWhatsAppURL } from '@/lib/whatsapp';
+import { useSite } from '@/components/layout/SiteProvider';
 import styles from './CustomizePage.module.css';
 
 type Category = 'candles' | 'resin' | 'jewelry' | 'crafts' | 'hampers';
@@ -64,6 +65,7 @@ export default function CustomizePageClient() {
   const [sending, setSending] = useState(false);
   const [whatsappUrl, setWhatsappUrl] = useState('');
   const reduceMotion = useReducedMotion();
+  const { contact } = useSite();
 
   // Track which way the steps move so the 3D page-turn goes forwards or backwards
   const [prevStep, setPrevStep] = useState(step);
@@ -125,7 +127,7 @@ export default function CustomizePageClient() {
       customizations: summary,
       deliveryDate: data.deliveryDate || undefined,
       specialNotes: data.specialNotes || undefined,
-    });
+    }, contact.whatsappNumber);
 
     // Send email
     try {
@@ -134,6 +136,7 @@ export default function CustomizePageClient() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
           ...data,
+          productCategory: categories.find(c => c.id === data.category)?.name || data.category,
           customizations: summary,
         }),
       });

@@ -1,6 +1,8 @@
 import type { Metadata, Viewport } from "next";
 import type { CSSProperties } from "react";
 import { getSiteTheme } from "@/lib/siteTheme";
+import { getSiteSettings } from "@/lib/siteContent";
+import { SiteProvider } from "@/components/layout/SiteProvider";
 import { hasDerivedPalette, themeMode, themeStyle } from "@/lib/themes";
 import { Cormorant_Garamond, Italianno, Jost, Mrs_Saint_Delafield } from "next/font/google";
 import "./globals.css";
@@ -88,7 +90,7 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const theme = await getSiteTheme();
+  const [theme, site] = await Promise.all([getSiteTheme(), getSiteSettings()]);
 
   return (
     <html
@@ -105,13 +107,15 @@ export default async function RootLayout({
       </head>
       <body>
         <ThemeProvider theme={theme}>
-          <SmoothScroll />
-          <SeasonalDecor season={theme.season} decor={theme.decor} />
-          <Navbar />
-          <main id="main-content">
-            {children}
-          </main>
-          <Footer />
+          <SiteProvider settings={site}>
+            <SmoothScroll />
+            {site.features.seasonalDecor && <SeasonalDecor season={theme.season} decor={theme.decor} />}
+            <Navbar />
+            <main id="main-content">
+              {children}
+            </main>
+            <Footer />
+          </SiteProvider>
         </ThemeProvider>
       </body>
     </html>

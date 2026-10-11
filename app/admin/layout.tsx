@@ -3,7 +3,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter, usePathname } from 'next/navigation';
 import Link from 'next/link';
-import { LayoutDashboard, Palette, LogOut, Package, FileText, Home, Image as ImageIcon } from 'lucide-react';
+import { LayoutDashboard, Palette, LogOut, Package, FileText, Home, Image as ImageIcon, Settings, BookOpen, HelpCircle, Mail, Images, ShoppingBag } from 'lucide-react';
 import styles from './admin.module.css';
 
 export default function AdminLayout({ children }: { children: React.ReactNode }) {
@@ -36,11 +36,17 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
 
   const links = [
     { href: '/admin/dashboard', icon: LayoutDashboard, label: 'Dashboard' },
+    { href: '/admin/orders', icon: ShoppingBag, label: 'Orders' },
+    { href: '/admin/content/site', icon: Settings, label: 'Site Settings' },
     { href: '/admin/homepage', icon: Home, label: 'Homepage' },
+    { href: '/admin/products', icon: Package, label: 'Products' },
+    { href: '/admin/content/journal', icon: FileText, label: 'Journal (Blog)' },
+    { href: '/admin/content/about', icon: BookOpen, label: 'About Page' },
+    { href: '/admin/content/gallery', icon: Images, label: 'Gallery' },
+    { href: '/admin/content/faq', icon: HelpCircle, label: 'FAQ' },
+    { href: '/admin/content/contact', icon: Mail, label: 'Contact Page' },
     { href: '/admin/media', icon: ImageIcon, label: 'Media Library' },
     { href: '/admin/themes', icon: Palette, label: 'Seasonal Themes' },
-    { href: '/admin/products', icon: Package, label: 'Products' },
-    { href: '/admin/blog', icon: FileText, label: 'Blog (Soon)' },
   ];
 
   return (

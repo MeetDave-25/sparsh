@@ -87,14 +87,15 @@ export type Field =
   | { kind: 'image'; key: string; label: string; help?: string }
   | { kind: 'color'; key: string; label: string }
   | { kind: 'number'; key: string; label: string; min: number; max: number }
+  | { kind: 'boolean'; key: string; label: string; help?: string }
   | { kind: 'stringList'; key: string; label: string; itemLabel: string; maxItems: number; max?: number; multiline?: boolean }
   | { kind: 'list'; key: string; label: string; itemLabel: string; titleKey: string; minItems: number; maxItems: number; fields: Field[] };
 
 export type Section = { key: keyof HomeContent; title: string; description: string; fields: Field[] };
 
-const t = (key: string, label: string, opts: { max?: number; multiline?: boolean; help?: string } = {}): Field => ({ kind: 'text', key, label, ...opts });
-const link = (key: string, label: string): Field => ({ kind: 'link', key, label });
-const img = (key: string, label: string, help?: string): Field => ({ kind: 'image', key, label, help });
+export const t = (key: string, label: string, opts: { max?: number; multiline?: boolean; help?: string } = {}): Field => ({ kind: 'text', key, label, ...opts });
+export const link = (key: string, label: string): Field => ({ kind: 'link', key, label });
+export const img = (key: string, label: string, help?: string): Field => ({ kind: 'image', key, label, help });
 
 export const HOME_SECTIONS: Section[] = [
   {
@@ -369,10 +370,10 @@ const HEX = /^#[0-9a-f]{6}$/i;
 type Obj = Record<string, unknown>;
 
 function cleanText(v: unknown, fallback: string, max = 500): string {
-  return typeof v === 'string' ? v.trim().slice(0, max) : fallback;
+  return typeof v === 'string' ? v.trim().slice(0, max) : (fallback ?? '');
 }
 
-function normalizeFields(fields: Field[], input: unknown, fallback: Obj): Obj {
+export function normalizeFields(fields: Field[], input: unknown, fallback: Obj): Obj {
   const src = (input && typeof input === 'object' ? input : {}) as Obj;
   const out: Obj = {};
   for (const f of fields) {
@@ -397,6 +398,9 @@ function normalizeFields(fields: Field[], input: unknown, fallback: Obj): Obj {
         out[f.key] = HEX.test(s) ? s : (fb as string);
         break;
       }
+      case 'boolean':
+        out[f.key] = typeof v === 'boolean' ? v : typeof fb === 'boolean' ? fb : false;
+        break;
       case 'number': {
         const n = typeof v === 'number' ? v : Number(v);
         out[f.key] = Number.isFinite(n) ? Math.min(f.max, Math.max(f.min, Math.round(n))) : fb;
@@ -414,7 +418,12 @@ function normalizeFields(fields: Field[], input: unknown, fallback: Obj): Obj {
           break;
         }
         const itemFallback = ((fb as Obj[])?.[0] ?? {}) as Obj;
-        const blank = Object.fromEntries(Object.keys(itemFallback).map((k) => [k, typeof itemFallback[k] === 'number' ? itemFallback[k] : '']));
+        const blank = Object.fromEntries(
+          Object.keys(itemFallback).map((k) => {
+            const x = itemFallback[k];
+            return [k, typeof x === 'number' || typeof x === 'boolean' ? x : Array.isArray(x) ? [] : ''];
+          }),
+        );
         out[f.key] = v.slice(0, f.maxItems).map((item) => normalizeFields(f.fields, item, blank));
         break;
       }

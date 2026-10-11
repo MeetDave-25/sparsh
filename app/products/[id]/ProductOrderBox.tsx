@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import { CheckCircle2 } from 'lucide-react';
+import { useSite } from '@/components/layout/SiteProvider';
+import { whatsappLink } from '@/lib/content/docs';
 import styles from './product.module.css';
 
 type Product = {
@@ -13,6 +15,7 @@ type Product = {
 
 export default function ProductOrderBox({ product }: { product: Product }) {
   const [selections, setSelections] = useState<Record<string, string>>({});
+  const { contact } = useSite();
 
   const handleSelect = (key: string, value: string) => {
     setSelections(prev => ({ ...prev, [key]: value }));
@@ -26,7 +29,7 @@ export default function ProductOrderBox({ product }: { product: Product }) {
 
   const customizations = getCustomizationsText();
   const textMessage = `Hi, I would like to order the ${product.name}` + (customizations ? `\n\nMy selected options:\n${customizations}` : '');
-  const orderUrl = `https://wa.me/918160901481?text=${encodeURIComponent(textMessage)}`;
+  const orderUrl = whatsappLink(contact.whatsappNumber, textMessage);
 
   return (
     <>

@@ -14,6 +14,7 @@ function blankItem(fields: Field[]): Obj {
     if (f.kind === 'color') out[f.key] = '#E8A0B4';
     else if (f.kind === 'number') out[f.key] = f.max;
     else if (f.kind === 'stringList' || f.kind === 'list') out[f.key] = [];
+    else if (f.kind === 'boolean') out[f.key] = true;
     else out[f.key] = '';
   }
   return out;
@@ -193,6 +194,17 @@ export function FieldsEditor({ fields, value, onChange }: { fields: Field[]; val
                   ))}
                 </span>
               </div>
+            );
+          case 'boolean':
+            return (
+              <label key={f.key} className={styles.toggleField}>
+                <input type="checkbox" checked={Boolean(v)} onChange={(e) => set(f.key, e.target.checked)} />
+                <span className={styles.toggleTrack} aria-hidden="true" />
+                <span>
+                  <span className={styles.label}>{f.label}</span>
+                  {f.help && <small className={styles.help}>{f.help}</small>}
+                </span>
+              </label>
             );
           case 'stringList':
             return <StringListField key={f.key} field={f} value={(v as string[]) ?? []} onChange={(x) => set(f.key, x)} />;

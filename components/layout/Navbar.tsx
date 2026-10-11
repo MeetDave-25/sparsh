@@ -5,24 +5,19 @@ import { usePathname } from 'next/navigation';
 import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from 'lucide-react';
 import { useTheme } from '@/components/layout/ThemeProvider';
+import { useSite } from '@/components/layout/SiteProvider';
 import Wordmark from '@/components/brand/Wordmark';
 import NavTrim from '@/components/seasonal/NavTrim';
 import { themeMode } from '@/lib/themes';
 import styles from './Navbar.module.css';
 
-const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/products', label: 'Shop' },
-  { href: '/customize', label: '✨ Customize' },
-  { href: '/about', label: 'Our Story' },
-  { href: '/gallery', label: 'Gallery' },
-  { href: '/blog', label: 'Journal' },
-  { href: '/contact', label: 'Contact' },
-];
-
 export default function Navbar() {
   const pathname = usePathname();
   const { activeTheme } = useTheme();
+  const { navigation, announcement, features } = useSite();
+  const seasonal = features.seasonalDecor;
+  const navLinks = navigation.links;
+  const bannerText = announcement.text || activeTheme.bannerText;
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -85,10 +80,12 @@ export default function Navbar() {
       <div className={styles.scrollProgress} style={{ width: `${scrollProgress}%` }} />
 
       {/* Announcement Banner */}
-      <div className={`${styles.banner} ${isHome ? styles.bannerLux : ''}`}>
-        {isHome && <span className={styles.bannerBadge}>Custom orders open</span>}
-        <p>{activeTheme.bannerText}</p>
-      </div>
+      {announcement.show && bannerText && (
+        <div className={`${styles.banner} ${isHome ? styles.bannerLux : ''}`}>
+          {isHome && announcement.badge && <span className={styles.bannerBadge}>{announcement.badge}</span>}
+          <p>{bannerText}</p>
+        </div>
+      )}
 
       {/* Navbar */}
       <nav
@@ -105,8 +102,8 @@ export default function Navbar() {
 
           {/* Desktop Navigation */}
           <ul className={styles.navLinks} role="list">
-            {navLinks.map(link => (
-              <li key={link.href}>
+            {navLinks.map((link, i) => (
+              <li key={`${link.href}-${i}`}>
                 <Link
                   href={link.href}
                   className={`${styles.navLink} ${isActive(link.href) ? styles.active : ''}`}
@@ -120,9 +117,11 @@ export default function Navbar() {
 
           {/* Actions */}
           <div className={styles.actions}>
-            <Link href="/customize" className={`btn btn-primary btn-sm ${isHome ? styles.luxCta : ''}`} id="nav-customize-btn">
-              Custom Order
-            </Link>
+            {navigation.ctaLabel && (
+              <Link href={navigation.ctaHref || '/customize'} className={`btn btn-primary btn-sm ${isHome ? styles.luxCta : ''}`} id="nav-customize-btn">
+                {navigation.ctaLabel}
+              </Link>
+            )}
 
             {/* Mobile menu button */}
             <button
@@ -136,7 +135,7 @@ export default function Navbar() {
             </button>
           </div>
         </div>
-        <NavTrim season={activeTheme.season} decor={activeTheme.decor} />
+        {seasonal && <NavTrim season={activeTheme.season} decor={activeTheme.decor} />}
       </nav>
 
       {/* Mobile Menu Overlay */}
@@ -159,8 +158,8 @@ export default function Navbar() {
           </button>
         </div>
         <ul className={styles.mobileNavLinks}>
-          {navLinks.map(link => (
-            <li key={link.href}>
+          {navLinks.map((link, i) => (
+            <li key={`${link.href}-${i}`}>
               <Link
                 href={link.href}
                 className={`${styles.mobileNavLink} ${isActive(link.href) ? styles.active : ''}`}
@@ -172,9 +171,11 @@ export default function Navbar() {
           ))}
         </ul>
         <div className={styles.mobileActions}>
-          <Link href="/customize" className="btn btn-primary w-full" onClick={() => setMenuOpen(false)} id="mobile-customize-btn">
-            ✨ Request Custom Order
-          </Link>
+          {navigation.ctaLabel && (
+            <Link href={navigation.ctaHref || '/customize'} className="btn btn-primary w-full" onClick={() => setMenuOpen(false)} id="mobile-customize-btn">
+              {navigation.ctaLabel}
+            </Link>
+          )}
         </div>
       </div>
     </>
